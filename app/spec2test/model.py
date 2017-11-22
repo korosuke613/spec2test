@@ -1,9 +1,11 @@
-from gensim.models import word2vec
+"""単語ベクトル生成器"""
 import os
+from gensim.models import word2vec
 from .wakachi import Wakachi
 
 
 class Model:
+    """モデルに関するクラス"""
     def __init__(self,
                  path_="./resource/model/",
                  extension_=".model"):

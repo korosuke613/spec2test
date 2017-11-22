@@ -1,8 +1,10 @@
-import MeCab
+"""分かち分け文書生成器"""
 import os
+import MeCab
 
 
 class Wakachi:
+    """分かち分けに関するクラス"""
     def __init__(self, filename=None):
         self.hinshi_kind = set()
         self.text = None

@@ -1,13 +1,14 @@
+"""重要単語リスト生成器"""
 import os
-from gensim.models import word2vec
 import csv
+from gensim.models import word2vec
 from .tfidf import Tfidf
 from .model import Model
 from .wakachi import Wakachi
 
 
 class Imporwords:
-    """重要単語抽出クラス"""
+    """重要単語リストクラス"""
 
     def __init__(self,
                  imporwords_dir_path_="./"):
@@ -38,13 +39,15 @@ class Imporwords:
         file_name = \
             file_path[len(self._tfidf.path):-len(self._tfidf.extension)] + extension
         file_path = self.imporwords_dir_path + file_name
-        with open(file_path, "w", encoding="utf_8_sig") as f:
-            writer = csv.writer(f, lineterminator='\n')
+        with open(file_path, "w", encoding="utf_8_sig") as file:
+            writer = csv.writer(file, lineterminator='\n')
             for word in sorted_array2d:
                 writer.writerow(word)
 
     def calc_similarity(self):
+        """単語の類似度を計算"""
         def find_csv_name(csv_files_, find_name_):
+            """同じ仕様書をCSVから見つける"""
             for (i, csv_file_path_) in enumerate(csv_files_):
                 if find_name_ in csv_file_path_:
                     return csv_files_[i]
@@ -54,8 +57,8 @@ class Imporwords:
         for model_path in models:
             find_name = model_path[len(self.imporwords_dir_path):-len(".model")]
             csv_file_path = find_csv_name(csv_files, find_name)
-            with open(csv_file_path, "r", encoding="utf_8_sig") as f:
-                csv_file = csv.reader(f)
+            with open(csv_file_path, "r", encoding="utf_8_sig") as file:
+                csv_file = csv.reader(file)
                 tfidf_list = [row for row in csv_file if float(row[1]) > 0.1]
             model = word2vec.Word2Vec.load(model_path)
             important_words = {}
@@ -73,9 +76,12 @@ class Imporwords:
                         important_words[word] = float(important_words[word]) + float(num)
                     else:
                         important_words[word] = float(num)
-            self.__create_new_csv_imporword(".imporword.csv", csv_file_path, important_words.items())
+            self.__create_new_csv_imporword(".imporword.csv", 
+                                            csv_file_path, 
+                                            important_words.items())
 
     def generate_imporwords(self):
+        """重要単語を生成"""
         self._wakachi.generate_all(is_simple_=True, is_force=False)
         self._model.create_models_word_vector()
         self._tfidf.generate_tfidf()
@@ -83,6 +89,7 @@ class Imporwords:
 
 
 def main():
+    """使用例"""
     imporwords = Imporwords(imporwords_dir_path_="./resource/imporwords/")
     imporwords.generate_imporwords()
 

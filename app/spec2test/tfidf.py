@@ -1,10 +1,12 @@
-from sklearn.feature_extraction.text import TfidfVectorizer
-import csv
+"""TFIDF計算器"""
 import os
+import csv
+from sklearn.feature_extraction.text import TfidfVectorizer
 from .wakachi import Wakachi
 
 
 class Tfidf:
+    """TFIDFに関するクラス"""
     def __init__(self,
                  extension_=".tfidf",
                  path_="./resource/tfidf/"):
@@ -55,6 +57,7 @@ class Tfidf:
 
 
 def main():
+    """使用例"""
     tfidf = Tfidf()
     tfidf.generate_tfidf()
 
