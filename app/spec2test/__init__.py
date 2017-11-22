@@ -1,4 +1,4 @@
-from .wakachi import Wakachi
-from .tfidf import Tfidf
-from .model import Model
+from . import wakachi
+from . import tfidf
+from . import model
 from .imporwords import Imporwords

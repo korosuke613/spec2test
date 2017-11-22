@@ -1,6 +1,6 @@
 from gensim.models import word2vec
 import os
-from modules import Wakachi
+from .wakachi import Wakachi
 
 
 class Model:

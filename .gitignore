@@ -4,6 +4,7 @@ resource/
 test.txt
 valid.txt
 train.txt
+.idea/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

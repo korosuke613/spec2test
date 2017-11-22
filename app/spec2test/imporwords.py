@@ -1,9 +1,9 @@
 import os
 from gensim.models import word2vec
 import csv
-from modules import Tfidf
-from modules import Model
-from modules import Wakachi
+from .tfidf import Tfidf
+from .model import Model
+from .wakachi import Wakachi
 
 
 class Imporwords:

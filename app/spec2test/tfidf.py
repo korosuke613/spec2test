@@ -1,7 +1,7 @@
 from sklearn.feature_extraction.text import TfidfVectorizer
 import csv
 import os
-from modules import Wakachi
+from .wakachi import Wakachi
 
 
 class Tfidf:
