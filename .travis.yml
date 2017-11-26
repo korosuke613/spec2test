@@ -12,10 +12,10 @@ cache:
   - pip
 
 install:
-  - "sudo apt-get install python-dev -y"
-  - "sudo apt-get install mecab libmecab-dev mecab-ipadic mecab-ipadic-utf8 -y"
-  - "sudo pip install -r requirements.txt"
+  - "sudo -H apt-get install python-dev -y"
+  - "sudo -H apt-get install mecab libmecab-dev mecab-ipadic mecab-ipadic-utf8 -y"
+  - "sudo -H pip install -r requirements.txt"
 before_script:
   - export PYTHONPATH=$PYTHONPATH:$(pwd)/app/spec2test
 script:
-  - pytest ./app/spec2test
+  - pytest ./app/test
