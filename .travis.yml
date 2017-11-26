@@ -13,7 +13,16 @@ cache:
 
 install:
   - "sudo -H apt-get install python-dev -y"
-  - "sudo -H apt-get install mecab libmecab-dev mecab-ipadic mecab-ipadic-utf8 -y"
+  - "git clone https://github.com/taku910/mecab.git"
+  - "cd mecab/mecab"
+  - "./configure  --enable-utf8-only"
+  - "make"
+  - "make check"
+  - "sudo make install"
+  - "cd ../mecab-ipadic"
+  - "./configure --with-charset=utf8"
+  - "make"
+  - "sudo make install"
   - "sudo -H pip install -r requirements.txt"
 before_script:
   - export PYTHONPATH=$PYTHONPATH:$(pwd)/app/spec2test
