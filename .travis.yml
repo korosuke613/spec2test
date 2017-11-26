@@ -1,6 +1,7 @@
 language: python
 
-dist: precise
+sudo: required
+dist: trusty
 
 python:
   - "3.6"
