@@ -6,6 +6,11 @@ dist: trusty
 python:
   - "3.6"
 
+cache:
+  - bundler
+  - apt
+  - pip
+
 install:
   - "sudo apt-get install python-dev -y"
   - "sudo apt-get install mecab libmecab-dev mecab-ipadic mecab-ipadic-utf8 -y"
