@@ -1,5 +1,5 @@
 """spec2test"""
 from .wakachi import Wakachi
-from . import tfidf
-from . import model
+from .tfidf import Tfidf
+from .model import Model
 from .imporwords import Imporwords
