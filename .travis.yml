@@ -13,4 +13,4 @@ install:
 before_script:
   - export PYTHONPATH=$PYTHONPATH:$(pwd)/app/spec2test
 script:
-  - pytest --cov ./app/spec2test
+  - pytest ./app/spec2test
