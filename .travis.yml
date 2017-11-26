@@ -6,8 +6,9 @@ python:
   - "3.6"
 
 install:
-  - "sudo apt-get install mecab libmecab-dev mecab-ipadic mecab-ipadic-utf8"
-  - "pip install -r requirements.txt"
+  - "sudo apt-get install python3-dev"
+  - "sudo apt-get install mecab libmecab-dev mecab-ipadic mecab-ipadic-utf8 -y"
+  - "sudo pip install -r requirements.txt"
 before_script:
   - export PYTHONPATH=$PYTHONPATH:$(pwd)/app/spec2test
 script:
