@@ -4,6 +4,7 @@ resource/
 test.txt
 valid.txt
 train.txt
+test_resource/
 .idea/
 .vscode/
 

@@ -11,13 +11,33 @@ class Wakachi:
         self.filename = filename
         self.results = []
         self.root_path = "./"
-        self.resource_path = self.root_path + "file/"
+        self.__file_path = "file/"
+        self.resource_path = self.root_path + self.__file_path
         self.file_extension = ".txt"
-        self.path = self.root_path + "resource/wakachi/"
+        self.__wakachi_path = "resource/wakachi/"
+        self.path = self.root_path + self.__wakachi_path
         self.dict_word = {'名詞': [], '形容詞': [], '動詞': [], '記号': [], '助詞': [], '助動詞': [], '接続詞': [],
                           '副詞': [], '接頭詞': []}
         self.simple_extension = ".meishi.wakachi"
         self.extension = ".wakachi"
+
+    @property
+    def file_path(self):
+        return self.__file_path
+
+    @file_path.setter
+    def file_path(self, value):
+        self.__file_path = value
+        self.resource_path = self.root_path + self.__file_path
+
+    @property
+    def wakachi_path(self):
+        return self.__wakachi_path
+
+    @wakachi_path.setter
+    def wakachi_path(self, value):
+        self.__wakachi_path = value
+        self.path = self.root_path + self.__wakachi_path
 
     def __create_file_list(self, is_add_test: bool = False) -> list:
         """ファイルリストを生成する"""
