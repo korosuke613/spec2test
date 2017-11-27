@@ -21,7 +21,7 @@ before_script:
   - export PYTHONPATH=$PYTHONPATH:/home/travis/virtualenv/python3.5.3/lib/python3.5/site-packages
 
 script:
-  - pytest --cov --Work ./app/test ./app/test
+  - pytest --cov=./app/spec2test --Work ./app/test ./app/test
 
 after_success:
   - coveralls
