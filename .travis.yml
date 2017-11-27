@@ -12,8 +12,7 @@ cache:
   - pip
     
 install:
-  - "apt-get install python-dev -y"
-  - "apt-get install mecab libmecab-dev mecab-ipadic-utf8 -y"
+  - "sudo -H apt-get install mecab libmecab-dev mecab-ipadic-utf8 -y"
   - "pip install -r requirements.txt"
 before_script:
   - export PYTHONPATH=$PYTHONPATH:$(pwd)/app/spec2test
