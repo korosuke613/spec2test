@@ -1,6 +1,6 @@
 # spec2test
 
-[![Build Status](https://travis-ci.org/korosuke613/spec2test.svg)](https://travis-ci.org/korosuke613/spec2test) [![Coverage Status](https://coveralls.io/repos/github/korosuke613/spec2test/badge.svg)](https://coveralls.io/github/korosuke613/spec2test)
+[![Build Status](https://travis-ci.org/korosuke613/spec2test.svg)](https://travis-ci.org/korosuke613/spec2test) [![Coverage Status](https://coveralls.io/repos/github/korosuke613/spec2test/badge.svg?branch=master)](https://coveralls.io/github/korosuke613/spec2test?branch=master)
 
 仕様書からテストケースを生成する研究
 
