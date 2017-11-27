@@ -1,0 +1,21 @@
+language: python
+
+sudo: false
+dist: trusty
+
+python:
+  - "3.5"
+
+cache:
+  - bundler
+  - apt
+  - pip
+    
+install:
+  - "sudo -H apt-get install mecab libmecab-dev mecab-ipadic-utf8 -y"
+  - "pip install -r requirements.txt"
+before_script:
+  - export PYTHONPATH=$PYTHONPATH:$(pwd)/app/spec2test
+  - export PYTHONPATH=$PYTHONPATH:/home/travis/virtualenv/python3.5.3/lib/python3.5/site-packages
+script:
+  - pytest --Work ./app/test ./app/test
