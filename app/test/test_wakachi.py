@@ -16,6 +16,8 @@ def true_file_list():
 def setup_file():
     if os.path.isfile("./" + PATH_RESOURSE + "ラブクラフト.txt.wakachi"):
         os.remove("./" + PATH_RESOURSE + "ラブクラフト.txt.wakachi")
+    if not os.path.isdir("./" + PATH_RESOURSE):
+        os.mkdir("./" + PATH_RESOURSE)
 
 
 @pytest.fixture()
