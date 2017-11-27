@@ -1,7 +1,7 @@
 language: python
 
 sudo: required
-dist: 16.04
+dist: "16.04"
 
 python:
   - "3.5"
