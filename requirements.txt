@@ -4,3 +4,4 @@ mecab-python3==0.7
 pytest==3.2.5
 scikit-learn==0.19.1
 sklearn==0.0
+google-compute-engine
