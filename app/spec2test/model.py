@@ -30,7 +30,7 @@ class Model:
 
     def create_models_word_vector(self):
         """単語ベクトルのモデルを生成する"""
-        wakachi_files = self.__create_filepath_list(self.__wakachi.path, self.__wakachi.simple_extension)
+        wakachi_files = self.__create_filepath_list()
         for file in wakachi_files:
             data = word2vec.LineSentence(file)
             model = word2vec.Word2Vec(data, size=200, window=10, hs=1, min_count=2, sg=1)
