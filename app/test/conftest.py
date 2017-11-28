@@ -15,4 +15,4 @@ def pytest_sessionstart(session):
 @pytest.fixture(autouse=True, scope='session')
 def always_mkdir():
     if not os.path.isdir("./test_resource"):
-    	os.mkdir("./test_resource")
+        os.mkdir("./test_resource")

@@ -30,7 +30,7 @@ def setup_file():
 
 
 @pytest.fixture()
-def tfidf():
+def tfidf(setup_file):
     _ = Tfidf()
     _._Tfidf__wakachi.path = PATH_FILE
     _.path = PATH_RESOURSE
