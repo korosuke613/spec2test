@@ -1,5 +1,6 @@
 import os
 import pytest
+import shutil
 from spec2test import Wakachi
 
 PATH_FILE = "test_file/"
@@ -22,10 +23,8 @@ def true_file_list(is_add_test=False):
 
 @pytest.fixture()
 def setup_file():
-    if os.path.isfile("./" + PATH_RESOURSE + "ラブクラフト.txt.wakachi"):
-        os.remove("./" + PATH_RESOURSE + "ラブクラフト.txt.wakachi")
-    if os.path.isfile("./" + PATH_RESOURSE + "test_ラブクラフト.txt.wakachi"):
-        os.remove("./" + PATH_RESOURSE + "test_ラブクラフト.txt.wakachi")
+    if os.path.isdir("./" + PATH_RESOURSE):
+        shutil.rmtree("./" + PATH_RESOURSE)
     if not os.path.isdir("./" + PATH_RESOURSE):
         os.mkdir("./" + PATH_RESOURSE)
 
@@ -33,8 +32,8 @@ def setup_file():
 @pytest.fixture()
 def wakachi(setup_file):
     _ = Wakachi()
-    _.file_path = PATH_FILE
-    _.wakachi_path = PATH_RESOURSE
+    _.resource_path = PATH_FILE
+    _.path = PATH_RESOURSE
     yield _
 
 
@@ -63,3 +62,9 @@ def test_generate_all(wakachi):
     wakachi.generate_all(is_simple_=False, is_force=True)
     assert os.path.isfile("./" + PATH_RESOURSE + "ラブクラフト.txt.wakachi")
     assert os.path.isfile("./" + PATH_RESOURSE + "test_ラブクラフト.txt.wakachi")
+
+
+def test_generate_all_is_simple(wakachi):
+    wakachi.generate_all(is_simple_=True, is_force=True)
+    assert os.path.isfile("./" + PATH_RESOURSE + "ラブクラフト.txt.meishi.wakachi")
+    assert os.path.isfile("./" + PATH_RESOURSE + "test_ラブクラフト.txt.meishi.wakachi")
