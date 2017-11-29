@@ -34,12 +34,12 @@ def setup_file():
 
 @pytest.fixture()
 def imporwords(setup_file):
-    _ = Imporwords()
-    _._Imporwords__wakachi.path = PATH_FILE
-    _._Imporwords__wakachi.resource_path = PATH_FILE
-    _._Imporwords__tfidf.path = PATH_FILE
-    _._Imporwords__model.path = PATH_FILE
-    _.path = PATH_RESOURCE
+    _ = Imporwords(PATH_RESOURCE,
+                   work_dir_path__="./",
+                   txt_dir_path=PATH_FILE,
+                   wakachi_dir_path=PATH_FILE,
+                   tfidf_dir_path=PATH_FILE,
+                   model_dir_path=PATH_FILE)
     yield _
 
 
@@ -66,5 +66,7 @@ def test_create_file_list_model(imporwords):
 
 
 def test_generate_imporwords(imporwords):
-#    imporwords.generate_imporwords()
+    imporwords.generate_imporwords()
+    assert os.path.isfile("./" + PATH_RESOURCE + "ラブクラフト.txt.imporword.csv")
+    assert os.path.isfile("./" + PATH_RESOURCE + "走れメロス.txt.imporword.csv")
     pass
