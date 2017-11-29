@@ -15,7 +15,7 @@ def true_file_list():
         else:
             return path_[:4] != "test"
 
-    return [PATH_FILE + path
+    return ["./" + PATH_FILE + path
             for path in os.listdir("./test_file")
             if path[-len(".meishi.wakachi"):] == ".meishi.wakachi"
             and judgment_remove_test_file(path)]
@@ -32,8 +32,9 @@ def setup_file():
 @pytest.fixture()
 def model(setup_file):
     _ = Model()
-    _._Model__wakachi.path = PATH_FILE
-    _.path = PATH_RESOURSE
+    _.work_dir_path = "./"
+    _.input_dir_path = PATH_FILE
+    _.output_dir_path = PATH_RESOURSE
     yield _
 
 

@@ -1,17 +1,14 @@
 """単語ベクトル生成器"""
 import os
 from gensim.models import word2vec
-from .wakachi import Wakachi
+from .AbcFile import AbcBase
 
 
-class Model:
+class Model(AbcBase):
     """モデルに関するクラス"""
-    def __init__(self,
-                 path_="./resource/model/",
-                 extension_=".model"):
-        self.path = path_
-        self.extension = extension_
-        self.__wakachi = Wakachi()
+    def __init__(self):
+        super().__init__()
+        self.set_path("./resource/", "wakachi/", ".meishi.wakachi", "model/", ".model", )
 
     def __create_filepath_list(self, is_add_test=False) -> list:
         """ファイルリストを生成する"""
@@ -23,9 +20,9 @@ class Model:
             else:
                 return path_[:4] != "test"
 
-        return [self.__wakachi.path + path
-                for path in os.listdir(self.__wakachi.path)
-                if path[-len(self.__wakachi.simple_extension):] == self.__wakachi.simple_extension
+        return [self.input_dir_path + path
+                for path in os.listdir(self.input_dir_path)
+                if path[-len(self.input_extension):] == self.input_extension
                 and judgment_remove_test_file(path)]
 
     def create_models_word_vector(self):
@@ -35,7 +32,8 @@ class Model:
             data = word2vec.LineSentence(file)
             model = word2vec.Word2Vec(data, size=200, window=10, hs=1, min_count=2, sg=1)
             model.save(
-                self.path + file[len(self.__wakachi.path):-len(self.__wakachi.simple_extension)] + self.extension)
+                self.output_dir_path
+                + file[len(self.input_dir_path):-len(self.input_extension)] + self.output_extension)
 
 
 def main():
