@@ -13,9 +13,9 @@ class Imporwords:
     def __init__(self,
                  imporwords_dir_path_="./"):
         self.imporwords_dir_path = imporwords_dir_path_
-        self._wakachi = Wakachi()
-        self._model = Model()
-        self._tfidf = Tfidf()
+        self.__wakachi = Wakachi()
+        self.__model = Model()
+        self.__tfidf = Tfidf()
 
     @staticmethod
     def __create_filepath_list(read_dir_path_: str, extension_: str, is_add_test=False) -> list:
@@ -37,7 +37,7 @@ class Imporwords:
         """CSVに重要単語を記録する"""
         sorted_array2d = sorted(array2d, key=lambda x: float(x[1]), reverse=True)
         file_name = \
-            file_path[len(self._tfidf.path):-len(self._tfidf.extension)] + extension
+            file_path[len(self.__tfidf.path):-len(self.__tfidf.extension)] + extension
         file_path = self.imporwords_dir_path + file_name
         with open(file_path, "w", encoding="utf_8_sig") as file:
             writer = csv.writer(file, lineterminator='\n')
@@ -52,8 +52,8 @@ class Imporwords:
                 if find_name_ in csv_file_path_:
                     return csv_files_[i]
 
-        models = self.__create_filepath_list(self._model.path, self._model.extension)
-        csv_files = self.__create_filepath_list(self._tfidf.path, self._tfidf.extension)
+        models = self.__create_filepath_list(self.__model.path, self.__model.extension)
+        csv_files = self.__create_filepath_list(self.__tfidf.path, self.__tfidf.extension)
         for model_path in models:
             find_name = model_path[len(self.imporwords_dir_path):-len(".model")]
             csv_file_path = find_csv_name(csv_files, find_name)
@@ -82,9 +82,9 @@ class Imporwords:
 
     def generate_imporwords(self):
         """重要単語を生成"""
-        self._wakachi.generate_all(is_simple_=True, is_force=False)
-        self._model.create_models_word_vector()
-        self._tfidf.generate_tfidf()
+        self.__wakachi.generate_all(is_simple_=True, is_force=False)
+        self.__model.create_models_word_vector()
+        self.__tfidf.generate_tfidf()
         self.calc_similarity()
 
 
