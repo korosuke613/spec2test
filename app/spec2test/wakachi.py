@@ -100,7 +100,7 @@ class Wakachi:
             wakachi_file = self.path + self.filename + self.simple_extension
         else:
             wakachi_file = self.path + self.filename + self.extension
-        with open(wakachi_file, "w", encoding='utf-8') as fp:
+        with open(wakachi_file, "w", encoding='utf-8-sig') as fp:
             fp.write("\n".join(self.results))
 
 
