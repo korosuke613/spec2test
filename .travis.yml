@@ -14,7 +14,8 @@ cache:
 install:
   - "sudo -H apt-get install mecab libmecab-dev mecab-ipadic-utf8 -y"
   - "pip install -r requirements.txt"
-  - "pip install pytest-cov coveralls"
+  - "pip install coverage==4.3.4"
+  - "pip install pytest-cov coveralls codeclimate-test-reporter"
 
 before_script:
   - export PYTHONPATH=$PYTHONPATH:$(pwd)/app/spec2test
@@ -24,3 +25,4 @@ script:
 
 after_success:
   - coveralls
+  - codeclimate-test-reporter --token d8e40c71adeb78cf44a3bcbdca3e55b5cef5c107984a2c4f3aedfe2b114baf93
