@@ -1,4 +1,5 @@
 import os
+import shutil
 import pytest
 from spec2test import Model
 
@@ -21,9 +22,18 @@ def true_file_list():
 
 
 @pytest.fixture()
-def model():
+def setup_file():
+    if os.path.isdir("./" + PATH_RESOURSE):
+        shutil.rmtree("./" + PATH_RESOURSE)
+    if not os.path.isdir("./" + PATH_RESOURSE):
+        os.mkdir("./" + PATH_RESOURSE)
+
+
+@pytest.fixture()
+def model(setup_file):
     _ = Model()
     _._Model__wakachi.path = PATH_FILE
+    _.path = PATH_RESOURSE
     yield _
 
 
@@ -36,3 +46,9 @@ def test_create_file_list(model):
     assert isinstance(file_list, list)
     true = true_file_list()
     assert true == file_list
+
+
+def test_create_models_word_vector(model):
+    model.create_models_word_vector()
+    assert os.path.isfile("./" + PATH_RESOURSE + "ラブクラフト.txt.model")
+    assert os.path.isfile("./" + PATH_RESOURSE + "走れメロス.txt.model")
