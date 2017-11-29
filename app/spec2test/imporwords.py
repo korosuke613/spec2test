@@ -5,17 +5,28 @@ from gensim.models import word2vec
 from .tfidf import Tfidf
 from .model import Model
 from .wakachi import Wakachi
+from .AbcFile import AbcBase
 
 
-class Imporwords:
+class Imporwords(AbcBase):
     """重要単語リストクラス"""
 
     def __init__(self,
-                 imporwords_dir_path_="./"):
-        self.imporwords_dir_path = imporwords_dir_path_
+                 imporwords_dir_path_="./",
+                 work_dir_path__="resource/",
+                 txt_dir_path="file/",
+                 wakachi_dir_path="wakachi/",
+                 tfidf_dir_path="tfidf/",
+                 model_dir_path="model/"):
+        super().__init__()
+        self.set_path("./", None, imporwords_dir_path_)
+        self.set_extension(None,  ".imporword.csv")
         self.__wakachi = Wakachi()
         self.__model = Model()
         self.__tfidf = Tfidf()
+        self.__wakachi.set_path(work_dir_path__, txt_dir_path,  wakachi_dir_path)
+        self.__tfidf.set_path(work_dir_path__, wakachi_dir_path, tfidf_dir_path)
+        self.__model.set_path(work_dir_path__, wakachi_dir_path, model_dir_path)
 
     @staticmethod
     def __create_filepath_list(read_dir_path_: str, extension_: str, is_add_test=False) -> list:
@@ -37,8 +48,8 @@ class Imporwords:
         """CSVに重要単語を記録する"""
         sorted_array2d = sorted(array2d, key=lambda x: float(x[1]), reverse=True)
         file_name = \
-            file_path[len(self.__tfidf.path):-len(self.__tfidf.extension)] + extension
-        file_path = self.imporwords_dir_path + file_name
+            file_path[len(self.__tfidf.output_dir_path):-len(self.__tfidf.output_extension)] + extension
+        file_path = self.output_dir_path + file_name
         with open(file_path, "w", encoding="utf_8_sig") as file:
             writer = csv.writer(file, lineterminator='\n')
             for word in sorted_array2d:
@@ -52,10 +63,10 @@ class Imporwords:
                 if find_name_ in csv_file_path_:
                     return csv_files_[i]
 
-        models = self.__create_filepath_list(self.__model.path, self.__model.extension)
-        csv_files = self.__create_filepath_list(self.__tfidf.path, self.__tfidf.extension)
+        models = self.__create_filepath_list(self.__model.output_dir_path, self.__model.output_extension)
+        csv_files = self.__create_filepath_list(self.__tfidf.output_dir_path, self.__tfidf.output_extension)
         for model_path in models:
-            find_name = model_path[len(self.imporwords_dir_path):-len(".model")]
+            find_name = model_path[len(self.__model.output_dir_path):-len(".model")]
             csv_file_path = find_csv_name(csv_files, find_name)
             with open(csv_file_path, "r", encoding="utf_8_sig") as file:
                 csv_file = csv.reader(file)

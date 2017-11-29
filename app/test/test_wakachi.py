@@ -32,8 +32,8 @@ def setup_file():
 @pytest.fixture()
 def wakachi(setup_file):
     _ = Wakachi()
-    _.resource_path = PATH_FILE
-    _.path = PATH_RESOURSE
+    _.input_dir_path = PATH_FILE
+    _.output_dir_path = PATH_RESOURSE
     yield _
 
 

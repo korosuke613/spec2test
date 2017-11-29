@@ -2,17 +2,15 @@
 import os
 import csv
 from sklearn.feature_extraction.text import TfidfVectorizer
-from .wakachi import Wakachi
+from .AbcFile import AbcBase
 
 
-class Tfidf:
+class Tfidf(AbcBase):
     """TFIDFに関するクラス"""
-    def __init__(self,
-                 extension_=".tfidf",
-                 path_="./resource/tfidf/"):
-        self.extension = extension_
-        self.path = path_
-        self.__wakachi = Wakachi()
+    def __init__(self):
+        super().__init__()
+        self.set_path("./resource/", "wakachi/", "tfidf/")
+        self.set_extension(".meishi.wakachi", ".tfidf")
 
     def __create_wakachi_list(self, is_add_test: bool = False) -> list:
         """ファイルリストを生成する"""
@@ -24,16 +22,16 @@ class Tfidf:
             else:
                 return path_[:4] != "test"
 
-        return [self.__wakachi.path + path
-                for path in os.listdir(self.__wakachi.path)
-                if path[-len(self.__wakachi.simple_extension):] == self.__wakachi.simple_extension
+        return [self.input_dir_path + path
+                for path in os.listdir(self.input_dir_path)
+                if path[-len(self.input_extension):] == self.input_extension
                 and judgment_remove_test_file(path)]
 
     def __create_csv(self, file_path, array2d):
         """CSVにTFIDF上位の単語を記録する"""
         file_name = \
-            file_path[len(self.__wakachi.path):-len(self.__wakachi.simple_extension)] + self.extension
-        file_path = self.path + file_name
+            file_path[len(self.input_dir_path):-len(self.input_extension)] + self.output_extension
+        file_path = self.output_dir_path + file_name
         with open(file_path, "w", encoding="utf_8_sig") as f:
             writer = csv.writer(f, lineterminator='\n')
             writer.writerows(array2d)
