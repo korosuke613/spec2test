@@ -19,13 +19,14 @@ class Imporwords(AbcBase):
                  tfidf_dir_path="tfidf/",
                  model_dir_path="model/"):
         super().__init__()
-        self.set_path("./", None, None, imporwords_dir_path_, ".imporword.csv")
+        self.set_path("./", None, imporwords_dir_path_)
+        self.set_extension(None,  ".imporword.csv")
         self.__wakachi = Wakachi()
         self.__model = Model()
         self.__tfidf = Tfidf()
-        self.__wakachi.set_path(work_dir_path__, txt_dir_path, ".txt", wakachi_dir_path, ".meishi.wakachi")
-        self.__tfidf.set_path(work_dir_path__, wakachi_dir_path, ".meishi.wakachi", tfidf_dir_path, ".tfidf")
-        self.__model.set_path(work_dir_path__, wakachi_dir_path, ".meishi.wakachi", model_dir_path, ".model")
+        self.__wakachi.set_path(work_dir_path__, txt_dir_path,  wakachi_dir_path)
+        self.__tfidf.set_path(work_dir_path__, wakachi_dir_path, tfidf_dir_path)
+        self.__model.set_path(work_dir_path__, wakachi_dir_path, model_dir_path)
 
     @staticmethod
     def __create_filepath_list(read_dir_path_: str, extension_: str, is_add_test=False) -> list:

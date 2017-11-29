@@ -8,7 +8,8 @@ class Wakachi(AbcBase):
     """分かち分けに関するクラス"""
     def __init__(self, filename=None):
         super().__init__()
-        self.set_path("./", "file/", ".txt", "wakachi/", ".wakachi", )
+        self.set_path("./", "file/", "wakachi/")
+        self.set_extension(".txt",  ".wakachi")
         self.__simple_extension = ".meishi.wakachi"
 
         self.hinshi_kind = set()

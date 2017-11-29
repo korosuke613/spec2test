@@ -9,7 +9,8 @@ class Tfidf(AbcBase):
     """TFIDFに関するクラス"""
     def __init__(self):
         super().__init__()
-        self.set_path("./resource/", "wakachi/", ".meishi.wakachi", "tfidf/", ".tfidf")
+        self.set_path("./resource/", "wakachi/", "tfidf/")
+        self.set_extension(".meishi.wakachi", ".tfidf")
 
     def __create_wakachi_list(self, is_add_test: bool = False) -> list:
         """ファイルリストを生成する"""

@@ -8,7 +8,8 @@ class Model(AbcBase):
     """モデルに関するクラス"""
     def __init__(self):
         super().__init__()
-        self.set_path("./resource/", "wakachi/", ".meishi.wakachi", "model/", ".model", )
+        self.set_path("./resource/", "wakachi/",  "model/")
+        self.set_extension(".meishi.wakachi", ".model")
 
     def __create_filepath_list(self, is_add_test=False) -> list:
         """ファイルリストを生成する"""
