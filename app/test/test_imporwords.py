@@ -5,6 +5,9 @@ from spec2test import Imporwords
 
 PATH_FILE = "test_file/"
 PATH_RESOURCE = "test_resource/imporwords/"
+EXTENSION_WAKACHI = ".meishi.wakachi"
+EXTENSION_TFIDF = ".tfidf"
+EXTENSION_MODEL = ".model"
 
 
 def true_file_list(extension_):
@@ -33,10 +36,35 @@ def setup_file():
 def imporwords(setup_file):
     _ = Imporwords()
     _._Imporwords__wakachi.path = PATH_FILE
+    _._Imporwords__wakachi.resource_path = PATH_FILE
     _._Imporwords__tfidf.path = PATH_FILE
     _._Imporwords__model.path = PATH_FILE
+    _.path = PATH_RESOURCE
     yield _
 
 
 def test_instance_able(imporwords):
     assert isinstance(imporwords, Imporwords)
+
+
+def test_create_file_list_wakachi(imporwords):
+    file_list = imporwords._Imporwords__create_filepath_list(PATH_FILE, EXTENSION_WAKACHI)
+    assert isinstance(file_list, list)
+    assert file_list == true_file_list(EXTENSION_WAKACHI)
+
+
+def test_create_file_list_tfidf(imporwords):
+    file_list = imporwords._Imporwords__create_filepath_list(PATH_FILE, EXTENSION_TFIDF)
+    assert isinstance(file_list, list)
+    assert file_list == true_file_list(EXTENSION_TFIDF)
+
+
+def test_create_file_list_model(imporwords):
+    file_list = imporwords._Imporwords__create_filepath_list(PATH_FILE, EXTENSION_MODEL)
+    assert isinstance(file_list, list)
+    assert file_list == true_file_list(EXTENSION_MODEL)
+
+
+def test_generate_imporwords(imporwords):
+#    imporwords.generate_imporwords()
+    pass
