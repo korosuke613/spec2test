@@ -21,9 +21,10 @@ before_script:
   - export PYTHONPATH=$PYTHONPATH:$(pwd)/app/spec2test
   - export CODACY_PROJECT_TOKEN=62089855e45547f4b7d95c7e63e491b1
 script:
-  - pytest --cov-report xml:coverage.xml --cov-config ./.coveragerc --cov=./app/spec2test --Work ./app/test ./app/test
+  - pytest --cov=./app/spec2test --cov-config ./.coveragerc --cov-report xml:coverage.xml --Work ./app/test ./app/test
 
 after_success:
+  - mv app/test/coverage.xml ./
   - coveralls
   - codeclimate-test-reporter --token d8e40c71adeb78cf44a3bcbdca3e55b5cef5c107984a2c4f3aedfe2b114baf93
   - python-codacy-coverage -r coverage.xml
