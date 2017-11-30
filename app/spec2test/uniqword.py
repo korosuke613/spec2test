@@ -8,28 +8,29 @@ def create_file_list(dir_path):
         """テストケースのファイルを除外するかどうかを判断する関数"""
         return path_[:4] == "test"
 
-    return [dir_path + path
+    return [path
             for path in os.listdir(dir_path)
             if path[-len(".meishi.wakachi"):] == ".meishi.wakachi"
             and is_test_file(path)]
 
 
-def gen(dir_path):
-    test_file_list = create_file_list(dir_path)
+def gen(input_path, output_path):
+    test_file_list = create_file_list(input_path)
     for file in test_file_list:
-        gen_simple(file)
+        gen_simple(file, input_path, output_path)
 
 
-def gen_simple(path):
-    with open(path, "r", encoding="utf_8_sig") as f:
+def gen_simple(file, input_path, output_path):
+    with open(input_path + file, "r", encoding="utf_8_sig") as f:
         word_list = []
         for row in f:
             word_list.extend(row.split())
         sorted_array2d = set(word_list)
-        with open(path + ".uniq.csv", "w", encoding="utf_8_sig") as f:
+        file_name = input_path + file
+        with open(output_path + file + ".uniq.csv", "w", encoding="utf_8_sig") as f:
             for word in sorted_array2d:
                 f.write(word + "\n")
 
 
 if __name__ == "__main__":
-    gen("../resource/wakachi/")
+    gen("../resource/wakachi/", "../resource/imporwords/")

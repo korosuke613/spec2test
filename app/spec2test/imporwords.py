@@ -55,7 +55,7 @@ class Imporwords(AbcBase):
             for word in sorted_array2d:
                 writer.writerow(word)
 
-    def calc_similarity(self):
+    def calc_similarity(self, threshold_tfidf=0.1, threshold_model=0.11):
         """単語の類似度を計算"""
         def find_csv_name(csv_files_, find_name_):
             """同じ仕様書をCSVから見つける"""
@@ -70,7 +70,7 @@ class Imporwords(AbcBase):
             csv_file_path = find_csv_name(csv_files, find_name)
             with open(csv_file_path, "r", encoding="utf_8_sig") as file:
                 csv_file = csv.reader(file)
-                tfidf_list = [row for row in csv_file if float(row[1]) > 0.1]
+                tfidf_list = [row for row in csv_file if float(row[1]) > threshold_tfidf]
             model = word2vec.Word2Vec.load(model_path)
             important_words = {}
             for tfidf_word in tfidf_list:
@@ -78,7 +78,7 @@ class Imporwords(AbcBase):
                     similar_words_with_score = model.most_similar(positive=[tfidf_word[0]])
                     similar_words = {word[0]: float(word[1])*float(tfidf_word[1])
                                      for word in similar_words_with_score
-                                     if float(word[1]) > 0.11}
+                                     if float(word[1]) > threshold_model}
                 except KeyError:
                     continue
                 important_words[tfidf_word[0]] = tfidf_word[1]
@@ -91,12 +91,12 @@ class Imporwords(AbcBase):
                                             csv_file_path, 
                                             important_words.items())
 
-    def generate_imporwords(self):
+    def generate_imporwords(self, threshold_tfidf=0.1, threshold_model=0.11):
         """重要単語を生成"""
         self.__wakachi.generate_all(is_simple_=True, is_force=False)
         self.__model.create_models_word_vector()
         self.__tfidf.generate_tfidf()
-        self.calc_similarity()
+        self.calc_similarity(threshold_tfidf, threshold_model)
 
 
 def main():
