@@ -21,7 +21,7 @@ before_script:
   - export PYTHONPATH=$PYTHONPATH:$(pwd)/app/spec2test
   - export CODACY_PROJECT_TOKEN=62089855e45547f4b7d95c7e63e491b1
 script:
-  - pytest --cov-config ./.coveragerc --cov=./app/spec2test --Work ./app/test ./app/test
+  - pytest --cov-report xml:coverage.xml --cov-config ./.coveragerc --cov=./app/spec2test --Work ./app/test ./app/test
 
 after_success:
   - coveralls
