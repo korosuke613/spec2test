@@ -15,14 +15,15 @@ install:
   - "sudo -H apt-get install mecab libmecab-dev mecab-ipadic-utf8 -y"
   - "pip install -r requirements.txt"
   - "pip install coverage==4.3.4"
-  - "pip install pytest-cov coveralls codeclimate-test-reporter"
+  - "pip install pytest-cov coveralls codeclimate-test-reporter codacy-coverage"
 
 before_script:
   - export PYTHONPATH=$PYTHONPATH:$(pwd)/app/spec2test
-
+  - export CODACY_PROJECT_TOKEN=62089855e45547f4b7d95c7e63e491b1
 script:
   - pytest --cov-config ./.coveragerc --cov=./app/spec2test --Work ./app/test ./app/test
 
 after_success:
   - coveralls
   - codeclimate-test-reporter --token d8e40c71adeb78cf44a3bcbdca3e55b5cef5c107984a2c4f3aedfe2b114baf93
+  - python-codacy-coverage -r coverage.xml
