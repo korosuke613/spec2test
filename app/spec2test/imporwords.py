@@ -5,14 +5,14 @@ from gensim.models import word2vec
 from .tfidf import Tfidf
 from .model import Model
 from .wakachi_meishi import WakachiMeishi
-from .AbcFile import AbcBase
+from .abcbase import AbcBase
 
 
 class Imporwords(AbcBase):
     """重要単語リストクラス"""
 
     def __init__(self,
-                 imporwords_dir_path_="./",
+                 output_path="./resource/imporwords/",
                  wakachi_=None,
                  tfidf_=None,
                  model_=None):
@@ -22,9 +22,7 @@ class Imporwords(AbcBase):
             tfidf_ = Tfidf()
         if model_ is None:
             model_ = Model()
-        super().__init__()
-        self.set_path("./", None, imporwords_dir_path_)
-        self.set_extension(None,  ".imporword.csv")
+        super().__init__(None, output_path, None, ".imporword.csv")
         self.__wakachi = wakachi_
         self.__model = model_
         self.__tfidf = tfidf_
@@ -50,7 +48,7 @@ class Imporwords(AbcBase):
         sorted_array2d = sorted(array2d, key=lambda x: float(x[1]), reverse=True)
         file_name = \
             file_path[len(self.__tfidf.output.path):-len(self.__tfidf.output.default_extension)] + extension
-        file_path = self.output_dir_path + file_name
+        file_path = self.output.path + file_name
         with open(file_path, "w", encoding="utf_8_sig") as file:
             writer = csv.writer(file, lineterminator='\n')
             for word in sorted_array2d:
