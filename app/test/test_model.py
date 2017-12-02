@@ -31,22 +31,12 @@ def setup_file():
 
 @pytest.fixture()
 def model(setup_file):
-    _ = Model()
-    _.work_dir_path = "./"
-    _.input_dir_path = PATH_FILE
-    _.output_dir_path = PATH_RESOURSE
+    _ = Model(PATH_FILE, PATH_RESOURSE)
     yield _
 
 
 def test_instance_able(model):
     assert isinstance(model, Model)
-
-
-def test_create_file_list(model):
-    file_list = model._Model__create_filepath_list()
-    assert isinstance(file_list, list)
-    true = true_file_list()
-    assert true == file_list
 
 
 def test_create_models_word_vector(model):
