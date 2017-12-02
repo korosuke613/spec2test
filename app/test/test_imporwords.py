@@ -1,7 +1,7 @@
 import os
 import shutil
 import pytest
-from spec2test import WakachiMeishi, Imporwords
+from spec2test import WakachiMeishi, Imporwords, Tfidf, Model
 
 PATH_FILE = "test_file/"
 PATH_RESOURCE = "test_resource/imporwords/"
@@ -35,11 +35,12 @@ def setup_file():
 @pytest.fixture()
 def imporwords(setup_file):
     wakachi = WakachiMeishi(input_path=PATH_FILE, output_path=PATH_FILE)
+    tfidf = Tfidf(input_path=PATH_FILE, output_path=PATH_FILE)
+    model = Model(input_path=PATH_FILE, output_path=PATH_FILE)
     _ = Imporwords(PATH_RESOURCE,
                    wakachi_=wakachi,
-                   work_dir_path__="./",
-                   tfidf_dir_path=PATH_FILE,
-                   model_dir_path=PATH_FILE)
+                   tfidf_=tfidf,
+                   model_=model)
     yield _
 
 
