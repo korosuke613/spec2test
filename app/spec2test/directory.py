@@ -29,7 +29,7 @@ class Directory:
     def get_file_path(self, file_name):
         return self.file_dict[file_name].full_name
 
-    def get_file_path_list(self, is_add_test_=True):
+    def get_file_path_list(self, is_add_test_=True) -> list:
         def judge(file: File):
             if file.extension != self.default_extension:
                 return False
