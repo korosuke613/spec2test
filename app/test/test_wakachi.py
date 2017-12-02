@@ -35,12 +35,6 @@ def test_generate(wakachi):
 
 
 def test_generate_all(wakachi):
-    wakachi.generate_all(is_simple_=False, is_force=True)
+    wakachi.generate_all(is_force=True)
     assert os.path.isfile("./" + PATH_RESOURSE + "ラブクラフト.wakachi")
     assert os.path.isfile("./" + PATH_RESOURSE + "test_ラブクラフト.wakachi")
-
-
-def test_generate_all_is_simple(wakachi):
-    wakachi.generate_all(is_simple_=True, is_force=True)
-    assert os.path.isfile("./" + PATH_RESOURSE + "ラブクラフト.meishi.wakachi")
-    assert os.path.isfile("./" + PATH_RESOURSE + "test_ラブクラフト.meishi.wakachi")
