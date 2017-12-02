@@ -1,0 +1,4 @@
+<map id="WakachiMeishi" name="WakachiMeishi">
+<area shape="rect" id="node2" href="$classspec2test_1_1wakachi_1_1_wakachi.html" title="{Wakachi\n|+ hinshi_list\l+ hinshi_kind\l+ text\l+ results\l+ dict_word\l|+ __init__()\l+ generate_all()\l+ generate()\l&#45; __open_text()\l&#45; __token_split()\l&#45; __line_split()\l&#45; __write()\l}" alt="" coords="11,285,125,509"/>
+<area shape="rect" id="node3" href="$classspec2test_1_1abcbase_1_1_abc_base.html" title="{AbcBase\n|+ input\l+ output\l|+ __init__()\l+ import_io_files()\l}" alt="" coords="5,131,131,237"/>
+</map>
