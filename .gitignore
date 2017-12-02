@@ -8,6 +8,7 @@ test_resource/
 PTB/
 .idea/
 .vscode/
+uml/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
