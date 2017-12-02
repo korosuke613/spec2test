@@ -1,20 +1,21 @@
 """分かち分け文書生成器"""
 import os
 import MeCab
-from .AbcFile import AbcBase
+from .abcbase import AbcBase
 
 
 class Wakachi(AbcBase):
     """分かち分けに関するクラス"""
-    def __init__(self, filename=None):
-        super().__init__()
-        self.set_path("./", "file/", "wakachi/")
-        self.set_extension(".txt",  ".wakachi")
+    def __init__(self,
+                 input_path="./resource/file/",
+                 output_path="./reource/wakachi/",
+                 input_extension=".txt",
+                 output_extension=".wakachi"):
+        super().__init__(input_path, output_path, input_extension, output_extension)
         self.__simple_extension = ".meishi.wakachi"
 
         self.hinshi_kind = set()
         self.text = None
-        self.filename = filename
         self.results = []
         self.dict_word = {'名詞': [], '形容詞': [], '動詞': [], '記号': [], '助詞': [], '助動詞': [], '接続詞': [],
                           '副詞': [], '接頭詞': []}
@@ -29,43 +30,24 @@ class Wakachi(AbcBase):
         """入力ファイルの拡張子"""
         self.__simple_extension = extension
 
-    def __create_file_list(self, is_add_test: bool = False) -> list:
-        """ファイルリストを生成する"""
-
-        def judgment_remove_test_file(path_):
-            """テストケースのファイルを除外するかどうかを判断する関数"""
-            if is_add_test is True:
-                return True
-            else:
-                return path_[:4] != "test"
-
-        return [path
-                for path in os.listdir(self.input_dir_path)
-                if path[-len(self.input_extension):] == self.input_extension
-                and judgment_remove_test_file(path)]
-
     def generate_all(self, is_simple_=False, is_force=False):
-        file_list = self.__create_file_list(is_add_test=True)
-        for file in file_list:
-            self.filename = file
-            if os.path.isfile(self.input_dir_path + self.filename) and is_force is False:
+        for file in self.input.file_dict.values():
+            write_path = self.output.path + file.name + self.output.default_extension
+            if os.path.isfile(write_path) and is_force is False:
                 continue
-            self.generate(is_set_kind=True, is_simple=is_simple_)
+            self.generate(file, is_set_kind=True, is_simple=is_simple_)
 
-    def generate(self, filename=None, is_set_kind=False, is_simple=False):
-        if filename is None:
-            filename = self.filename
-        self.__open_text(filename)
+    def generate(self, file, is_set_kind=False, is_simple=False):
+        self.__open_text(file)
         self.__line_split(is_set_kind, is_simple)
-        self.__write(is_simple)
+        self.__write(file, is_simple)
         if is_simple is True:
-            print("create " + filename + self.simple_extension)
+            print("create " + file.name + self.simple_extension)
         else:
-            print("create " + filename + self.output_extension)
+            print("create " + file.name + self.output.default_extension)
 
-    def __open_text(self, filename):
-        self.filename = filename
-        with open(self.input_dir_path + self.filename, 'r', encoding="utf-8") as file:
+    def __open_text(self, file):
+        with open(self.input.path + file.full_name, 'r', encoding="utf-8") as file:
             binary_data = file.read()
             self.text = binary_data
 
@@ -106,11 +88,11 @@ class Wakachi(AbcBase):
             rl = (" ".join(r)).strip()
             self.results.append(rl)
 
-    def __write(self, is_simple=False):
+    def __write(self, file, is_simple=False):
         if is_simple is True:
-            wakachi_file = self.output_dir_path + self.filename + self.simple_extension
+            wakachi_file = self.output.path + file.name + self.simple_extension
         else:
-            wakachi_file = self.output_dir_path + self.filename + self.output_extension
+            wakachi_file = self.output.path + file.name + self.output.default_extension
         with open(wakachi_file, "w", encoding='utf-8-sig') as fp:
             fp.write("\n".join(self.results))
 

@@ -2,7 +2,7 @@ class File:
     def __init__(self,
                  file_name_,
                  extension_):
-        self.name = file_name_[:len(extension_)]
+        self.name = file_name_[:-len(extension_)]
         self.extension = extension_
         self.full_name = file_name_
         self.check()
