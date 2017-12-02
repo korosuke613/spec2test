@@ -7,8 +7,8 @@ from .abcbase import AbcBase
 class Tfidf(AbcBase):
     """TFIDFに関するクラス"""
     def __init__(self,
-                 input_path="./resource/wakachi",
-                 output_path="./resource/tfidf"):
+                 input_path="./resource/wakachi/",
+                 output_path="./resource/tfidf/"):
         super().__init__(input_path, output_path, ".meishi.wakachi", ".tfidf")
 
     def __create_csv(self, file, array2d):

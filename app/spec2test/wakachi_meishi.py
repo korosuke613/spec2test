@@ -2,6 +2,7 @@ from .wakachi import Wakachi
 
 
 class WakachiMeishi(Wakachi):
+    """名詞のみの分かち書きに関するクラス"""
     def __init__(self,
                  input_path="./resource/file/",
                  output_path="./resource/wakachi/"

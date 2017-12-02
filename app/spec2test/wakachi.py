@@ -2,10 +2,11 @@
 import os
 import MeCab
 from .abcbase import AbcBase
+from .file import File
 
 
 class Wakachi(AbcBase):
-    """分かち分けに関するクラス"""
+    """分かち書きに関するクラス"""
     def __init__(self,
                  input_path="./resource/file/",
                  output_path="./resource/wakachi/"):
@@ -17,25 +18,29 @@ class Wakachi(AbcBase):
         self.dict_word = {'名詞': [], '形容詞': [], '動詞': [], '記号': [], '助詞': [], '助動詞': [], '接続詞': [],
                           '副詞': [], '接頭詞': []}
 
-    def generate_all(self, is_force=False):
+    def generate_all(self, is_force: bool=False):
+        """ディレクトリ内のテキストを全て分かち書きする"""
         for file in self.input.file_dict.values():
             write_path = self.output.path + file.name + self.output.default_extension
             if os.path.isfile(write_path) and is_force is False:
                 continue
             self.generate(file, is_set_kind=True)
 
-    def generate(self, file, is_set_kind=False):
+    def generate(self, file: File, is_set_kind: bool=False):
+        """あるテキストを分かち書きする"""
         self.__open_text(file)
         self.__line_split(is_set_kind)
         self.__write(file)
         print("create " + file.name + self.output.default_extension)
 
-    def __open_text(self, file):
+    def __open_text(self, file: File):
+        """テキストを開く"""
         with open(self.input.path + file.full_name, 'r', encoding="utf-8") as file:
             binary_data = file.read()
             self.text = binary_data
 
-    def __token_split(self, tokens, is_set_kind=False):
+    def __token_split(self, tokens: object, is_set_kind=False)-> list:
+        """トークンを解析する"""
         r = []
         while tokens:
             w = tokens.surface
@@ -53,7 +58,8 @@ class Wakachi(AbcBase):
             tokens = tokens.next
         return r
 
-    def __line_split(self, is_set_kind=False):
+    def __line_split(self, is_set_kind: bool=False):
+        """テキストを行ごとに分ける"""
         def set_stop_word(_line):
             """ストップワードの除去"""
             stop_words = ['\\u', '。', '、', '.', '0xe0', '「', '」']
@@ -72,7 +78,8 @@ class Wakachi(AbcBase):
             rl = (" ".join(r)).strip()
             self.results.append(rl)
 
-    def __write(self, file):
+    def __write(self, file: File):
+        """分かち書きした結果を書き込む"""
         wakachi_file = self.output.path + file.name + self.output.default_extension
         with open(wakachi_file, "w", encoding='utf-8-sig') as fp:
             fp.write("\n".join(self.results))
