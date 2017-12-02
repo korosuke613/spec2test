@@ -41,5 +41,5 @@ def test_instance_able(model):
 
 def test_create_models_word_vector(model):
     model.create_models_word_vector()
-    assert os.path.isfile("./" + PATH_RESOURSE + "ラブクラフト.txt.model")
-    assert os.path.isfile("./" + PATH_RESOURSE + "走れメロス.txt.model")
+    assert os.path.isfile("./" + PATH_RESOURSE + "ラブクラフト.model")
+    assert os.path.isfile("./" + PATH_RESOURSE + "走れメロス.model")

@@ -27,6 +27,17 @@ class Directory:
     def get_file_path(self, file_name):
         return self.file_dict[file_name].full_name
 
+    def get_file_path_list(self, is_add_test_=True):
+        def judge(file: File):
+            if file.extension != self.default_extension:
+                return False
+            if is_add_test_:
+                return True
+            if file.name[:len("test_")] != "test_":
+                return True
+            return False
+        return [file for file in self.file_dict.values() if judge(file)]
+
 
 if __name__ == '__main__':
     directory = Directory("./", ".py")

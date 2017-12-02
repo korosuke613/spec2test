@@ -68,6 +68,6 @@ def test_create_file_list_model(imporwords):
 
 def test_generate_imporwords(imporwords):
     imporwords.generate_imporwords()
-    assert os.path.isfile("./" + PATH_RESOURCE + "ラブクラフト.txt.imporword.csv")
-    assert os.path.isfile("./" + PATH_RESOURCE + "走れメロス.txt.imporword.csv")
+    assert os.path.isfile("./" + PATH_RESOURCE + "ラブクラフト.imporword.csv")
+    assert os.path.isfile("./" + PATH_RESOURCE + "走れメロス.imporword.csv")
     pass

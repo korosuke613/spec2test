@@ -20,7 +20,7 @@ class Tfidf(AbcBase):
 
     def generate_tfidf(self, is_save=True):
         """TF-IDFを計算する"""
-        wakachi_files = [file for file in self.input.file_dict.values()]
+        wakachi_files = self.input.get_file_path_list(is_add_test_=False)
         wakachi_file_list = [self.input.path + file.full_name for file in wakachi_files]
         # ベクタライザーの作成
         tfidf_vectorizer = TfidfVectorizer(input='filename', max_df=0.5, min_df=1, max_features=3000, norm='l2')
