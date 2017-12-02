@@ -6,5 +6,6 @@ class WakachiMeishi(Wakachi):
                  input_path="./resource/file/",
                  output_path="./resource/wakachi/"
                  ):
-        super().__init__(input_path, output_path, ".txt", ".meishi.wakachi")
+        super().__init__(input_path, output_path)
+        self.output.default_extension = ".meishi.wakachi"
         self.hinshi_list = ['名詞']
