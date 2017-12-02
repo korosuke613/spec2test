@@ -5,11 +5,14 @@
 
 仕様書からテストケースを生成する研究
 
+[Doxygenドキュメント(未完成)](https://korosuke613.github.io/spec2test/)
+
 ## 概要
 * 複数の仕様書の入力から、重要単語・テストケースを生成する。
 * Python3系で動作するCLIツール。
 * ニューラルネットワーク(RNN/LSTM)を利用する。
 * Specification To Test caseの意味
+
 
 ## 構造
 
