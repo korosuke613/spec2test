@@ -48,24 +48,6 @@ def test_instance_able(imporwords):
     assert isinstance(imporwords, Imporwords)
 
 
-def test_create_file_list_wakachi(imporwords):
-    file_list = imporwords._Imporwords__create_filepath_list(PATH_FILE, EXTENSION_WAKACHI)
-    assert isinstance(file_list, list)
-    assert file_list == true_file_list(EXTENSION_WAKACHI)
-
-
-def test_create_file_list_tfidf(imporwords):
-    file_list = imporwords._Imporwords__create_filepath_list(PATH_FILE, EXTENSION_TFIDF)
-    assert isinstance(file_list, list)
-    assert file_list == true_file_list(EXTENSION_TFIDF)
-
-
-def test_create_file_list_model(imporwords):
-    file_list = imporwords._Imporwords__create_filepath_list(PATH_FILE, EXTENSION_MODEL)
-    assert isinstance(file_list, list)
-    assert file_list == true_file_list(EXTENSION_MODEL)
-
-
 def test_generate_imporwords(imporwords):
     imporwords.generate_imporwords()
     assert os.path.isfile("./" + PATH_RESOURCE + "ラブクラフト.imporword.csv")
