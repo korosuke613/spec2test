@@ -21,6 +21,8 @@ class Directory:
         self.file_dict[file_name] = file
 
     def import_files(self, extension=None):
+        if self.path is None:
+            return
         for file in os.listdir(self.path):
             self.append_file(file, extension)
 
