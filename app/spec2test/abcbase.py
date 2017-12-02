@@ -3,6 +3,7 @@ from .directory import Directory
 
 
 class AbcBase(ABC):
+    """抽象基底クラス"""
     def __init__(self,
                  input_dir_path_,
                  output_dir_path_,
@@ -13,5 +14,6 @@ class AbcBase(ABC):
         self.import_io_files()
 
     def import_io_files(self):
+        """ディレクトリにファイルを登録する"""
         self.input.import_files()
         self.output.import_files()

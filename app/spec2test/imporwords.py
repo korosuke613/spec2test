@@ -1,5 +1,4 @@
 """重要単語リスト生成器"""
-import os
 import csv
 from gensim.models import word2vec
 from .tfidf import Tfidf

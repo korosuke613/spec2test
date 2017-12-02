@@ -1,4 +1,5 @@
 class File:
+    """ファイルを表すクラス"""
     def __init__(self,
                  file_name_,
                  extension_):
@@ -8,9 +9,11 @@ class File:
         self.check()
 
     @staticmethod
-    def is_same_extension(file_name, extension):
+    def is_same_extension(file_name: str, extension: str) -> bool:
+        """ファイル名と拡張子が同じかどうかチェックする"""
         return file_name[-len(extension):] == extension
 
     def check(self):
+        """このクラスの整合性をチェックする"""
         if not File.is_same_extension(self.full_name, self.extension):
             raise ValueError
