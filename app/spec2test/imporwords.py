@@ -4,7 +4,7 @@ import csv
 from gensim.models import word2vec
 from .tfidf import Tfidf
 from .model import Model
-from .wakachi import Wakachi
+from .wakachi_meishi import WakachiMeishi
 from .AbcFile import AbcBase
 
 
@@ -13,20 +13,20 @@ class Imporwords(AbcBase):
 
     def __init__(self,
                  imporwords_dir_path_="./",
+                 wakachi_=None,
                  work_dir_path__="resource/",
-                 txt_dir_path="file/",
-                 wakachi_dir_path="wakachi/",
                  tfidf_dir_path="tfidf/",
                  model_dir_path="model/"):
         super().__init__()
+        if wakachi_ is None:
+            wakachi_ = WakachiMeishi()
         self.set_path("./", None, imporwords_dir_path_)
         self.set_extension(None,  ".imporword.csv")
-        self.__wakachi = Wakachi()
+        self.__wakachi = wakachi_
         self.__model = Model()
         self.__tfidf = Tfidf()
-        self.__wakachi.set_path(work_dir_path__, txt_dir_path,  wakachi_dir_path)
-        self.__tfidf.set_path(work_dir_path__, wakachi_dir_path, tfidf_dir_path)
-        self.__model.set_path(work_dir_path__, wakachi_dir_path, model_dir_path)
+        self.__tfidf.set_path(work_dir_path__, self.__wakachi.output.path, tfidf_dir_path)
+        self.__model.set_path(work_dir_path__, self.__wakachi.output.path, model_dir_path)
 
     @staticmethod
     def __create_filepath_list(read_dir_path_: str, extension_: str, is_add_test=False) -> list:
@@ -93,7 +93,7 @@ class Imporwords(AbcBase):
 
     def generate_imporwords(self, threshold_tfidf=0.1, threshold_model=0.11):
         """重要単語を生成"""
-        self.__wakachi.generate_all(is_simple_=True, is_force=False)
+        self.__wakachi.generate_all(is_force=False)
         self.__model.create_models_word_vector()
         self.__tfidf.generate_tfidf()
         self.calc_similarity(threshold_tfidf, threshold_model)
