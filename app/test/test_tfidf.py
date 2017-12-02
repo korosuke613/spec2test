@@ -31,10 +31,7 @@ def setup_file():
 
 @pytest.fixture()
 def tfidf(setup_file):
-    _ = Tfidf()
-    _.work_dir_path = "./"
-    _.input_dir_path = PATH_FILE
-    _.output_dir_path = PATH_RESOURSE
+    _ = Tfidf(PATH_FILE, PATH_RESOURSE)
     yield _
 
 
@@ -42,13 +39,7 @@ def test_instance_able(tfidf):
     assert isinstance(tfidf, Tfidf)
 
 
-def test_create_file_list(tfidf):
-    file_list = tfidf._Tfidf__create_wakachi_list()
-    assert isinstance(file_list, list)
-    assert true_file_list() == file_list
-
-
 def test_generate_tfidf(tfidf):
     tfidf.generate_tfidf()
-    assert os.path.isfile("./" + PATH_RESOURSE + "ラブクラフト.txt.tfidf")
-    assert os.path.isfile("./" + PATH_RESOURSE + "走れメロス.txt.tfidf")
+    assert os.path.isfile("./" + PATH_RESOURSE + "ラブクラフト.tfidf")
+    assert os.path.isfile("./" + PATH_RESOURSE + "走れメロス.tfidf")

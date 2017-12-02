@@ -8,7 +8,7 @@ class Wakachi(AbcBase):
     """分かち分けに関するクラス"""
     def __init__(self,
                  input_path="./resource/file/",
-                 output_path="./reource/wakachi/"):
+                 output_path="./resource/wakachi/"):
         super().__init__(input_path, output_path, ".txt", ".wakachi")
         self.hinshi_list = ['名詞', '形容詞', '動詞', '記号', '助詞', '助動詞', '接続詞', '副詞', '接頭詞']
         self.hinshi_kind = set()
