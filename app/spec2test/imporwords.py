@@ -4,10 +4,10 @@ from gensim.models import word2vec
 from .tfidf import Tfidf
 from .model import Model
 from .wakachi_meishi import WakachiMeishi
-from .abcbase import AbcBase
+from .iomanager import IOManager
 
 
-class Imporwords(AbcBase):
+class Imporwords(IOManager):
     """重要単語リストクラス"""
 
     def __init__(self,

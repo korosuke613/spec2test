@@ -1,11 +1,11 @@
 """分かち分け文書生成器"""
 import os
 import MeCab
-from .abcbase import AbcBase
+from .iomanager import IOManager
 from .file import File
 
 
-class Wakachi(AbcBase):
+class Wakachi(IOManager):
     """分かち書きに関するクラス"""
     def __init__(self,
                  input_path="./resource/file/",

@@ -1,10 +1,10 @@
 """TFIDF計算器"""
 import csv
 from sklearn.feature_extraction.text import TfidfVectorizer
-from .abcbase import AbcBase
+from .iomanager import IOManager
 
 
-class Tfidf(AbcBase):
+class Tfidf(IOManager):
     """TFIDFに関するクラス"""
     def __init__(self,
                  input_path="./resource/wakachi/",

@@ -1,9 +1,9 @@
 """単語ベクトル生成器"""
 from gensim.models import word2vec
-from .abcbase import AbcBase
+from .iomanager import IOManager
 
 
-class Model(AbcBase):
+class Model(IOManager):
     """モデルに関するクラス"""
     def __init__(self,
                  input_path="./resource/wakachi/",

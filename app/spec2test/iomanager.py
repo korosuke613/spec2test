@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 from .directory import Directory
 
 
-class AbcBase(ABC):
+class IOManager(ABC):
     """抽象基底クラス"""
     def __init__(self,
                  input_dir_path_,
