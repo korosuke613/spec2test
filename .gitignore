@@ -5,9 +5,9 @@ PTB/
 .idea/
 .vscode/
 uml/
-latex/
 docs/
 model_iter_*
+*.model
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
