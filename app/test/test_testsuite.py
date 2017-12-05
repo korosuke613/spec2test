@@ -3,8 +3,9 @@ import shutil
 import pytest
 from spec2test import WakachiMeishi, Imporwords, Tfidf, Model, TestSuite
 
-PATH_FILE = "test_file"
-PATH_RESOURCE = "test_resource/imporwords/"
+PATH_FILE = "test_file/"
+PATH_FILE_LEARN = PATH_FILE + "learn/"
+PATH_RESOURCE = "test_resource/testsuite/"
 
 
 @pytest.fixture()
@@ -21,7 +22,8 @@ def testsuite(setup_file):
     model = Model(input_path=PATH_FILE, output_path=PATH_FILE)
     tfidf = Tfidf(input_path=PATH_FILE, output_path=PATH_FILE)
     imporwords = Imporwords(output_path=PATH_FILE, wakachi_=wakachi, model_=model, tfidf_=tfidf)
-    _ = TestSuite(PATH_RESOURCE,
+    _ = TestSuite(input_path=PATH_FILE_LEARN,
+                  output_path=PATH_RESOURCE,
                   model_=model,
                   tfidf_=tfidf,
                   imporwords_=imporwords)
@@ -30,3 +32,7 @@ def testsuite(setup_file):
 
 def test_instance_able(testsuite):
     assert isinstance(testsuite, TestSuite)
+
+
+def test_load_vocabularies(testsuite):
+    testsuite.load_vocabularies()

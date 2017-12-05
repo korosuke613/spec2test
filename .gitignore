@@ -1,9 +1,5 @@
 # user
-file/
 resource/
-test.txt
-valid.txt
-train.txt
 test_resource/
 PTB/
 .idea/
