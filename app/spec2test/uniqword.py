@@ -21,15 +21,14 @@ def gen(input_path, output_path):
 
 
 def gen_simple(file, input_path, output_path):
-    with open(input_path + file, "r", encoding="utf_8_sig") as f:
+    with open(input_path + file, "r", encoding="utf_8_sig") as input_f:
         word_list = []
-        for row in f:
+        for row in input_f:
             word_list.extend(row.split())
         sorted_array2d = set(word_list)
-        file_name = input_path + file
-        with open(output_path + file + ".uniq.csv", "w", encoding="utf_8_sig") as f:
+        with open(output_path + file + ".uniq.csv", "w", encoding="utf_8_sig") as output_f:
             for word in sorted_array2d:
-                f.write(word + "\n")
+                output_f.write(word + "\n")
 
 
 if __name__ == "__main__":

@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """分かち分け文書生成器"""
 import os
 import MeCab
@@ -26,8 +28,10 @@ class Wakachi(IOManager):
                 continue
             self.generate(file, is_set_kind=True)
 
-    def generate(self, file: File, is_set_kind: bool=False):
+    def generate(self, file: File=None, is_set_kind: bool=False):
         """あるテキストを分かち書きする"""
+        if file is None:
+            raise IndexError
         self.__open_text(file)
         self.__line_split(is_set_kind)
         self.__write(file)
