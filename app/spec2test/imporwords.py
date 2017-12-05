@@ -4,10 +4,10 @@ from gensim.models import word2vec
 from .tfidf import Tfidf
 from .model import Model
 from .wakachi_meishi import WakachiMeishi
-from .abcbase import AbcBase
+from .iomanager import IOManager
 
 
-class Imporwords(AbcBase):
+class Imporwords(IOManager):
     """重要単語リストクラス"""
 
     def __init__(self,
@@ -75,18 +75,18 @@ class Imporwords(AbcBase):
                                             csv_file_path, 
                                             important_words.items())
 
-    def generate_imporwords(self, threshold_tfidf=0.1, threshold_model=0.11):
+    def generate(self, threshold_tfidf=0.1, threshold_model=0.11):
         """重要単語を生成"""
         self.__wakachi.generate_all(is_force=False)
-        self.__model.create_models_word_vector()
-        self.__tfidf.generate_tfidf()
+        self.__model.generate()
+        self.__tfidf.generate()
         self.calc_similarity(threshold_tfidf, threshold_model)
 
 
 def main():
     """使用例"""
     imporwords = Imporwords(imporwords_dir_path_="./resource/imporwords/")
-    imporwords.generate_imporwords()
+    imporwords.generate()
 
 
 if __name__ == "__main__":

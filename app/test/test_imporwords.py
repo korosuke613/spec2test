@@ -49,7 +49,7 @@ def test_instance_able(imporwords):
 
 
 def test_generate_imporwords(imporwords):
-    imporwords.generate_imporwords()
+    imporwords.generate()
     assert os.path.isfile("./" + PATH_RESOURCE + "ラブクラフト.imporword.csv")
     assert os.path.isfile("./" + PATH_RESOURCE + "走れメロス.imporword.csv")
     pass

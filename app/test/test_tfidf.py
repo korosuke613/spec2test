@@ -40,6 +40,6 @@ def test_instance_able(tfidf):
 
 
 def test_generate_tfidf(tfidf):
-    tfidf.generate_tfidf()
+    tfidf.generate()
     assert os.path.isfile("./" + PATH_RESOURSE + "ラブクラフト.tfidf")
     assert os.path.isfile("./" + PATH_RESOURSE + "走れメロス.tfidf")

@@ -1,10 +1,10 @@
 """TFIDF計算器"""
 import csv
 from sklearn.feature_extraction.text import TfidfVectorizer
-from .abcbase import AbcBase
+from .iomanager import IOManager
 
 
-class Tfidf(AbcBase):
+class Tfidf(IOManager):
     """TFIDFに関するクラス"""
     def __init__(self,
                  input_path="./resource/wakachi/",
@@ -18,7 +18,7 @@ class Tfidf(AbcBase):
             writer = csv.writer(f, lineterminator='\n')
             writer.writerows(array2d)
 
-    def generate_tfidf(self, is_save=True):
+    def generate(self, is_save=True):
         """TF-IDFを計算する"""
         wakachi_files = self.input.get_file_path_list(is_add_test_=False)
         wakachi_file_list = [self.input.path + file.full_name for file in wakachi_files]
@@ -40,7 +40,7 @@ class Tfidf(AbcBase):
 def main():
     """使用例"""
     tfidf = Tfidf()
-    tfidf.generate_tfidf()
+    tfidf.generate()
 
 
 if __name__ == "__main__":
