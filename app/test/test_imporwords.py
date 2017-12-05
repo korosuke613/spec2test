@@ -5,9 +5,6 @@ from spec2test import WakachiMeishi, Imporwords, Tfidf, Model
 
 PATH_FILE = "test_file/"
 PATH_RESOURCE = "test_resource/imporwords/"
-EXTENSION_WAKACHI = ".meishi.wakachi"
-EXTENSION_TFIDF = ".tfidf"
-EXTENSION_MODEL = ".model"
 
 
 def true_file_list(extension_):
@@ -52,4 +49,3 @@ def test_generate_imporwords(imporwords):
     imporwords.generate()
     assert os.path.isfile("./" + PATH_RESOURCE + "ラブクラフト.imporword.csv")
     assert os.path.isfile("./" + PATH_RESOURCE + "走れメロス.imporword.csv")
-    pass
