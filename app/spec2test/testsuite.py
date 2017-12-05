@@ -1,4 +1,6 @@
 import chainer
+import chainer.links as L
+from chainer import serializers
 import numpy as np
 
 from .iomanager import IOManager
@@ -6,6 +8,7 @@ from .model import Model
 from .tfidf import Tfidf
 from .wakachi import Wakachi
 from .imporwords import Imporwords
+from .trainptb import RNNForLM
 
 
 class TestSuite(IOManager):
@@ -14,7 +17,9 @@ class TestSuite(IOManager):
                  output_path="./resource/testcase/",
                  model_=None,
                  tfidf_=None,
-                 imporwords_=None):
+                 imporwords_=None,
+                 learn_result_=None,
+                 units_=None):
         if model_ is None:
             model_ = Model()
         if tfidf_ is None:
@@ -28,6 +33,9 @@ class TestSuite(IOManager):
         self.vocab = {}
         self.vocab_n = 0
         self.vocab_i = {}
+        self.units = units_
+        self.learn_model = None
+        self.learn_result = learn_result_
         chainer.config.train = False  # 学習中ではないことを明示
 
     def load_vocabulary(self, file):
@@ -49,6 +57,13 @@ class TestSuite(IOManager):
                             ]
         for file in vocabulary_files:
             self.load_vocabulary(file)
+        for c, i in self.vocab.items():
+            self.vocab_i[i] = c
+
+    def load_model(self):
+        self.learn_model = L.Classifier(RNNForLM(len(self.vocab, self.units)))
+        serializers.load_npz(self.learn_result, self.learn_model)
+        self.learn_model.predictor.reset_state()
 
     def generate(self):
         pass
