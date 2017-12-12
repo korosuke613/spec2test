@@ -77,9 +77,6 @@ class Imporwords(IOManager):
 
     def generate(self, threshold_tfidf=0.1, threshold_model=0.11):
         """重要単語を生成"""
-        self.__wakachi.generate_all(is_force=False)
-        self.__model.generate()
-        self.__tfidf.generate()
         self.calc_similarity(threshold_tfidf, threshold_model)
 
 
