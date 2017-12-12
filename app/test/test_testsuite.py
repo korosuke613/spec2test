@@ -27,8 +27,8 @@ def testsuite(setup_file):
                   model_=model,
                   tfidf_=tfidf,
                   imporwords_=imporwords,
-                  units_=100,
-                  learn_result_="./test_file/model_iter_405")
+                  units_=500,
+                  learn_result_="./test_file/model_iter_1296")
     yield _
 
 
