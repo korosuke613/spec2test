@@ -29,7 +29,7 @@ class Directory:
 
     def get_file_path(self, file_name: str)-> str:
         """あるファイルのファイルパスを返す"""
-        return self.file_dict[file_name].full_name
+        return self.path + self.file_dict[file_name].full_name
 
     def get_file_path_list(self, is_add_test_: bool=True) -> list:
         """ディレクトリ内の全てのファイルのファイルパスを返す"""
