@@ -3,7 +3,7 @@ import pytest
 import shutil
 from spec2test import WakachiMeishi
 
-PATH_FILE = "test_file/"
+PATH_FILE = "test_file/txt/"
 PATH_RESOURSE = "test_resource/wakachi/"
 
 

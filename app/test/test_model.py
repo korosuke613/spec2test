@@ -3,7 +3,7 @@ import shutil
 import pytest
 from spec2test import Model
 
-PATH_FILE = "test_file/"
+PATH_FILE = "test_file/wakachi/"
 PATH_RESOURSE = "test_resource/model/"
 
 

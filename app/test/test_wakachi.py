@@ -4,7 +4,7 @@ import shutil
 from spec2test import Wakachi
 from spec2test import File
 
-PATH_FILE = "test_file/"
+PATH_FILE = "test_file/txt/"
 PATH_RESOURSE = "test_resource/wakachi/"
 
 
