@@ -71,8 +71,8 @@ class Imporwords(IOManager):
                         important_words[word] = float(important_words[word]) + float(num)
                     else:
                         important_words[word] = float(num)
-            self.__create_new_csv_imporword(".imporword.csv", 
-                                            csv_file_path, 
+            self.__create_new_csv_imporword(".imporword.csv",
+                                            csv_file_path,
                                             important_words.items())
 
     def generate(self, threshold_tfidf=0.1, threshold_model=0.11):
@@ -84,9 +84,11 @@ class Imporwords(IOManager):
 
 
 def main():
-    """使用例"""
+    """使用例
     imporwords = Imporwords(imporwords_dir_path_="./resource/imporwords/")
     imporwords.generate()
+    """
+    pass
 
 
 if __name__ == "__main__":
