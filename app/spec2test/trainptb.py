@@ -201,7 +201,7 @@ def main():
 
     def load_data(filename):
         global vocab, n_vocab
-        words = open(filename, encoding="utf-8").read().replace('\n', ' ').strip().split()
+        words = open(filename, encoding="utf-8-sig").read().replace('\n', ' ').strip().split()
         dataset = np.ndarray((len(words),), dtype=np.int32)
         for i, word in enumerate(words):
             if word not in vocab:

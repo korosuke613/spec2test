@@ -8,6 +8,7 @@ uml/
 docs/
 model_iter_*
 *.model
+result/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

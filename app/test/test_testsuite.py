@@ -4,7 +4,7 @@ import pytest
 from spec2test import WakachiMeishi, Imporwords, Tfidf, Model, TestSuite
 
 PATH_FILE = "test_file/"
-PATH_FILE_LEARN = PATH_FILE + "learn/"
+PATH_FILE_LEARN = PATH_FILE
 PATH_RESOURCE = "test_resource/testsuite/"
 
 
@@ -26,7 +26,9 @@ def testsuite(setup_file):
                   output_path=PATH_RESOURCE,
                   model_=model,
                   tfidf_=tfidf,
-                  imporwords_=imporwords)
+                  imporwords_=imporwords,
+                  units_=100,
+                  learn_result_="./test_file/model_iter_405")
     yield _
 
 
@@ -36,3 +38,8 @@ def test_instance_able(testsuite):
 
 def test_load_vocabularies(testsuite):
     testsuite.load_vocabularies()
+    assert len(testsuite.vocab_i) > 2000
+
+
+def test_generate(testsuite):
+    testsuite.generate()

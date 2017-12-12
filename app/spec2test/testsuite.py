@@ -1,6 +1,9 @@
 import chainer
 import chainer.links as L
-from chainer import serializers
+import chainer.functions as F
+
+import six
+from chainer import serializers, cuda
 import numpy as np
 
 from .iomanager import IOManager
@@ -36,13 +39,15 @@ class TestSuite(IOManager):
         self.units = units_
         self.learn_model = None
         self.learn_result = learn_result_
+        self.length = 50
+        np.random.seed(np.random.randint(1, 1000))
         chainer.config.train = False  # 学習中ではないことを明示
 
     def load_vocabulary(self, file):
         wakachi = Wakachi(self.input.path, self.output.path)
         wakachi.generate(file)
-        file_path = self.input.path + file.name + wakachi.output.default_extension
-        words = open(file_path, encoding="utf-8").read().replace('\n', ' ').strip().split()
+        file_path = self.input.path + file.full_name
+        words = open(file_path, encoding="utf-8-sig").read().replace('\n', ' ').strip().split()
         dataset = np.ndarray((len(words),), dtype=np.int32)
         for i, word in enumerate(words):
             if word not in self.vocab:
@@ -61,9 +66,40 @@ class TestSuite(IOManager):
             self.vocab_i[i] = c
 
     def load_model(self):
-        self.learn_model = L.Classifier(RNNForLM(len(self.vocab, self.units)))
+        self.learn_model = L.Classifier(RNNForLM(len(self.vocab), self.units))
         serializers.load_npz(self.learn_result, self.learn_model)
         self.learn_model.predictor.reset_state()
 
+    def set_prime_text(self, prime_text):
+        if isinstance(prime_text, six.binary_type):
+            prime_text = prime_text.decode('utf-8-sig')
+        if prime_text in self.vocab:
+            prev_word = chainer.Variable(np.array([self.vocab[prime_text]], np.int32))
+            return prev_word
+        else:
+            print('ERROR: Unfortunately ' + prime_text + ' is unknown.')
+            exit()
+
+    def print_testcase(self, prev_word, prime_text):
+        F.softmax(self.learn_model.predictor(prev_word))
+        print(prime_text, end=" ")
+        for _ in six.moves.range(self.length):
+            prob = F.softmax(self.learn_model.predictor(prev_word))
+            if 1 > 0:
+                probability = cuda.to_cpu(prob.data)[0].astype(np.float64)
+                probability /= np.sum(probability)
+                index = np.random.choice(range(len(probability)), p=probability)
+            else:
+                index = np.argmax(cuda.to_cpu(prob.data))
+
+            if self.vocab_i[index] == '<eos>':
+                print('.')
+            else:
+                print(self.vocab_i[index], end=" ")
+
+            prev_word = chainer.Variable(np.array([index], dtype=np.int32))
+
     def generate(self):
-        pass
+        self.load_vocabularies()
+        self.load_model()
+        self.print_testcase(self.set_prime_text("メロス"), "メロス")
