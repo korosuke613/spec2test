@@ -99,7 +99,7 @@ class TestSuite(IOManager):
 
             prev_word = chainer.Variable(np.array([index], dtype=np.int32))
 
-    def generate(self):
+    def generate(self, prime_text=None):
         self.load_vocabularies()
         self.load_model()
-        self.print_testcase(self.set_prime_text("メロス"), "メロス")
+        self.print_testcase(self.set_prime_text(prime_text), prime_text)
