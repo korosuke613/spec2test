@@ -27,8 +27,8 @@ def testsuite(setup_file):
                   model_=model,
                   tfidf_=tfidf,
                   imporwords_=imporwords,
-                  units_=1,
-                  learn_result_="./test_file/model_iter_556")
+                  units_=20,
+                  learn_result_="./test_file/model_iter_11120")
     yield _
 
 
@@ -42,4 +42,5 @@ def test_load_vocabularies(testsuite):
 
 
 def test_generate(testsuite):
-    testsuite.generate("メロス")
+    for _ in range(10):
+        testsuite.generate("蒲団")

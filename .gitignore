@@ -7,6 +7,7 @@ PTB/
 uml/
 docs/
 result/
+extracted/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

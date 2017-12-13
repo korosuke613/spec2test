@@ -35,7 +35,6 @@ class Wakachi(IOManager):
         self.__open_text(file)
         self.__line_split(is_set_kind)
         self.__write(file)
-        print("create " + file.name + self.output.default_extension)
 
     def __open_text(self, file: File):
         """テキストを開く"""

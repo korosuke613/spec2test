@@ -82,7 +82,7 @@ class TestSuite(IOManager):
 
     def print_testcase(self, prev_word, prime_text):
         F.softmax(self.learn_model.predictor(prev_word))
-        print(prime_text, end=" ")
+        print(prime_text, end="")
         for _ in six.moves.range(self.length):
             prob = F.softmax(self.learn_model.predictor(prev_word))
             if 1 > 0:
@@ -95,7 +95,7 @@ class TestSuite(IOManager):
             if self.vocab_i[index] == '<eos>':
                 print('.')
             else:
-                print(self.vocab_i[index], end=" ")
+                print(self.vocab_i[index], end="")
 
             prev_word = chainer.Variable(np.array([index], dtype=np.int32))
 
@@ -103,3 +103,4 @@ class TestSuite(IOManager):
         self.load_vocabularies()
         self.load_model()
         self.print_testcase(self.set_prime_text(prime_text), prime_text)
+        print()
