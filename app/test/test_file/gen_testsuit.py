@@ -1,7 +1,4 @@
-import os
-import shutil
-import pytest
-from spec2test import WakachiMeishi, Imporwords, Tfidf, Model, TestSuite
+from spec2test import TestSuite
 
 
 def main():

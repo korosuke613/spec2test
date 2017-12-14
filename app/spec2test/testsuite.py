@@ -1,23 +1,21 @@
 import chainer
 import chainer.links as L
 import chainer.functions as F
+import csv
 
 import six
 from chainer import serializers, cuda
 import numpy as np
 
 from .iomanager import IOManager
-from .model import Model
-from .tfidf import Tfidf
-from .wakachi import Wakachi
-from .imporwords import Imporwords
+from .directory import Directory
 from .trainptb import RNNForLM
 
 
 class TestSuite(IOManager):
     def __init__(self,
-                 input_path="./resource/file/",
-                 output_path="./resource/testcase/",
+                 input_path="./resource/",
+                 output_path="./resource/testsuite/",
                  learn_result_=None,
                  units_=None):
         super().__init__(input_path, output_path, ".txt", ".testsuite.csv")
@@ -28,6 +26,8 @@ class TestSuite(IOManager):
         self.learn_model = None
         self.learn_result = learn_result_
         self.length = 50
+        self.imporwords = Directory(self.input.path + "imporwords/", ".imporword.csv")
+        self.imporwords.import_files()
         np.random.seed(np.random.randint(1, 1000))
         chainer.config.train = False  # 学習中ではないことを明示
 
@@ -51,9 +51,37 @@ class TestSuite(IOManager):
         for c, i in self.vocab.items():
             self.vocab_i[i] = c
 
+    def load_imporwords(self):
+        files = self.imporwords.get_file_path_list()
+        for file in files:
+            imporword = self.imporwords.path + file.full_name
+            with open(imporword, "r", encoding="utf_8_sig") as f:
+                csv_file = csv.reader(f)
+                imporword_list = [row for row in csv_file]
+            yield file.name, imporword_list
+
+    def create_csv(self, filename, testsuite):
+        filename += self.output.default_extension
+        filepath = self.output.path + filename
+        with open(filepath, "w", encoding="utf-8-sig") as file:
+            writer = csv.writer(file, lineterminator='\n')
+            for testcase in testsuite:
+                testcase = [testcase,]
+                writer.writerow(testcase)
+
+    def create_testsuite(self, imporword_list):
+        testsuite = []
+        for imporword in imporword_list:
+            try:
+                testcase = self.gen_testcase(imporword)
+            except ValueError:
+                testcase = imporword + " is not vocabulary."
+            testsuite.append(testcase)
+        return testsuite
+
     def load_model(self):
         self.learn_model = L.Classifier(RNNForLM(len(self.vocab), self.units))
-        serializers.load_npz(self.learn_result, self.learn_model)
+        serializers.load_npz(self.input.path+self.learn_result, self.learn_model)
         self.learn_model.predictor.reset_state()
 
     def gen_testcase(self, prime_text):
@@ -65,12 +93,11 @@ class TestSuite(IOManager):
                 prev_word = chainer.Variable(np.array([self.vocab[prime_text]], np.int32))
                 return prev_word
             else:
-                print('ERROR: Unfortunately ' + prime_text + ' is unknown.')
-                exit()
+                raise ValueError
 
         prev_word = set_prime_text()
         F.softmax(self.learn_model.predictor(prev_word))
-        testcase = prime_text
+        testcase = prime_text + " "
         for _ in six.moves.range(self.length):
             prob = F.softmax(self.learn_model.predictor(prev_word))
             if 1 > 0:
@@ -83,8 +110,7 @@ class TestSuite(IOManager):
             if self.vocab_i[index] == '<eos>':
                 testcase += '.'
             else:
-                testcase += self.vocab_i[index]
-
+                testcase += self.vocab_i[index] + " "
             prev_word = chainer.Variable(np.array([index], dtype=np.int32))
         return testcase
 
