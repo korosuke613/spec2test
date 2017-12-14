@@ -257,9 +257,9 @@ def main():
     ), trigger=(interval, 'iteration'))
     trainer.extend(extensions.ProgressBar(
         update_interval=1 if args.test else 10))
-    trainer.extend(extensions.snapshot())
+    trainer.extend(extensions.snapshot(filename="snapshot_iter_u"+str(args.unit)+"_e"+str(args.epoch)+"_{.updater.iteration}"))
     trainer.extend(extensions.snapshot_object(
-        model, 'model_iter_{.updater.iteration}'))
+        model, 'model_iter_u'+str(args.unit)+"_e"+str(args.epoch)+'_{.updater.iteration}'))
     if args.resume:
         chainer.serializers.load_npz(args.resume, trainer)
 
