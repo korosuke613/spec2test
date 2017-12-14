@@ -2,6 +2,7 @@ language: python
 
 sudo: false
 dist: trusty
+group: deprecated-2017Q4
 
 python:
   - "3.6"
