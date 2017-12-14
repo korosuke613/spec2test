@@ -8,6 +8,7 @@ uml/
 docs/
 result/
 extracted/
+model.npz
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
