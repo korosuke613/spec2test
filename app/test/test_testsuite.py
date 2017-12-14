@@ -18,17 +18,10 @@ def setup_file():
 
 @pytest.fixture()
 def testsuite(setup_file):
-    wakachi = WakachiMeishi(input_path=PATH_FILE, output_path=PATH_FILE)
-    model = Model(input_path=PATH_FILE, output_path=PATH_FILE)
-    tfidf = Tfidf(input_path=PATH_FILE, output_path=PATH_FILE)
-    imporwords = Imporwords(output_path=PATH_FILE, wakachi_=wakachi, model_=model, tfidf_=tfidf)
     _ = TestSuite(input_path=PATH_FILE_LEARN,
                   output_path=PATH_RESOURCE,
-                  model_=model,
-                  tfidf_=tfidf,
-                  imporwords_=imporwords,
-                  units_=20,
-                  learn_result_="./test_file/model_iter_11120")
+                  units_=10,
+                  learn_result_="./test_file/model_iter_72306")
     yield _
 
 
