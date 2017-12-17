@@ -77,7 +77,7 @@ class TestSuite(IOManager):
                 judge = Judge()
                 score = judge.compare_testcase(imporword, testcase_)
                 if score > 0.1:
-                    print("score={0}, testcase={1}", score, testcase_)
+                    print("score={0}, testcase={1}".format(score, testcase_))
                     break
                 np.random.seed(np.random.randint(1, 1000))
             return testcase_
