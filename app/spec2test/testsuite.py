@@ -12,6 +12,7 @@ from .directory import Directory
 from .trainptb import RNNForLM
 from .judge import Judge
 
+
 class TestSuite(IOManager):
     def __init__(self,
                  input_path="./resource/",

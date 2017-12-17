@@ -40,7 +40,7 @@ def test_create_csv(testsuite):
     assert os.path.isfile(PATH_RESOURCE + "testes.testsuite.csv")
 
 
-def test_load_imporwords(testsuite):
+def load_imporwords(testsuite):
     testsuite.load_vocabularies()
     testsuite.load_model()
     generater = testsuite.load_imporwords()
