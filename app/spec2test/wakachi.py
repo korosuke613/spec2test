@@ -65,7 +65,7 @@ class Wakachi(IOManager):
         """テキストを行ごとに分ける"""
         def set_stop_word(_line):
             """ストップワードの除去"""
-            stop_words = ['\\u', '。', '、', '.', '0xe0', '「', '」']
+            stop_words = ['\\u', '。', '、', ',', '.', '0xe0', '「', '」']
             for _word in stop_words:
                 _line = _line.replace(_word, '')
             return _line
