@@ -10,7 +10,7 @@ import numpy as np
 from .iomanager import IOManager
 from .directory import Directory
 from .trainptb import RNNForLM
-
+from .judge import Judge
 
 class TestSuite(IOManager):
     def __init__(self,
@@ -70,10 +70,22 @@ class TestSuite(IOManager):
                 writer.writerow(testcase)
 
     def create_testsuite(self, imporword_list):
+        def decide_testcase():
+            testcase_ = None
+            for _ in range(10):
+                testcase_ = self.gen_testcase(imporword)
+                judge = Judge()
+                score = judge.compare_testcase(imporword, testcase_)
+                if score > 0.1:
+                    print("score={0}, testcase={1}", score, testcase_)
+                    break
+                np.random.seed(np.random.randint(1, 1000))
+            return testcase_
+
         testsuite = []
         for imporword in imporword_list:
             try:
-                testcase = self.gen_testcase(imporword)
+                testcase = decide_testcase()
             except ValueError:
                 testcase = imporword + " is not vocabulary."
             testsuite.append(testcase)
