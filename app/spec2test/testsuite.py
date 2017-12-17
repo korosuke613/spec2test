@@ -66,7 +66,7 @@ class TestSuite(IOManager):
         with open(filepath, "w", encoding="utf-8-sig") as file:
             writer = csv.writer(file, lineterminator='\n')
             for testcase in testsuite:
-                testcase = [testcase,]
+                testcase = [testcase, ]
                 writer.writerow(testcase)
 
     def create_testsuite(self, imporword_list):
