@@ -36,7 +36,8 @@ def test_load_vocabularies(testsuite):
 
 def test_create_csv(testsuite):
     fff = [1, 2, 3]
-    testsuite.create_csv("testes", fff)
+    score = [0.1, 0.2, 0.3]
+    testsuite.create_csv("testes", fff, score)
     assert os.path.isfile(PATH_RESOURCE + "testes.testsuite.csv")
 
 
