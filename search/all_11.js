@@ -1,7 +1,20 @@
 var searchData=
 [
-  ['wakachi',['Wakachi',['../classspec2test_1_1wakachi_1_1_wakachi.html',1,'spec2test::wakachi']]],
-  ['wakachi_2epy',['wakachi.py',['../wakachi_8py.html',1,'']]],
-  ['wakachi_5fmeishi_2epy',['wakachi_meishi.py',['../wakachi__meishi_8py.html',1,'']]],
-  ['wakachimeishi',['WakachiMeishi',['../classspec2test_1_1wakachi__meishi_1_1_wakachi_meishi.html',1,'spec2test::wakachi_meishi']]]
+  ['directory',['directory',['../namespacespec2test_1_1directory.html',1,'spec2test']]],
+  ['file',['file',['../namespacespec2test_1_1file.html',1,'spec2test']]],
+  ['imporwords',['imporwords',['../namespacespec2test_1_1imporwords.html',1,'spec2test']]],
+  ['iomanager',['iomanager',['../namespacespec2test_1_1iomanager.html',1,'spec2test']]],
+  ['judge',['judge',['../namespacespec2test_1_1judge.html',1,'spec2test']]],
+  ['model',['model',['../namespacespec2test_1_1model.html',1,'spec2test']]],
+  ['score',['score',['../namespacespec2test_1_1judge.html#a9fa1482cd696e2f0c104e04a9d46a29d',1,'spec2test::judge']]],
+  ['serialize',['serialize',['../classspec2test_1_1trainptb_1_1_parallel_sequential_iterator.html#a4b6e1129bebef7e6f07ef17d4b077110',1,'spec2test::trainptb::ParallelSequentialIterator']]],
+  ['set_5fmax_5fscore',['set_max_score',['../classspec2test_1_1judge_1_1_judge.html#a44e3ac4ac24b9fe392d79a95573edc4a',1,'spec2test::judge::Judge']]],
+  ['spec2test',['spec2test',['../namespacespec2test.html',1,'']]],
+  ['string',['string',['../namespacespec2test_1_1judge.html#aa155970f5deeb5cb509ed1313e8dfdfa',1,'spec2test::judge']]],
+  ['testsuite',['testsuite',['../namespacespec2test_1_1testsuite.html',1,'spec2test']]],
+  ['tfidf',['tfidf',['../namespacespec2test_1_1tfidf.html',1,'spec2test']]],
+  ['trainptb',['trainptb',['../namespacespec2test_1_1trainptb.html',1,'spec2test']]],
+  ['uniqword',['uniqword',['../namespacespec2test_1_1uniqword.html',1,'spec2test']]],
+  ['wakachi',['wakachi',['../namespacespec2test_1_1wakachi.html',1,'spec2test']]],
+  ['wakachi_5fmeishi',['wakachi_meishi',['../namespacespec2test_1_1wakachi__meishi.html',1,'spec2test']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['imporwords_2epy',['imporwords.py',['../imporwords_8py.html',1,'']]]
+  ['judge_2epy',['judge.py',['../judge_8py.html',1,'']]]
 ];

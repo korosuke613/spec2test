@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Spec2Test: iomanager.py ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Spec2Test
+   &#160;<span id="projectnumber">0.0.2</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d422163b96683743ed3963d4aac17747.html">app</a></li><li class="navelem"><a class="el" href="dir_92960229aed36dd9c583205de39ddf6f.html">spec2test</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">iomanager.py</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="iomanager_8py.html">[詳解]</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="namespacespec2test_1_1iomanager.html">    1</a></span>&#160;<span class="keyword">from</span> abc <span class="keyword">import</span> ABC, abstractmethod</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="keyword">from</span> .directory <span class="keyword">import</span> Directory</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="classspec2test_1_1iomanager_1_1_i_o_manager.html">    5</a></span>&#160;<span class="keyword">class </span><a class="code" href="classspec2test_1_1iomanager_1_1_i_o_manager.html">IOManager</a>(ABC):</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <span class="stringliteral">&quot;&quot;&quot;抽象基底クラス&quot;&quot;&quot;</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keyword">def </span><a class="code" href="classspec2test_1_1iomanager_1_1_i_o_manager.html#afd97a2366815927083430e389e85c690">__init__</a>(self,</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;                 input_dir_path_,</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;                 output_dir_path_,</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;                 input_extension_,</div><div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classspec2test_1_1iomanager_1_1_i_o_manager.html#afd97a2366815927083430e389e85c690">   11</a></span>&#160;                 output_extension_):</div><div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classspec2test_1_1iomanager_1_1_i_o_manager.html#a877535c3b6ffdf230bce90c82c597d17">   12</a></span>&#160;        self.<a class="code" href="classspec2test_1_1iomanager_1_1_i_o_manager.html#a877535c3b6ffdf230bce90c82c597d17">input</a> = <a class="code" href="classspec2test_1_1directory_1_1_directory.html">Directory</a>(input_dir_path_, input_extension_)</div><div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classspec2test_1_1iomanager_1_1_i_o_manager.html#ad288825273ed7192429ab0474fb2d4a0">   13</a></span>&#160;        self.<a class="code" href="classspec2test_1_1iomanager_1_1_i_o_manager.html#ad288825273ed7192429ab0474fb2d4a0">output</a> = <a class="code" href="classspec2test_1_1directory_1_1_directory.html">Directory</a>(output_dir_path_, output_extension_)</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        self.<a class="code" href="classspec2test_1_1iomanager_1_1_i_o_manager.html#a461616ae4a08382522c846ac4172bbd6">import_io_files</a>()</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    @abstractmethod</div><div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classspec2test_1_1iomanager_1_1_i_o_manager.html#a877bb23781277bf920e2b7e609346b7e">   17</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classspec2test_1_1iomanager_1_1_i_o_manager.html#a877bb23781277bf920e2b7e609346b7e">generate</a>(self):</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordflow">pass</span></div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div><div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classspec2test_1_1iomanager_1_1_i_o_manager.html#a461616ae4a08382522c846ac4172bbd6">   20</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classspec2test_1_1iomanager_1_1_i_o_manager.html#a461616ae4a08382522c846ac4172bbd6">import_io_files</a>(self):</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;ディレクトリにファイルを登録する&quot;&quot;&quot;</span></div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        self.input.import_files()</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        self.output.import_files()</div><div class="ttc" id="classspec2test_1_1iomanager_1_1_i_o_manager_html"><div class="ttname"><a href="classspec2test_1_1iomanager_1_1_i_o_manager.html">spec2test.iomanager.IOManager</a></div><div class="ttdef"><b>Definition:</b> <a href="iomanager_8py_source.html#l00005">iomanager.py:5</a></div></div>
+<div class="ttc" id="classspec2test_1_1iomanager_1_1_i_o_manager_html_afd97a2366815927083430e389e85c690"><div class="ttname"><a href="classspec2test_1_1iomanager_1_1_i_o_manager.html#afd97a2366815927083430e389e85c690">spec2test.iomanager.IOManager.__init__</a></div><div class="ttdeci">def __init__(self, input_dir_path_, output_dir_path_, input_extension_, output_extension_)</div><div class="ttdef"><b>Definition:</b> <a href="iomanager_8py_source.html#l00011">iomanager.py:11</a></div></div>
+<div class="ttc" id="classspec2test_1_1iomanager_1_1_i_o_manager_html_ad288825273ed7192429ab0474fb2d4a0"><div class="ttname"><a href="classspec2test_1_1iomanager_1_1_i_o_manager.html#ad288825273ed7192429ab0474fb2d4a0">spec2test.iomanager.IOManager.output</a></div><div class="ttdeci">output</div><div class="ttdef"><b>Definition:</b> <a href="iomanager_8py_source.html#l00013">iomanager.py:13</a></div></div>
+<div class="ttc" id="classspec2test_1_1directory_1_1_directory_html"><div class="ttname"><a href="classspec2test_1_1directory_1_1_directory.html">spec2test.directory.Directory</a></div><div class="ttdef"><b>Definition:</b> <a href="directory_8py_source.html#l00005">directory.py:5</a></div></div>
+<div class="ttc" id="classspec2test_1_1iomanager_1_1_i_o_manager_html_a877bb23781277bf920e2b7e609346b7e"><div class="ttname"><a href="classspec2test_1_1iomanager_1_1_i_o_manager.html#a877bb23781277bf920e2b7e609346b7e">spec2test.iomanager.IOManager.generate</a></div><div class="ttdeci">def generate(self)</div><div class="ttdef"><b>Definition:</b> <a href="iomanager_8py_source.html#l00017">iomanager.py:17</a></div></div>
+<div class="ttc" id="classspec2test_1_1iomanager_1_1_i_o_manager_html_a877535c3b6ffdf230bce90c82c597d17"><div class="ttname"><a href="classspec2test_1_1iomanager_1_1_i_o_manager.html#a877535c3b6ffdf230bce90c82c597d17">spec2test.iomanager.IOManager.input</a></div><div class="ttdeci">input</div><div class="ttdef"><b>Definition:</b> <a href="iomanager_8py_source.html#l00012">iomanager.py:12</a></div></div>
+<div class="ttc" id="classspec2test_1_1iomanager_1_1_i_o_manager_html_a461616ae4a08382522c846ac4172bbd6"><div class="ttname"><a href="classspec2test_1_1iomanager_1_1_i_o_manager.html#a461616ae4a08382522c846ac4172bbd6">spec2test.iomanager.IOManager.import_io_files</a></div><div class="ttdeci">def import_io_files(self)</div><div class="ttdef"><b>Definition:</b> <a href="iomanager_8py_source.html#l00020">iomanager.py:20</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築: &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

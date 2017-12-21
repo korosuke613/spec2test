@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Spec2Test: IOManager クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Spec2Test
+   &#160;<span id="projectnumber">0.0.2</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacespec2test.html">spec2test</a></li><li class="navelem"><a class="el" href="namespacespec2test_1_1iomanager.html">iomanager</a></li><li class="navelem"><a class="el" href="classspec2test_1_1iomanager_1_1_i_o_manager.html">IOManager</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pub-attribs">公開変数類</a> &#124;
+<a href="classspec2test_1_1iomanager_1_1_i_o_manager-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle">
+<div class="title">IOManager クラス</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+IOManager の継承関係図</div>
+<div class="dyncontent">
+<div class="center"><img src="classspec2test_1_1iomanager_1_1_i_o_manager__inherit__graph.png" border="0" usemap="#_i_o_manager_inherit__map" alt="Inheritance graph"/></div>
+<map name="_i_o_manager_inherit__map" id="_i_o_manager_inherit__map">
+<area shape="rect" id="node3" href="classspec2test_1_1imporwords_1_1_imporwords.html" title="{Imporwords\n|&#45; __wakachi\l&#45; __model\l&#45; __tfidf\l|+ __init__()\l+ calc_similarity()\l+ generate()\l&#45; __create_new_csv_imporword()\l}" alt="" coords="5,373,216,524"/>
+<area shape="rect" id="node4" href="classspec2test_1_1model_1_1_model.html" title="{Model\n||+ __init__()\l+ generate()\l}" alt="" coords="241,403,333,495"/>
+<area shape="rect" id="node5" href="classspec2test_1_1testsuite_1_1_test_suite.html" title="{TestSuite\n|+ vocab\l+ vocab_n\l+ vocab_i\l+ units\l+ learn_model\l+ learn_result\l+ length\l+ imporwords\l|+ __init__()\l+ load_vocabulary()\l+ load_vocabularies()\l+ load_imporwords()\l+ create_csv()\l+ create_testsuite()\l+ load_model()\l+ gen_testcase()\l+ generate()\l}" alt="" coords="357,300,501,597"/>
+<area shape="rect" id="node6" href="classspec2test_1_1tfidf_1_1_tfidf.html" title="{Tfidf\n||+ __init__()\l+ generate()\l&#45; __create_csv()\l}" alt="" coords="525,395,640,502"/>
+<area shape="rect" id="node7" href="classspec2test_1_1wakachi_1_1_wakachi.html" title="{Wakachi\n|+ hinshi_list\l+ hinshi_kind\l+ text\l+ results\l+ dict_word\l|+ __init__()\l+ generate_all()\l+ generate()\l&#45; __open_text()\l&#45; __token_split()\l&#45; __line_split()\l&#45; __write()\l}" alt="" coords="664,337,779,561"/>
+<area shape="rect" id="node8" href="classspec2test_1_1wakachi__meishi_1_1_wakachi_meishi.html" title="{WakachiMeishi\n|+ hinshi_list\l|+ __init__()\l}" alt="" coords="666,645,777,723"/>
+</map>
+</div>
+<div class="dynheader">
+IOManager 連携図</div>
+<div class="dyncontent">
+<div class="center"><img src="classspec2test_1_1iomanager_1_1_i_o_manager__coll__graph.png" border="0" usemap="#_i_o_manager_coll__map" alt="Collaboration graph"/></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:afd97a2366815927083430e389e85c690"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspec2test_1_1iomanager_1_1_i_o_manager.html#afd97a2366815927083430e389e85c690">__init__</a> (self, input_dir_path_, output_dir_path_, input_extension_, output_extension_)</td></tr>
+<tr class="separator:afd97a2366815927083430e389e85c690"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a877bb23781277bf920e2b7e609346b7e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspec2test_1_1iomanager_1_1_i_o_manager.html#a877bb23781277bf920e2b7e609346b7e">generate</a> (self)</td></tr>
+<tr class="separator:a877bb23781277bf920e2b7e609346b7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a461616ae4a08382522c846ac4172bbd6"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspec2test_1_1iomanager_1_1_i_o_manager.html#a461616ae4a08382522c846ac4172bbd6">import_io_files</a> (self)</td></tr>
+<tr class="separator:a461616ae4a08382522c846ac4172bbd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+公開変数類</h2></td></tr>
+<tr class="memitem:a877535c3b6ffdf230bce90c82c597d17"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspec2test_1_1iomanager_1_1_i_o_manager.html#a877535c3b6ffdf230bce90c82c597d17">input</a></td></tr>
+<tr class="separator:a877535c3b6ffdf230bce90c82c597d17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad288825273ed7192429ab0474fb2d4a0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspec2test_1_1iomanager_1_1_i_o_manager.html#ad288825273ed7192429ab0474fb2d4a0">output</a></td></tr>
+<tr class="separator:ad288825273ed7192429ab0474fb2d4a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><pre class="fragment">抽象基底クラス</pre> 
+<p class="definition"> <a class="el" href="iomanager_8py_source.html">iomanager.py</a> の <a class="el" href="iomanager_8py_source.html#l00005">5</a> 行目に定義があります。</p>
+</div><h2 class="groupheader">構築子と解体子</h2>
+<a id="afd97a2366815927083430e389e85c690"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd97a2366815927083430e389e85c690">&#9670;&nbsp;</a></span>__init__()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def __init__ </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>input_dir_path_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>output_dir_path_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>input_extension_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>output_extension_</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="iomanager_8py_source.html">iomanager.py</a> の <a class="el" href="iomanager_8py_source.html#l00011">11</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;                 output_extension_):</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        self.input = Directory(input_dir_path_, input_extension_)</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        self.output = Directory(output_dir_path_, output_extension_)</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        self.import_io_files()</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div></div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">メソッド詳解</h2>
+<a id="a877bb23781277bf920e2b7e609346b7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a877bb23781277bf920e2b7e609346b7e">&#9670;&nbsp;</a></span>generate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def generate </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="iomanager_8py_source.html">iomanager.py</a> の <a class="el" href="iomanager_8py_source.html#l00017">17</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">def </span><a class="code" href="classspec2test_1_1wakachi_1_1_wakachi.html#a4555d1cee0dccf3942ea35fe86de2e8e">generate</a>(self):</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordflow">pass</span></div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div><div class="ttc" id="classspec2test_1_1wakachi_1_1_wakachi_html_a4555d1cee0dccf3942ea35fe86de2e8e"><div class="ttname"><a href="classspec2test_1_1wakachi_1_1_wakachi.html#a4555d1cee0dccf3942ea35fe86de2e8e">spec2test.wakachi.Wakachi.generate</a></div><div class="ttdeci">def generate</div><div class="ttdef"><b>Definition:</b> <a href="wakachi_8py_source.html#l00031">wakachi.py:31</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="classspec2test_1_1iomanager_1_1_i_o_manager_a877bb23781277bf920e2b7e609346b7e_icgraph.png" border="0" usemap="#classspec2test_1_1iomanager_1_1_i_o_manager_a877bb23781277bf920e2b7e609346b7e_icgraph" alt=""/></div>
+<map name="classspec2test_1_1iomanager_1_1_i_o_manager_a877bb23781277bf920e2b7e609346b7e_icgraph" id="classspec2test_1_1iomanager_1_1_i_o_manager_a877bb23781277bf920e2b7e609346b7e_icgraph">
+<area shape="rect" id="node2" href="classspec2test_1_1wakachi_1_1_wakachi.html#a882c7cd01f17732eccf3d5077c981cac" title="spec2test.wakachi.Wakachi.generate_all" alt="" coords="125,5,384,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a461616ae4a08382522c846ac4172bbd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a461616ae4a08382522c846ac4172bbd6">&#9670;&nbsp;</a></span>import_io_files()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def import_io_files </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">ディレクトリにファイルを登録する</pre> 
+<p class="definition"> <a class="el" href="iomanager_8py_source.html">iomanager.py</a> の <a class="el" href="iomanager_8py_source.html#l00020">20</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">def </span><a class="code" href="classspec2test_1_1iomanager_1_1_i_o_manager.html#a461616ae4a08382522c846ac4172bbd6">import_io_files</a>(self):</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;ディレクトリにファイルを登録する&quot;&quot;&quot;</span></div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        self.input.import_files()</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        self.output.import_files()</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<div class="ttc" id="classspec2test_1_1iomanager_1_1_i_o_manager_html_a461616ae4a08382522c846ac4172bbd6"><div class="ttname"><a href="classspec2test_1_1iomanager_1_1_i_o_manager.html#a461616ae4a08382522c846ac4172bbd6">spec2test.iomanager.IOManager.import_io_files</a></div><div class="ttdeci">def import_io_files(self)</div><div class="ttdef"><b>Definition:</b> <a href="iomanager_8py_source.html#l00020">iomanager.py:20</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="a877535c3b6ffdf230bce90c82c597d17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a877535c3b6ffdf230bce90c82c597d17">&#9670;&nbsp;</a></span>input</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">input</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="iomanager_8py_source.html">iomanager.py</a> の <a class="el" href="iomanager_8py_source.html#l00012">12</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="ad288825273ed7192429ab0474fb2d4a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad288825273ed7192429ab0474fb2d4a0">&#9670;&nbsp;</a></span>output</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">output</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="iomanager_8py_source.html">iomanager.py</a> の <a class="el" href="iomanager_8py_source.html#l00013">13</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li><a class="el" href="iomanager_8py_source.html">iomanager.py</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築: &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

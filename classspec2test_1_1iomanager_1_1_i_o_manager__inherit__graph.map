@@ -1,0 +1,8 @@
+<map id="IOManager" name="IOManager">
+<area shape="rect" id="node3" href="$classspec2test_1_1imporwords_1_1_imporwords.html" title="{Imporwords\n|&#45; __wakachi\l&#45; __model\l&#45; __tfidf\l|+ __init__()\l+ calc_similarity()\l+ generate()\l&#45; __create_new_csv_imporword()\l}" alt="" coords="5,373,216,524"/>
+<area shape="rect" id="node4" href="$classspec2test_1_1model_1_1_model.html" title="{Model\n||+ __init__()\l+ generate()\l}" alt="" coords="241,403,333,495"/>
+<area shape="rect" id="node5" href="$classspec2test_1_1testsuite_1_1_test_suite.html" title="{TestSuite\n|+ vocab\l+ vocab_n\l+ vocab_i\l+ units\l+ learn_model\l+ learn_result\l+ length\l+ imporwords\l|+ __init__()\l+ load_vocabulary()\l+ load_vocabularies()\l+ load_imporwords()\l+ create_csv()\l+ create_testsuite()\l+ load_model()\l+ gen_testcase()\l+ generate()\l}" alt="" coords="357,300,501,597"/>
+<area shape="rect" id="node6" href="$classspec2test_1_1tfidf_1_1_tfidf.html" title="{Tfidf\n||+ __init__()\l+ generate()\l&#45; __create_csv()\l}" alt="" coords="525,395,640,502"/>
+<area shape="rect" id="node7" href="$classspec2test_1_1wakachi_1_1_wakachi.html" title="{Wakachi\n|+ hinshi_list\l+ hinshi_kind\l+ text\l+ results\l+ dict_word\l|+ __init__()\l+ generate_all()\l+ generate()\l&#45; __open_text()\l&#45; __token_split()\l&#45; __line_split()\l&#45; __write()\l}" alt="" coords="664,337,779,561"/>
+<area shape="rect" id="node8" href="$classspec2test_1_1wakachi__meishi_1_1_wakachi_meishi.html" title="{WakachiMeishi\n|+ hinshi_list\l|+ __init__()\l}" alt="" coords="666,645,777,723"/>
+</map>

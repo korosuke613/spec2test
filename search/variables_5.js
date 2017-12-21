@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['input',['input',['../classspec2test_1_1abcbase_1_1_abc_base.html#a877535c3b6ffdf230bce90c82c597d17',1,'spec2test::abcbase::AbcBase']]]
+  ['get_5fimporwords',['get_imporwords',['../classspec2test_1_1judge_1_1_judge.html#aa84f8b94d60718fa194b74d9a51ac7d0',1,'spec2test::judge::Judge']]]
 ];

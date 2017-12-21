@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['name',['name',['../classspec2test_1_1file_1_1_file.html#ab74e6bf80237ddc4109968cedc58c151',1,'spec2test::file::File']]]
+  ['hinshi_5fkind',['hinshi_kind',['../classspec2test_1_1wakachi_1_1_wakachi.html#a318c2ee34b1a80df6dc3e92fb0221052',1,'spec2test::wakachi::Wakachi']]],
+  ['hinshi_5flist',['hinshi_list',['../classspec2test_1_1wakachi_1_1_wakachi.html#aff78bc70d81621b5cac3f14b65d96e79',1,'spec2test.wakachi.Wakachi.hinshi_list()'],['../classspec2test_1_1wakachi__meishi_1_1_wakachi_meishi.html#aff78bc70d81621b5cac3f14b65d96e79',1,'spec2test.wakachi_meishi.WakachiMeishi.hinshi_list()']]]
 ];

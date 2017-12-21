@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Spec2Test
-   &#160;<span id="projectnumber">0.0.1</span>
+   &#160;<span id="projectnumber">0.0.2</span>
    </div>
   </td>
  </tr>
@@ -100,7 +100,9 @@ File 連携図</div>
 <tr class="separator:afffd55ce9921bf51d70d4eb7861d5606"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
-<div class="textblock"><pre class="fragment">ファイルを表すクラス</pre> </div><h2 class="groupheader">構築子と解体子</h2>
+<div class="textblock"><pre class="fragment">ファイルを表すクラス</pre> 
+<p class="definition"> <a class="el" href="file_8py_source.html">file.py</a> の <a class="el" href="file_8py_source.html#l00001">1</a> 行目に定義があります。</p>
+</div><h2 class="groupheader">構築子と解体子</h2>
 <a id="a43dc7d1580484996cc9cd45f3b0058b4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a43dc7d1580484996cc9cd45f3b0058b4">&#9670;&nbsp;</a></span>__init__()</h2>
 
@@ -133,6 +135,8 @@ File 連携図</div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition"> <a class="el" href="file_8py_source.html">file.py</a> の <a class="el" href="file_8py_source.html#l00005">5</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;                 extension_):</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;        self.name = file_name_[:-len(extension_)]</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;        self.extension = extension_</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;        self.full_name = file_name_</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        self.check()</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div></div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">メソッド詳解</h2>
@@ -152,6 +156,8 @@ File 連携図</div>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">このクラスの整合性をチェックする</pre> 
+<p class="definition"> <a class="el" href="file_8py_source.html">file.py</a> の <a class="el" href="file_8py_source.html#l00016">16</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">def </span>check(self):</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;このクラスの整合性をチェックする&quot;&quot;&quot;</span></div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordflow">if</span> <span class="keywordflow">not</span> File.is_same_extension(self.full_name, self.extension):</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            <span class="keywordflow">raise</span> ValueError</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div><!-- fragment -->
 </div>
 </div>
 <a id="aa4058a55d0586cf72db4febe84d875d8"></a>
@@ -178,6 +184,8 @@ File 連携図</div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition"> <a class="el" href="file_8py_source.html">file.py</a> の <a class="el" href="file_8py_source.html#l00012">12</a> 行目に定義があります。</p>
+<div class="fragment"><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">def </span>is_same_extension(file_name: str, extension: str) -&gt; bool:</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;ファイル名と拡張子が同じかどうかチェックする&quot;&quot;&quot;</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordflow">return</span> file_name[-len(extension):] == extension</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div></div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">メンバ詳解</h2>
@@ -193,6 +201,8 @@ File 連携図</div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition"> <a class="el" href="file_8py_source.html">file.py</a> の <a class="el" href="file_8py_source.html#l00007">7</a> 行目に定義があります。</p>
+
 </div>
 </div>
 <a id="afffd55ce9921bf51d70d4eb7861d5606"></a>
@@ -206,6 +216,8 @@ File 連携図</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="file_8py_source.html">file.py</a> の <a class="el" href="file_8py_source.html#l00008">8</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -221,10 +233,12 @@ File 連携図</div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition"> <a class="el" href="file_8py_source.html">file.py</a> の <a class="el" href="file_8py_source.html#l00006">6</a> 行目に定義があります。</p>
+
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li><a class="el" href="file_8py.html">file.py</a></li>
+<li><a class="el" href="file_8py_source.html">file.py</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

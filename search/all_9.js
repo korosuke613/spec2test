@@ -1,6 +1,14 @@
 var searchData=
 [
-  ['main',['main',['../namespacespec2test_1_1imporwords.html#a2e68a9e5d96f6c74ba0e4ee7dc78159a',1,'spec2test.imporwords.main()'],['../namespacespec2test_1_1model.html#a19059b2987e37395ca4bcf6839fbf6a7',1,'spec2test.model.main()'],['../namespacespec2test_1_1tfidf.html#a47d00fef8d10944e18f29ad630187142',1,'spec2test.tfidf.main()'],['../namespacespec2test_1_1wakachi.html#a23afbff7ce19423dc88920ccb5eb2625',1,'spec2test.wakachi.main()']]],
-  ['model',['Model',['../classspec2test_1_1model_1_1_model.html',1,'spec2test::model']]],
-  ['model_2epy',['model.py',['../model_8py.html',1,'']]]
+  ['import_5ffiles',['import_files',['../classspec2test_1_1directory_1_1_directory.html#a97ffc09da46902390dd819582a8b4131',1,'spec2test::directory::Directory']]],
+  ['import_5fio_5ffiles',['import_io_files',['../classspec2test_1_1iomanager_1_1_i_o_manager.html#a461616ae4a08382522c846ac4172bbd6',1,'spec2test::iomanager::IOManager']]],
+  ['imporword',['imporword',['../namespacespec2test_1_1judge.html#a403d5ab5dedf4c6fc4db9f5805eebc00',1,'spec2test::judge']]],
+  ['imporwords',['Imporwords',['../classspec2test_1_1imporwords_1_1_imporwords.html',1,'Imporwords'],['../classspec2test_1_1testsuite_1_1_test_suite.html#ac78c33bb450281e4652440c19e2f4fc4',1,'spec2test.testsuite.TestSuite.imporwords()']]],
+  ['imporwords_2epy',['imporwords.py',['../imporwords_8py.html',1,'']]],
+  ['input',['input',['../classspec2test_1_1iomanager_1_1_i_o_manager.html#a877535c3b6ffdf230bce90c82c597d17',1,'spec2test::iomanager::IOManager']]],
+  ['iomanager',['IOManager',['../classspec2test_1_1iomanager_1_1_i_o_manager.html',1,'spec2test::iomanager']]],
+  ['iomanager_2epy',['iomanager.py',['../iomanager_8py.html',1,'']]],
+  ['is_5fnew_5fepoch',['is_new_epoch',['../classspec2test_1_1trainptb_1_1_parallel_sequential_iterator.html#af3093ab3a5d0e7519f20828d96c9decc',1,'spec2test::trainptb::ParallelSequentialIterator']]],
+  ['is_5fsame_5fextension',['is_same_extension',['../classspec2test_1_1file_1_1_file.html#aa4058a55d0586cf72db4febe84d875d8',1,'spec2test::file::File']]],
+  ['iteration',['iteration',['../classspec2test_1_1trainptb_1_1_parallel_sequential_iterator.html#a97ff0c7f807cfcba4caffdf020898e83',1,'spec2test::trainptb::ParallelSequentialIterator']]]
 ];

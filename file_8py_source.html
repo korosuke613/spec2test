@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Spec2Test: file.py ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Spec2Test
+   &#160;<span id="projectnumber">0.0.2</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d422163b96683743ed3963d4aac17747.html">app</a></li><li class="navelem"><a class="el" href="dir_92960229aed36dd9c583205de39ddf6f.html">spec2test</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">file.py</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="file_8py.html">[詳解]</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="namespacespec2test_1_1file.html">    1</a></span>&#160;<span class="keyword">class </span><a class="code" href="classspec2test_1_1file_1_1_file.html">File</a>:</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;    <span class="stringliteral">&quot;&quot;&quot;ファイルを表すクラス&quot;&quot;&quot;</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;    <span class="keyword">def </span>__init__(self,</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;                 file_name_,</div><div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="classspec2test_1_1file_1_1_file.html#a43dc7d1580484996cc9cd45f3b0058b4">    5</a></span>&#160;                 extension_):</div><div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="classspec2test_1_1file_1_1_file.html#ab74e6bf80237ddc4109968cedc58c151">    6</a></span>&#160;        self.<a class="code" href="classspec2test_1_1file_1_1_file.html#ab74e6bf80237ddc4109968cedc58c151">name</a> = file_name_[:-len(extension_)]</div><div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="classspec2test_1_1file_1_1_file.html#aae455e6a275e74741a0193b8cf59457c">    7</a></span>&#160;        self.<a class="code" href="classspec2test_1_1file_1_1_file.html#aae455e6a275e74741a0193b8cf59457c">extension</a> = extension_</div><div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="classspec2test_1_1file_1_1_file.html#afffd55ce9921bf51d70d4eb7861d5606">    8</a></span>&#160;        self.<a class="code" href="classspec2test_1_1file_1_1_file.html#afffd55ce9921bf51d70d4eb7861d5606">full_name</a> = file_name_</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        self.<a class="code" href="classspec2test_1_1file_1_1_file.html#a7d60a0d93b36e13e426f086e476a6373">check</a>()</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    @staticmethod</div><div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classspec2test_1_1file_1_1_file.html#aa4058a55d0586cf72db4febe84d875d8">   12</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classspec2test_1_1file_1_1_file.html#aa4058a55d0586cf72db4febe84d875d8">is_same_extension</a>(file_name: str, extension: str) -&gt; bool:</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;ファイル名と拡張子が同じかどうかチェックする&quot;&quot;&quot;</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordflow">return</span> file_name[-len(extension):] == extension</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div><div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classspec2test_1_1file_1_1_file.html#a7d60a0d93b36e13e426f086e476a6373">   16</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classspec2test_1_1file_1_1_file.html#a7d60a0d93b36e13e426f086e476a6373">check</a>(self):</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;このクラスの整合性をチェックする&quot;&quot;&quot;</span></div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordflow">if</span> <span class="keywordflow">not</span> File.is_same_extension(self.<a class="code" href="classspec2test_1_1file_1_1_file.html#afffd55ce9921bf51d70d4eb7861d5606">full_name</a>, self.<a class="code" href="classspec2test_1_1file_1_1_file.html#aae455e6a275e74741a0193b8cf59457c">extension</a>):</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            <span class="keywordflow">raise</span> ValueError</div><div class="ttc" id="classspec2test_1_1file_1_1_file_html_aae455e6a275e74741a0193b8cf59457c"><div class="ttname"><a href="classspec2test_1_1file_1_1_file.html#aae455e6a275e74741a0193b8cf59457c">spec2test.file.File.extension</a></div><div class="ttdeci">extension</div><div class="ttdef"><b>Definition:</b> <a href="file_8py_source.html#l00007">file.py:7</a></div></div>
+<div class="ttc" id="classspec2test_1_1file_1_1_file_html_afffd55ce9921bf51d70d4eb7861d5606"><div class="ttname"><a href="classspec2test_1_1file_1_1_file.html#afffd55ce9921bf51d70d4eb7861d5606">spec2test.file.File.full_name</a></div><div class="ttdeci">full_name</div><div class="ttdef"><b>Definition:</b> <a href="file_8py_source.html#l00008">file.py:8</a></div></div>
+<div class="ttc" id="classspec2test_1_1file_1_1_file_html_aa4058a55d0586cf72db4febe84d875d8"><div class="ttname"><a href="classspec2test_1_1file_1_1_file.html#aa4058a55d0586cf72db4febe84d875d8">spec2test.file.File.is_same_extension</a></div><div class="ttdeci">def is_same_extension</div><div class="ttdef"><b>Definition:</b> <a href="file_8py_source.html#l00012">file.py:12</a></div></div>
+<div class="ttc" id="classspec2test_1_1file_1_1_file_html_a7d60a0d93b36e13e426f086e476a6373"><div class="ttname"><a href="classspec2test_1_1file_1_1_file.html#a7d60a0d93b36e13e426f086e476a6373">spec2test.file.File.check</a></div><div class="ttdeci">def check(self)</div><div class="ttdef"><b>Definition:</b> <a href="file_8py_source.html#l00016">file.py:16</a></div></div>
+<div class="ttc" id="classspec2test_1_1file_1_1_file_html"><div class="ttname"><a href="classspec2test_1_1file_1_1_file.html">spec2test.file.File</a></div><div class="ttdef"><b>Definition:</b> <a href="file_8py_source.html#l00001">file.py:1</a></div></div>
+<div class="ttc" id="classspec2test_1_1file_1_1_file_html_ab74e6bf80237ddc4109968cedc58c151"><div class="ttname"><a href="classspec2test_1_1file_1_1_file.html#ab74e6bf80237ddc4109968cedc58c151">spec2test.file.File.name</a></div><div class="ttdeci">name</div><div class="ttdef"><b>Definition:</b> <a href="file_8py_source.html#l00006">file.py:6</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築: &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

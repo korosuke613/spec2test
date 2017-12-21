@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['name',['name',['../classspec2test_1_1file_1_1_file.html#ab74e6bf80237ddc4109968cedc58c151',1,'spec2test::file::File']]]
+  ['judge',['Judge',['../classspec2test_1_1judge_1_1_judge.html',1,'Judge'],['../namespacespec2test_1_1judge.html#ac21db119181b2bba2fbaae4e75709054',1,'spec2test.judge.judge()']]],
+  ['judge_2epy',['judge.py',['../judge_8py.html',1,'']]]
 ];

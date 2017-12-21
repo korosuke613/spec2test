@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tfidf',['Tfidf',['../classspec2test_1_1tfidf_1_1_tfidf.html',1,'spec2test::tfidf']]]
+  ['model',['Model',['../classspec2test_1_1model_1_1_model.html',1,'spec2test::model']]]
 ];
