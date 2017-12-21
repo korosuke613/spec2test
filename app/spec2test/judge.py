@@ -1,6 +1,9 @@
 
 
 class Judge:
+    max_testcase = None
+    max_score = 0
+
     def __init__(self):
         self.point = 0
         self.get_imporwords = []
@@ -21,7 +24,22 @@ class Judge:
         self.testcase = testcase
         for word in imporwords:
             self._compare_word(word)
-        return self._calc_word_nums()
+        score = self._calc_word_nums()
+        self.judge_max_score(score, testcase)
+        return score
+
+    @classmethod
+    def set_max_score(cls, score, testcase):
+        if cls.max_score > score:
+            return
+        cls.max_score = score
+        cls.max_testcase = testcase
+        return
+
+    @classmethod
+    def reset_max_score(cls):
+        cls.max_testcase = None
+        cls.max_score = None
 
 
 if __name__ == '__main__':

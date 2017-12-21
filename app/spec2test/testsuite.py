@@ -70,18 +70,22 @@ class TestSuite(IOManager):
                 testcase = [testcase, ]
                 writer.writerow(testcase)
 
-    def create_testsuite(self, imporword_list):
+    def create_testsuite(self, imporword_list, thresholds_=0.1, num_=10):
         def decide_testcase():
             testcase_ = None
-            for _ in range(10):
+            score_ = 0
+            Judge.reset_max_score()
+            for _ in range(num_):
                 testcase_ = self.gen_testcase(imporword)
                 judge = Judge()
                 score = judge.compare_testcase(imporword, testcase_)
-                if score > 0.1:
+                if score > thresholds_:
                     print("score={0}, testcase={1}".format(score, testcase_))
                     break
                 np.random.seed(np.random.randint(1, 1000))
-            return testcase_
+                testcase_ = judge.max_testcase
+                score_ = judge.max_score
+            return testcase_, score_
 
         testsuite = []
         for imporword in imporword_list:
