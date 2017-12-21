@@ -2,7 +2,7 @@
 
 class Judge:
     max_testcase = None
-    max_score = 0
+    max_score = 0.0
 
     def __init__(self):
         self.point = 0
@@ -25,7 +25,7 @@ class Judge:
         for word in imporwords:
             self._compare_word(word)
         score = self._calc_word_nums()
-        self.judge_max_score(score, testcase)
+        self.set_max_score(score, testcase)
         return score
 
     @classmethod
@@ -39,7 +39,7 @@ class Judge:
     @classmethod
     def reset_max_score(cls):
         cls.max_testcase = None
-        cls.max_score = None
+        cls.max_score = 0.0
 
 
 if __name__ == '__main__':
