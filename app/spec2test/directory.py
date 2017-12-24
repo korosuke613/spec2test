@@ -6,10 +6,13 @@ class Directory:
     """ディレクトリを表すクラス"""
     def __init__(self,
                  path_,
-                 default_extension_=None):
+                 default_extension_=None,
+                 is_import_=False):
         self.path = path_
         self.default_extension = default_extension_
         self.file_dict = {}
+        if is_import_:
+            self.import_files()
 
     def append_file(self, file_name: str, extension: str=None):
         """ファイルクラスを追加する"""
