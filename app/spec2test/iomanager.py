@@ -3,7 +3,7 @@ from .directory import Directory
 
 
 class IOManager(ABC):
-    """抽象基底クラス"""
+    """ファイルを生成するクラスの抽象クラス"""
     def __init__(self,
                  input_dir_path_,
                  output_dir_path_,
@@ -15,6 +15,7 @@ class IOManager(ABC):
 
     @abstractmethod
     def generate(self):
+        """何かを生成する為の抽象メソッド"""
         pass
 
     def import_io_files(self):
