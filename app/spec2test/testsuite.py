@@ -75,7 +75,7 @@ class TestSuite(IOManager):
         def decide_testcase():
             testcase_ = None
             score_ = 0.0
-            Judge.reset_max_score()
+            Judge.reset()
             for _ in range(num_):
                 testcase_ = self.gen_testcase(imporword)
                 judge = Judge()
