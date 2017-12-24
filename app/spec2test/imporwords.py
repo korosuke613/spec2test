@@ -33,7 +33,7 @@ class Imporwords(IOManager):
 
     def __create_new_csv_imporword(self, file_name, array2d):
         """CSVに重要単語を記録する
-        @param file_path: 拡張子を除いたファイル名
+        @param file_name: 拡張子を除いたファイル名
         @param array2d: 保存する2次元配列
         """
         sorted_array2d = sorted(array2d, key=lambda x: float(x[1]), reverse=True)
