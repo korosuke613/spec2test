@@ -65,10 +65,14 @@ class Judge:
         cls.max_score = 0.0
 
 
-if __name__ == '__main__':
+def main():
     string = "aa koko iku"
     imporword = ["aa", "koku", "konishi", "ikuiku", "koko"]
     judge = Judge()
     score = judge.compare_testcase(imporword, string)
     print(score)
     print(judge.imporwords)
+
+
+if __name__ == '__main__':
+    main()

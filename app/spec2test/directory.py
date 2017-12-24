@@ -47,6 +47,10 @@ class Directory:
         return [file for file in self.file_dict.values() if judge(file)]
 
 
-if __name__ == '__main__':
+def main():
     directory = Directory("./", ".py")
     directory.import_files(".py")
+
+
+if __name__ == '__main__':
+    main()
