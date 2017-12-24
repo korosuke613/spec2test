@@ -29,12 +29,12 @@ def test_instance_able(wakachi):
 
 
 def test_generate(wakachi):
-    file = File("ラブクラフト.txt", ".txt")
+    file = File("あばばばば.txt", ".txt")
     wakachi.generate(file)
-    assert os.path.isfile("./" + PATH_RESOURSE + "ラブクラフト.wakachi")
+    assert os.path.isfile("./" + PATH_RESOURSE + "あばばばば.wakachi")
 
 
 def test_generate_all(wakachi):
     wakachi.generate_all(is_force=True)
-    assert os.path.isfile("./" + PATH_RESOURSE + "ラブクラフト.wakachi")
+    assert os.path.isfile("./" + PATH_RESOURSE + "あばばばば.wakachi")
     assert os.path.isfile("./" + PATH_RESOURSE + "test_ラブクラフト.wakachi")

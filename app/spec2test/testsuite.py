@@ -2,6 +2,7 @@ import chainer
 import chainer.links as L
 import chainer.functions as F
 import csv
+from tqdm import tqdm
 
 import six
 from chainer import serializers, cuda
@@ -10,6 +11,7 @@ import numpy as np
 from .iomanager import IOManager
 from .directory import Directory
 from .trainptb import RNNForLM
+from .judge import Judge
 
 
 class TestSuite(IOManager):
@@ -60,24 +62,42 @@ class TestSuite(IOManager):
                 imporword_list = [row for row in csv_file]
             yield file.name, imporword_list
 
-    def create_csv(self, filename, testsuite):
+    def create_csv(self, filename, testsuite, scores):
         filename += self.output.default_extension
         filepath = self.output.path + filename
         with open(filepath, "w", encoding="utf-8-sig") as file:
             writer = csv.writer(file, lineterminator='\n')
-            for testcase in testsuite:
-                testcase = [testcase,]
-                writer.writerow(testcase)
+            for testcase, score in zip(testsuite, scores):
+                row = [score, testcase]
+                writer.writerow(row)
 
-    def create_testsuite(self, imporword_list):
+    def create_testsuite(self, imporword_list, threshold_=99, num_=10):
+        def decide_testcase():
+            testcase_ = None
+            score_ = 0.0
+            Judge.reset_max_score()
+            for _ in range(num_):
+                testcase_ = self.gen_testcase(imporword)
+                judge = Judge()
+                score_ = judge.compare_testcase(imporword_list, testcase_)
+                if score_ >= threshold_:
+                    break
+                np.random.seed(np.random.randint(1, 1000))
+                testcase_ = judge.max_testcase
+                score_ = judge.max_score
+            return testcase_, score_
+
         testsuite = []
-        for imporword in imporword_list:
+        scores = []
+        for imporword in tqdm(imporword_list):
             try:
-                testcase = self.gen_testcase(imporword)
+                testcase, score = decide_testcase()
             except ValueError:
                 testcase = imporword + " is not vocabulary."
+                score = 0
             testsuite.append(testcase)
-        return testsuite
+            scores.append(score)
+        return testsuite, scores
 
     def load_model(self):
         self.learn_model = L.Classifier(RNNForLM(len(self.vocab), self.units))
@@ -117,5 +137,8 @@ class TestSuite(IOManager):
     def generate(self, prime_text=None):
         self.load_vocabularies()
         self.load_model()
-        testcase = self.gen_testcase(prime_text)
-        print(testcase)
+        try:
+            testcase = self.gen_testcase(prime_text)
+            print(testcase)
+        except ValueError:
+            print(prime_text + " is not vocabulary.")
