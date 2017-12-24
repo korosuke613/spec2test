@@ -26,14 +26,20 @@ RUN python3.6 get-pip.py
 RUN apt install -y make xz-utils
 RUN apt install -y mecab libmecab-dev mecab-ipadic-utf8 -y
 RUN git clone --depth 1 https://github.com/neologd/mecab-ipadic-neologd.git
-WORKDIR ~/mecab-ipadic-neologd
-RUN yes yes | ./bin/install-mecab-ipadic-neologd -n
+RUN yes no | mecab-ipadic-neologd/bin/install-mecab-ipadic-neologd -n
 
 # リポジトリのクローン
-WORKDIR ~/
+WORKDIR ..
 RUN git clone https://github.com/korosuke613/spec2test.git ~/spec2test
-WORKDIR ~/spec2test/
 
 # Pythonライブラリのインストール
-RUN apt install gcc g++
-RUN pip3 install -r requirements.txt
+RUN apt install -y gcc g++
+WORKDIR spec2test/
+RUN pwd
+RUN pip3 install -r ~/spec2test/requirements.txt
+
+# Vimのインストール
+RUN apt install -y vim language-pack-ja
+RUN echo export LANG=ja_JP.UTF-8 >> ~/.bashrc
+RUN echo export LANG >> ~/.bashrc
+RUN update-locale LANG=ja_JP.UTF-8
