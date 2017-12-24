@@ -45,14 +45,9 @@ def test_load_imporwords(testsuite):
     testsuite.load_vocabularies()
     testsuite.load_model()
     generater = testsuite.load_imporwords()
-    filename, impolist = generater.__next__()
-    impolist = [impo[0] for impo in impolist]
-    testsuite_list, scores = testsuite.create_testsuite(impolist, threshold_=0.1, num_=3)
-    testsuite.create_csv(filename, testsuite_list, scores)
-    assert isinstance(testsuite_list, list)
-    assert isinstance(scores, list)
-
-
-def test_generate(testsuite):
-    for _ in range(10):
-        testsuite.generate("羅生門")
+    for filename, impolist in generater:
+        impolist = [impo[0] for impo in impolist]
+        testsuite_list, scores = testsuite.create_testsuite(impolist, threshold_=0.1, num_=3)
+        testsuite.create_csv(filename, testsuite_list, scores)
+        assert isinstance(testsuite_list, list)
+        assert isinstance(scores, list)
