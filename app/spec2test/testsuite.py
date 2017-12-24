@@ -137,5 +137,8 @@ class TestSuite(IOManager):
     def generate(self, prime_text=None):
         self.load_vocabularies()
         self.load_model()
-        testcase = self.gen_testcase(prime_text)
-        print(testcase)
+        try:
+            testcase = self.gen_testcase(prime_text)
+            print(testcase)
+        except ValueError:
+            print(prime_text + " is not vocabulary.")

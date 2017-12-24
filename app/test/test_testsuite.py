@@ -20,8 +20,8 @@ def setup_file():
 def testsuite(setup_file):
     _ = TestSuite(input_path=PATH_FILE_LEARN,
                   output_path=PATH_RESOURCE,
-                  units_=10,
-                  learn_result_="model_iter_72306")
+                  units_=100,
+                  learn_result_="model_iter_u100_e10_341")
     yield _
 
 
@@ -41,16 +41,18 @@ def test_create_csv(testsuite):
     assert os.path.isfile(PATH_RESOURCE + "testes.testsuite.csv")
 
 
-def load_imporwords(testsuite):
+def test_load_imporwords(testsuite):
     testsuite.load_vocabularies()
     testsuite.load_model()
     generater = testsuite.load_imporwords()
     filename, impolist = generater.__next__()
     impolist = [impo[0] for impo in impolist]
-    testsuite_list = testsuite.create_testsuite(impolist)
-    testsuite.create_csv(filename, testsuite_list)
+    testsuite_list, scores = testsuite.create_testsuite(impolist, threshold_=0.1, num_=3)
+    testsuite.create_csv(filename, testsuite_list, scores)
+    assert isinstance(testsuite_list, list)
+    assert isinstance(scores, list)
 
 
-def generate(testsuite):
+def test_generate(testsuite):
     for _ in range(10):
-        testsuite.generate("蒲団")
+        testsuite.generate("羅生門")
