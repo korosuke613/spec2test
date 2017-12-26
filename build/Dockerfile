@@ -43,3 +43,10 @@ RUN apt install -y vim language-pack-ja
 RUN echo export LANG=ja_JP.UTF-8 >> ~/.bashrc
 RUN echo export LANG >> ~/.bashrc
 RUN update-locale LANG=ja_JP.UTF-8
+
+RUN locale-gen ja_JP.UTF-8
+ENV LANG ja_JP.UTF-8
+ENV LANGUAGE ja_JP:en
+ENV LC_ALL ja_JP.UTF-8
+
+RUN ln -fs /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
