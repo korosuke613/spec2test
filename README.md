@@ -1,6 +1,6 @@
 # spec2test
 
-[![Docker Build Status](https://img.shields.io/docker/build/korosuke613/spec2test.svg?style=flat-square)](https://hub.docker.com/r/korosuke613/spec2test/) [![Travis](https://img.shields.io/travis/korosuke613/spec2test/master.svg?style=flat-square)](https://travis-ci.org/korosuke613/spec2test) [![Coveralls github](https://img.shields.io/coveralls/korosuke613/spec2test/master.svg?style=flat-square)](https://coveralls.io/github/korosuke613/spec2test)
+[![Docker Automated build](https://img.shields.io/docker/automated/korosuke613/spec2test.svg?style=flat-square)](https://hub.docker.com/r/korosuke613/spec2test/) [![Travis](https://img.shields.io/travis/korosuke613/spec2test/master.svg?style=flat-square)](https://travis-ci.org/korosuke613/spec2test) [![Coveralls github](https://img.shields.io/coveralls/korosuke613/spec2test/master.svg?style=flat-square)](https://coveralls.io/github/korosuke613/spec2test)
  [![Codacy grade](https://img.shields.io/codacy/grade/a834a52e92cb45a294c31d32c5fd3267.svg?style=flat-square)](https://www.codacy.com/app/korosuke613613/spec2test/dashboard) [![Code Climate](https://img.shields.io/codeclimate/maintainability/korosuke613/spec2test.svg?style=flat-square)](https://codeclimate.com/github/korosuke613/spec2test)
 
 仕様書からテストケースを生成する研究
@@ -18,7 +18,7 @@
 
 ### 全体
 
-![全体図](images/全体図.png)
+![全体図](https://github.com/korosuke613/spec2test/blob/master/images/%E5%85%A8%E4%BD%93%E5%9B%B3.png?raw=true)
 
 ### 文章学習部
 1. 仕様書とテストケースを単語ごとに区切る
@@ -37,7 +37,7 @@
 
 
 ## 定義
-![クラス図](images/定義クラス図.PNG)
+![クラス図](https://github.com/korosuke613/spec2test/blob/master/images/%E5%AE%9A%E7%BE%A9%E3%82%AF%E3%83%A9%E3%82%B9%E5%9B%B3.PNG?raw=true)
 
 * *仕様書* - あるソフトウェアのある機能の仕様の集まり
 * *テストスイート* - あるソフトウェアのある機能の複数のテストケース
@@ -46,4 +46,4 @@
 * *生成テストスイート群* - 生成したテストスイートの集まり
 
 ## 内部設計
-![クラス図](images/Spec2testクラス図.png)
+![クラス図](https://github.com/korosuke613/spec2test/blob/master/images/Spec2test%E3%82%AF%E3%83%A9%E3%82%B9%E5%9B%B3.png?raw=true)
