@@ -10,6 +10,7 @@ WORKDIR ~/
 # 更新
 RUN apt update && apt -y upgrade
 
+# 必要なプログラムのインストール
 RUN apt install -y apt-file 
 RUN apt install -y software-properties-common
 RUN apt install -y wget git
@@ -38,8 +39,13 @@ WORKDIR spec2test/
 RUN pwd
 RUN pip3 install -r ~/spec2test/requirements.txt
 
-# Vimのインストール
-RUN apt install -y vim language-pack-ja
-RUN echo export LANG=ja_JP.UTF-8 >> ~/.bashrc
-RUN echo export LANG >> ~/.bashrc
-RUN update-locale LANG=ja_JP.UTF-8
+# ロケールを日本に設定
+RUN apt install -y language-pack-ja
+RUN locale-gen ja_JP.UTF-8
+ENV LANG ja_JP.UTF-8
+ENV LANGUAGE ja_JP:en
+ENV LC_ALL ja_JP.UTF-8
+RUN ln -fs /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+
+# ログイン場所の追記
+RUN echo "cd ~/" >> ~/.bashrc
