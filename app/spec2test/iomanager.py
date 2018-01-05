@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from .directory import Directory
+from directory import Directory
 
 
 class IOManager(ABC):
