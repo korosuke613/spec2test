@@ -22,15 +22,15 @@ class Wakachi(IOManager):
         self.stop_word = ['\\u', '。', '、', ',', '.', '0xe0', '「', '」', '(', ')', '=', "-", "*", '"']
         self.stop_subtype = []
 
-    def generate_all(self, is_force: bool=False):
+    def generate(self, is_force: bool=False):
         """ディレクトリ内のテキストを全て分かち書きする"""
         for file in self.input.file_dict.values():
             write_path = self.output.path + file.name + self.output.default_extension
             if os.path.isfile(write_path) and is_force is False:
                 continue
-            self.generate(file, is_set_kind=True)
+            self.generate_file(file, is_set_kind=True)
 
-    def generate(self, file: File=None, is_set_kind: bool=False):
+    def generate_file(self, file: File=None, is_set_kind: bool=False):
         """あるテキストを分かち書きする"""
         if file is None:
             raise IndexError
@@ -104,7 +104,7 @@ class WakachiMeishi(Wakachi):
 
 def main():
     wakachi = WakachiMeishi()
-    wakachi.generate_all()
+    wakachi.generate()
 
 
 if __name__ == "__main__":

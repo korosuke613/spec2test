@@ -24,6 +24,6 @@ def wakachi_meishi(setup_file):
 
 
 def test_generate_all(wakachi_meishi):
-    wakachi_meishi.generate_all(is_force=True)
+    wakachi_meishi.generate(is_force=True)
     assert os.path.isfile("./" + PATH_RESOURSE + "あばばばば.meishi.wakachi")
     assert os.path.isfile("./" + PATH_RESOURSE + "test_ラブクラフト.meishi.wakachi")
