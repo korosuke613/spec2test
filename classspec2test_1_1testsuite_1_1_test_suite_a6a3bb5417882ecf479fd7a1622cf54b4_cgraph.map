@@ -1,6 +1,6 @@
 <map id="generate" name="generate">
-<area shape="rect" id="node2" href="$classspec2test_1_1testsuite_1_1_test_suite.html#a334b2cd6ec1bb8cf2c5064543527dd1c" title="load_vocabularies" alt="" coords="133,5,269,32"/>
-<area shape="rect" id="node4" href="$classspec2test_1_1testsuite_1_1_test_suite.html#a4791793a73891073de7ce7918d046c25" title="load_model" alt="" coords="153,56,249,83"/>
-<area shape="rect" id="node5" href="$classspec2test_1_1testsuite_1_1_test_suite.html#ad661afb5a4f648f6c014d60ca733f0ae" title="gen_testcase" alt="" coords="147,107,255,133"/>
-<area shape="rect" id="node3" href="$classspec2test_1_1testsuite_1_1_test_suite.html#ac4d62d26faa9e75950529d50216d2de7" title="load_vocabulary" alt="" coords="317,5,443,32"/>
+<area shape="rect" id="node2" href="$classspec2test_1_1testsuite_1_1_test_suite.html#a334b2cd6ec1bb8cf2c5064543527dd1c" title="複数のボキャブラリーを読み込む " alt="" coords="133,5,269,32"/>
+<area shape="rect" id="node4" href="$classspec2test_1_1testsuite_1_1_test_suite.html#ad822f59355bbd1f713f497130033944a" title="単語ベクトルを読み込む " alt="" coords="153,56,249,83"/>
+<area shape="rect" id="node5" href="$classspec2test_1_1testsuite_1_1_test_suite.html#ab57d678a29b19648ce0c00c2d50f4495" title="テストケースを生成する " alt="" coords="147,107,255,133"/>
+<area shape="rect" id="node3" href="$classspec2test_1_1testsuite_1_1_test_suite.html#a270a40d4cc5e561bddc6969a058d1d3b" title="ボキャブラリーを読み込む " alt="" coords="317,5,443,32"/>
 </map>

@@ -1,6 +1,7 @@
 <map id="generate" name="generate">
-<area shape="rect" id="node2" href="$classspec2test_1_1wakachi_1_1_wakachi.html#a73d76a777f02afc092162d4a3b7f01fc" title="テキストを開く " alt="" coords="133,5,233,32"/>
-<area shape="rect" id="node3" href="$classspec2test_1_1wakachi_1_1_wakachi.html#acf1b52dbd810e23d3d84a61c434f6d77" title="テキストを行ごとに分ける " alt="" coords="138,56,229,83"/>
-<area shape="rect" id="node5" href="$classspec2test_1_1wakachi_1_1_wakachi.html#a1ed6033779a2c8eeb8a28abbb9e734d2" title="分かち書きした結果を書き込む " alt="" coords="150,107,217,133"/>
-<area shape="rect" id="node4" href="$classspec2test_1_1wakachi_1_1_wakachi.html#ac85a10810e32e7d166e43ae533d1587a" title="トークンを解析する " alt="" coords="281,56,372,83"/>
+<area shape="rect" id="node2" href="$classspec2test_1_1wakachi_1_1_wakachi.html#a6f9e978d67d372dfcb24aee49074e18a" title="あるテキストを分かち書きする " alt="" coords="133,56,239,83"/>
+<area shape="rect" id="node3" href="$classspec2test_1_1wakachi_1_1_wakachi.html#a73d76a777f02afc092162d4a3b7f01fc" title="テキストを開く " alt="" coords="287,5,387,32"/>
+<area shape="rect" id="node4" href="$classspec2test_1_1wakachi_1_1_wakachi.html#acf1b52dbd810e23d3d84a61c434f6d77" title="テキストを行ごとに分ける " alt="" coords="291,56,382,83"/>
+<area shape="rect" id="node6" href="$classspec2test_1_1wakachi_1_1_wakachi.html#a1ed6033779a2c8eeb8a28abbb9e734d2" title="分かち書きした結果を書き込む " alt="" coords="303,107,370,133"/>
+<area shape="rect" id="node5" href="$classspec2test_1_1wakachi_1_1_wakachi.html#ac85a10810e32e7d166e43ae533d1587a" title="トークンを解析する " alt="" coords="435,56,525,83"/>
 </map>
