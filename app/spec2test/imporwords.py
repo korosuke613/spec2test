@@ -1,6 +1,7 @@
 """重要単語リスト生成器"""
 import csv
 import os
+import MeCab
 from gensim.models import word2vec
 from directory import Directory
 from iomanager import IOManager
@@ -28,17 +29,28 @@ class Imporwords(IOManager):
         self.tfidfs = tfidf_.get_file_path_list(is_add_test_=False)
         self.important_words = None
 
+    @staticmethod
+    def add_subtype_to_array2d(array2d: dict):
+        mecab = MeCab.Tagger()
+        mecab.parse('')
+        for array in array2d:
+            node = mecab.parseToNode(array).next
+            node = node.feature.split(",")[1]
+            array2d[array] = [node, array2d[array]]
+        return array2d
+
     def create_new_csv(self, file_name, array2d):
         """CSVに重要単語を記録する
         @param file_name: 拡張子を除いたファイル名
         @param array2d: 保存する2次元配列
         """
-        sorted_array2d = sorted(array2d, key=lambda x: float(x[1]), reverse=True)
+        sorted_array2d = sorted(array2d, key=lambda x: float(x[1][1]), reverse=True)
         file_name = file_name + self.output.default_extension
         file_path = self.output.path + file_name
         with open(file_path, "w", encoding="utf_8_sig") as file:
             writer = csv.writer(file, lineterminator='\n')
             for word in sorted_array2d:
+                word = [word[0], word[1][0], word[1][1]]
                 writer.writerow(word)
 
     def generate_imporwords(self, model_file_: File, threshold_tfidf=0.1, threshold_model=0.11):
@@ -81,7 +93,7 @@ class Imporwords(IOManager):
                 continue
             important_words[tfidf_word[0]] = tfidf_word[1]
             record_score()
-        self.important_words = important_words
+        return important_words
 
     def generate(self, threshold_tfidf=0.1, threshold_model=0.11):
         """重要単語リストの集合を生成
@@ -89,9 +101,10 @@ class Imporwords(IOManager):
         @param threshold_model: modelの閾値
         """
         for model_file in self.models["file_list"]:
-            self.generate_imporwords(model_file, threshold_tfidf, threshold_model)
+            important_words = self.generate_imporwords(model_file, threshold_tfidf, threshold_model)
+            important_words = self.add_subtype_to_array2d(important_words)
             self.create_new_csv(model_file.name,
-                                self.important_words.items())
+                                important_words.items())
 
 
 class UniqWord(IOManager):
