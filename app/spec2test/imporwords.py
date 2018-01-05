@@ -1,8 +1,9 @@
 """重要単語リスト生成器"""
 import csv
+import os
 from gensim.models import word2vec
-from .directory import Directory
-from .iomanager import IOManager
+from directory import Directory
+from iomanager import IOManager
 
 
 class Imporwords(IOManager):
