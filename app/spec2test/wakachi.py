@@ -3,8 +3,8 @@
 """分かち分け文書生成器"""
 import os
 import MeCab
-from .iomanager import IOManager
-from .file import File
+from iomanager import IOManager
+from file import File
 
 
 class Wakachi(IOManager):
@@ -19,6 +19,8 @@ class Wakachi(IOManager):
         self.results = []
         self.dict_word = {'名詞': [], '形容詞': [], '動詞': [], '記号': [], '助詞': [], '助動詞': [], '接続詞': [],
                           '副詞': [], '接頭詞': []}
+        self.stop_word = ['\\u', '。', '、', ',', '.', '0xe0', '「', '」', '(', ')', '=', "-", "*", '"']
+        self.stop_subtype = []
 
     def generate_all(self, is_force: bool=False):
         """ディレクトリ内のテキストを全て分かち書きする"""
@@ -42,7 +44,7 @@ class Wakachi(IOManager):
             binary_data = file.read()
             self.text = binary_data
 
-    def __token_split(self, tokens: object, is_set_kind=False)-> list:
+    def token_split(self, tokens: object, is_set_kind=False)-> list:
         """トークンを解析する"""
         r = []
         while tokens:
@@ -51,12 +53,11 @@ class Wakachi(IOManager):
             hinshi = ps.split(',')[0]
             self.hinshi_kind.add(hinshi)
             if hinshi in self.hinshi_list:
-                if len(w) < 5:
-                    if ps.split(',')[1] == '数':
-                        tokens = tokens.next
-                        continue
+                if ps.split(',')[1] in self.stop_subtype:
+                    tokens = tokens.next
+                    continue
                 r.append(w)
-                if is_set_kind is True and hinshi == '名詞':
+                if is_set_kind is True:
                     self.dict_word[hinshi].append(w)
             tokens = tokens.next
         return r
@@ -65,9 +66,8 @@ class Wakachi(IOManager):
         """テキストを行ごとに分ける"""
         def set_stop_word(_line):
             """ストップワードの除去"""
-            stop_words = ['\\u', '。', '、', ',', '.', '0xe0', '「', '」']
-            for _word in stop_words:
-                _line = _line.replace(_word, '')
+            for _word in self.stop_word:
+                _line = _line.replace(_word, ' ')
             return _line
 
         self.results = []
@@ -77,7 +77,7 @@ class Wakachi(IOManager):
             s = set_stop_word(line)
             t.parse("")
             tokens = t.parseToNode(s)
-            r = self.__token_split(tokens, is_set_kind)
+            r = self.token_split(tokens, is_set_kind)
             rl = (" ".join(r)).strip()
             self.results.append(rl)
 
@@ -97,10 +97,13 @@ class WakachiMeishi(Wakachi):
         super().__init__(input_path, output_path)
         self.output.default_extension = ".meishi.wakachi"
         self.hinshi_list = ['名詞']
+        self.stop_subtype = ['代名詞', '非自立', '数']
+        self.stop_sub_subtype = []
+        self.stop_word.extend(['_', '[', ']'])
 
 
 def main():
-    wakachi = Wakachi()
+    wakachi = WakachiMeishi()
     wakachi.generate_all()
 
 

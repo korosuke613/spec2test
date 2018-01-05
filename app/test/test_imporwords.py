@@ -35,11 +35,9 @@ def setup_file():
 
 @pytest.fixture()
 def imporwords(setup_file):
-    wakachi = Directory(path_=PATH_WAKACHI, default_extension_=".meishi.wakachi", is_import_=True)
     tfidf = Directory(path_=PATH_TFIDF, default_extension_=".tfidf", is_import_=True)
     model = Directory(path_=PATH_MODEL, default_extension_=".model", is_import_=True)
     _ = Imporwords(PATH_RESOURCE,
-                   wakachi_=wakachi,
                    tfidf_=tfidf,
                    model_=model)
     yield _
