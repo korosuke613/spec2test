@@ -10,7 +10,6 @@ def main():
     gen_model.main()
     gen_tfidf.main()
     gen_imporwords.main()
-    gen_testsuite.main()
 
 
 if __name__ == '__main__':
