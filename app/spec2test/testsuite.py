@@ -53,7 +53,7 @@ class TestSuite(IOManager):
             self.vocab_i[i] = c
 
     def load_imporwords(self):
-        files = self.imporwords.get_file_path_list()
+        files = self.imporwords.get_file_list()
         for file in files:
             imporword = self.imporwords.path + file.full_name
             with open(imporword, "r", encoding="utf_8_sig") as f:

@@ -34,17 +34,21 @@ class Directory:
         """あるファイルのファイルパスを返す"""
         return self.path + self.file_dict[file_name].full_name
 
+    def judge(self, file: File, is_add_test_):
+        if file.extension != self.default_extension:
+            return False
+        if is_add_test_:
+            return True
+        if file.name[:len("test_")] != "test_":
+            return True
+        return False
+
     def get_file_path_list(self, is_add_test_: bool=True) -> list:
         """ディレクトリ内の全てのファイルのファイルパスを返す"""
-        def judge(file: File):
-            if file.extension != self.default_extension:
-                return False
-            if is_add_test_:
-                return True
-            if file.name[:len("test_")] != "test_":
-                return True
-            return False
-        return [file for file in self.file_dict.values() if judge(file)]
+        return [self.path + file.full_name for file in self.file_dict.values() if self.judge(file, is_add_test_)]
+
+    def get_file_list(self, is_add_test_=True):
+        return [file for file in self.file_dict.values() if self.judge(file, is_add_test_)]
 
 
 def main():
