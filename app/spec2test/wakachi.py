@@ -3,8 +3,8 @@
 """分かち分け文書生成器"""
 import os
 import MeCab
-from .iomanager import IOManager
-from .file import File
+from iomanager import IOManager
+from file import File
 
 
 class Wakachi(IOManager):

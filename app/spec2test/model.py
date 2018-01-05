@@ -1,6 +1,6 @@
 """単語ベクトル生成器"""
 from gensim.models import word2vec
-from .iomanager import IOManager
+from iomanager import IOManager
 
 
 class Model(IOManager):

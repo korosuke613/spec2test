@@ -8,9 +8,9 @@ import six
 from chainer import serializers, cuda
 import numpy as np
 
-from .iomanager import IOManager
-from .directory import Directory
-from .trainptb import RNNForLM
+from iomanager import IOManager
+from directory import Directory
+from trainptb import RNNForLM
 
 
 class TestSuite(IOManager):

@@ -1,7 +1,7 @@
 """TFIDF計算器"""
 import csv
 from sklearn.feature_extraction.text import TfidfVectorizer
-from .iomanager import IOManager
+from iomanager import IOManager
 
 
 class Tfidf(IOManager):
