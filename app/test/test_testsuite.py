@@ -43,7 +43,7 @@ def test_create_csv(testsuite):
 
 def test_load_imporwords(testsuite):
     testsuite.load_vocabularies()
-    testsuite.load_model()
+    testsuite.load_vector()
     generater = testsuite.load_imporwords()
     for filename, impolist in generater:
         impolist = [impo[0] for impo in impolist]

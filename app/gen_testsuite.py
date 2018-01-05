@@ -5,7 +5,7 @@ def main():
     testsuite = TestSuite(units_=100,
                           learn_result_="model_ptb")
     testsuite.load_vocabularies()
-    testsuite.load_model()
+    testsuite.load_vector()
     generater = testsuite.load_imporwords()
     num = 20
     threshold = 0.25

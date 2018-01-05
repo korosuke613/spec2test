@@ -23,7 +23,9 @@ class Wakachi(IOManager):
         self.stop_subtype = []
 
     def generate(self, is_force: bool=False):
-        """ディレクトリ内のテキストを全て分かち書きする"""
+        """ディレクトリ内のテキストを全て分かち書きする
+        @param is_force: trueなら上書き保存する
+        """
         for file in self.input.file_dict.values():
             write_path = self.output.path + file.name + self.output.default_extension
             if os.path.isfile(write_path) and is_force is False:
@@ -31,7 +33,10 @@ class Wakachi(IOManager):
             self.generate_file(file, is_set_kind=True)
 
     def generate_file(self, file: File=None, is_set_kind: bool=False):
-        """あるテキストを分かち書きする"""
+        """あるテキストを分かち書きする
+        @param file: 分かち書きするテキスト
+        @param is_set_kind: trueなら品詞の種類を記録する
+        """
         if file is None:
             raise IndexError
         self.__open_text(file)
@@ -39,13 +44,19 @@ class Wakachi(IOManager):
         self.__write(file)
 
     def __open_text(self, file: File):
-        """テキストを開く"""
+        """テキストを開く
+        @param file: 分かち書きするテキスト
+        """
         with open(self.input.path + file.full_name, 'r', encoding="utf-8") as file:
             binary_data = file.read()
             self.text = binary_data
 
     def token_split(self, tokens: object, is_set_kind=False)-> list:
-        """トークンを解析する"""
+        """トークンを解析する
+        @param tokens: MeCabで解析済の単語トークン
+        @param is_set_kind: trueなら品詞の種類を記録する
+        @return 単語のリスト
+        """
         r = []
         while tokens:
             w = tokens.surface
@@ -63,7 +74,9 @@ class Wakachi(IOManager):
         return r
 
     def __line_split(self, is_set_kind: bool=False):
-        """テキストを行ごとに分ける"""
+        """テキストを行ごとに分ける
+        @param is_set_kind: trueなら品詞の種類を記録する
+        """
         def set_stop_word(_line):
             """ストップワードの除去"""
             for _word in self.stop_word:
@@ -82,7 +95,9 @@ class Wakachi(IOManager):
             self.results.append(rl)
 
     def __write(self, file: File):
-        """分かち書きした結果を書き込む"""
+        """分かち書きした結果を書き込む
+        @param file: 保存するファイル名
+        """
         wakachi_file = self.output.path + file.name + self.output.default_extension
         with open(wakachi_file, "w", encoding='utf-8-sig') as fp:
             fp.write("\n".join(self.results))
