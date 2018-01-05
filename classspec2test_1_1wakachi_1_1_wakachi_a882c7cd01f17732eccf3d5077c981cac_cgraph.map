@@ -1,6 +1,23 @@
 <map id="generate_all" name="generate_all">
-<area shape="rect" id="node2" href="$classspec2test_1_1imporwords_1_1_imporwords.html#a1e1c4be7fe88d7828a5039a6bb3b7b49" title="spec2test.imporwords.Imporwords.generate" alt="" coords="145,13,419,39"/>
-<area shape="rect" id="node5" href="$classspec2test_1_1iomanager_1_1_i_o_manager.html#a877bb23781277bf920e2b7e609346b7e" title="spec2test.iomanager.IOManager.generate" alt="" coords="150,63,414,90"/>
-<area shape="rect" id="node3" href="$classspec2test_1_1imporwords_1_1_imporwords.html#ac0a2ca811657d86b3f211374f9d5e926" title="spec2test.imporwords.Imporwords.calc\l_similarity" alt="" coords="467,5,713,47"/>
-<area shape="rect" id="node4" href="$classspec2test_1_1imporwords_1_1_imporwords.html#a089e4ab11515d42fdc7a440cabab60b1" title="spec2test.imporwords.Imporwords.\l__create_new_csv_imporword" alt="" coords="761,5,984,47"/>
+<area shape="rect" id="node2" href="$classspec2test_1_1imporwords_1_1_imporwords.html#a1e1c4be7fe88d7828a5039a6bb3b7b49" title="重要単語リストの集合を生成 " alt="" coords="155,111,457,138"/>
+<area shape="rect" id="node6" href="$classspec2test_1_1imporwords_1_1_uniq_word.html#a877bb23781277bf920e2b7e609346b7e" title="spec2test.imporwords.Uniq\lWord.generate" alt="" coords="208,248,404,289"/>
+<area shape="rect" id="node9" href="$classspec2test_1_1iomanager_1_1_i_o_manager.html#a877bb23781277bf920e2b7e609346b7e" title="何かを生成する為の抽象メソッド " alt="" coords="161,314,451,341"/>
+<area shape="rect" id="node10" href="$classspec2test_1_1model_1_1_model.html#a877bb23781277bf920e2b7e609346b7e" title="単語ベクトルのモデルを生成する " alt="" coords="189,365,423,391"/>
+<area shape="rect" id="node11" href="$classspec2test_1_1testsuite_1_1_test_suite.html#a6a3bb5417882ecf479fd7a1622cf54b4" title="spec2test.testsuite.Test\lSuite.generate" alt="" coords="219,416,393,457"/>
+<area shape="rect" id="node16" href="$classspec2test_1_1tfidf_1_1_tfidf.html#aa7592c3488b69c60e256378fc5226e12" title="TF&#45;IDFを計算する " alt="" coords="205,499,407,526"/>
+<area shape="rect" id="node18" href="$classspec2test_1_1wakachi_1_1_wakachi.html#a4555d1cee0dccf3942ea35fe86de2e8e" title="あるテキストを分かち書きする " alt="" coords="266,619,346,646"/>
+<area shape="rect" id="node3" href="$classspec2test_1_1imporwords_1_1_imporwords.html#a00339969d94de24a4dfad5e710a8288f" title="重要単語リストを生成 " alt="" coords="505,5,808,47"/>
+<area shape="rect" id="node4" href="$classspec2test_1_1imporwords_1_1_imporwords.html#a50e34496c0b8d0a5b49868964ac9abb7" title="spec2test.imporwords.Imporwords.add\l_subtype_to_array2d" alt="" coords="522,71,791,112"/>
+<area shape="rect" id="node5" href="$classspec2test_1_1imporwords_1_1_imporwords.html#a7f7f6120f7953e045ccfd16a53db607a" title="CSVに重要単語を記録する " alt="" coords="513,136,800,177"/>
+<area shape="rect" id="node7" href="$classspec2test_1_1imporwords_1_1_uniq_word.html#ad232c319951d11bba30b842d3eb7bb08" title="ファイルリストを生成する " alt="" coords="559,201,755,243"/>
+<area shape="rect" id="node8" href="$classspec2test_1_1imporwords_1_1_uniq_word.html#a97d780e0dbdd71d8396fd76507feac24" title="spec2test.imporwords.Uniq\lWord.gen_simple" alt="" coords="559,267,755,308"/>
+<area shape="rect" id="node12" href="$classspec2test_1_1testsuite_1_1_test_suite.html#a334b2cd6ec1bb8cf2c5064543527dd1c" title="spec2test.testsuite.Test\lSuite.load_vocabularies" alt="" coords="569,332,744,373"/>
+<area shape="rect" id="node14" href="$classspec2test_1_1testsuite_1_1_test_suite.html#a4791793a73891073de7ce7918d046c25" title="spec2test.testsuite.Test\lSuite.load_model" alt="" coords="569,397,744,439"/>
+<area shape="rect" id="node15" href="$classspec2test_1_1testsuite_1_1_test_suite.html#ad661afb5a4f648f6c014d60ca733f0ae" title="spec2test.testsuite.Test\lSuite.gen_testcase" alt="" coords="569,463,744,504"/>
+<area shape="rect" id="node13" href="$classspec2test_1_1testsuite_1_1_test_suite.html#ac4d62d26faa9e75950529d50216d2de7" title="spec2test.testsuite.Test\lSuite.load_vocabulary" alt="" coords="856,332,1031,373"/>
+<area shape="rect" id="node17" href="$classspec2test_1_1tfidf_1_1_tfidf.html#a029bb3d7f4871a7b838848a9f4c206ea" title="CSVにTFIDF上位の単語を記録する " alt="" coords="584,528,729,569"/>
+<area shape="rect" id="node19" href="$classspec2test_1_1wakachi_1_1_wakachi.html#a73d76a777f02afc092162d4a3b7f01fc" title="テキストを開く " alt="" coords="607,594,707,621"/>
+<area shape="rect" id="node20" href="$classspec2test_1_1wakachi_1_1_wakachi.html#acf1b52dbd810e23d3d84a61c434f6d77" title="テキストを行ごとに分ける " alt="" coords="611,645,702,671"/>
+<area shape="rect" id="node22" href="$classspec2test_1_1wakachi_1_1_wakachi.html#a1ed6033779a2c8eeb8a28abbb9e734d2" title="分かち書きした結果を書き込む " alt="" coords="623,695,690,722"/>
+<area shape="rect" id="node21" href="$classspec2test_1_1wakachi_1_1_wakachi.html#ac85a10810e32e7d166e43ae533d1587a" title="トークンを解析する " alt="" coords="898,645,989,671"/>
 </map>

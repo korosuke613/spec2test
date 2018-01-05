@@ -1,4 +1,5 @@
 <map id="__token_split" name="__token_split">
-<area shape="rect" id="node2" href="$classspec2test_1_1wakachi_1_1_wakachi.html#acf1b52dbd810e23d3d84a61c434f6d77" title="__line_split" alt="" coords="152,5,239,32"/>
-<area shape="rect" id="node3" href="$classspec2test_1_1wakachi_1_1_wakachi.html#a4555d1cee0dccf3942ea35fe86de2e8e" title="generate" alt="" coords="287,5,359,32"/>
+<area shape="rect" id="node2" href="$classspec2test_1_1wakachi_1_1_wakachi.html#acf1b52dbd810e23d3d84a61c434f6d77" title="テキストを行ごとに分ける " alt="" coords="159,5,249,32"/>
+<area shape="rect" id="node3" href="$classspec2test_1_1wakachi_1_1_wakachi.html#a4555d1cee0dccf3942ea35fe86de2e8e" title="あるテキストを分かち書きする " alt="" coords="297,5,377,32"/>
+<area shape="rect" id="node4" href="$classspec2test_1_1wakachi_1_1_wakachi.html#a882c7cd01f17732eccf3d5077c981cac" title="ディレクトリ内のテキストを全て分かち書きする " alt="" coords="425,5,527,32"/>
 </map>

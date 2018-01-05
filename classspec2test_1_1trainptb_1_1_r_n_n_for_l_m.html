@@ -3,8 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.13"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
 <title>Spec2Test: RNNForLM クラス</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -12,6 +11,9 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -22,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Spec2Test
-   &#160;<span id="projectnumber">0.0.2</span>
+   &#160;<span id="projectnumber">08150d7</span>
    </div>
   </td>
  </tr>
@@ -30,19 +32,42 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.8.13 -->
+<!-- 構築: Doxygen 1.8.11 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'検索');
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-$(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
-});
-</script>
-<div id="main-nav"></div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>総合概要</span></a></li>
+      <li><a href="namespaces.html"><span>パッケージ</span></a></li>
+      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
+      <li><a href="files.html"><span>ファイル</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>クラス一覧</span></a></li>
+      <li><a href="classes.html"><span>クラス索引</span></a></li>
+      <li><a href="inherits.html"><span>クラス階層</span></a></li>
+      <li><a href="functions.html"><span>クラスメンバ</span></a></li>
+    </ul>
+  </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -98,11 +123,9 @@ RNNForLM 連携図</div>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock">
-<p class="definition"> <a class="el" href="trainptb_8py_source.html">trainptb.py</a> の <a class="el" href="trainptb_8py_source.html#l00019">19</a> 行目に定義があります。</p>
+<p> <a class="el" href="trainptb_8py_source.html">trainptb.py</a> の <a class="el" href="trainptb_8py_source.html#l00019">19</a> 行目に定義があります。</p>
 </div><h2 class="groupheader">構築子と解体子</h2>
-<a id="aa67ed78d4d0566eb457eafd52194af68"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa67ed78d4d0566eb457eafd52194af68">&#9670;&nbsp;</a></span>__init__()</h2>
-
+<a class="anchor" id="aa67ed78d4d0566eb457eafd52194af68"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -138,15 +161,12 @@ RNNForLM 連携図</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="trainptb_8py_source.html">trainptb.py</a> の <a class="el" href="trainptb_8py_source.html#l00021">21</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">def </span><a class="code" href="classspec2test_1_1wakachi__meishi_1_1_wakachi_meishi.html#a41ce57b935455a16b651941cb906604d">__init__</a>(self, n_vocab, n_units, train=True):</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        super(RNNForLM, self).<a class="code" href="classspec2test_1_1wakachi__meishi_1_1_wakachi_meishi.html#a41ce57b935455a16b651941cb906604d">__init__</a>(</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            embed=L.EmbedID(n_vocab, n_units),</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            l1=L.LSTM(n_units, n_units),</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            l2=L.LSTM(n_units, n_units),</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            l3=L.Linear(n_units, n_vocab),</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        )</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">for</span> param <span class="keywordflow">in</span> self.params():</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            param.data[...] = np.random.uniform(-0.1, 0.1, param.data.shape)</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        self.train = train</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div><div class="ttc" id="classspec2test_1_1wakachi__meishi_1_1_wakachi_meishi_html_a41ce57b935455a16b651941cb906604d"><div class="ttname"><a href="classspec2test_1_1wakachi__meishi_1_1_wakachi_meishi.html#a41ce57b935455a16b651941cb906604d">spec2test.wakachi_meishi.WakachiMeishi.__init__</a></div><div class="ttdeci">def __init__(self, input_path=&quot;./resource/file/&quot;, output_path=&quot;./resource/wakachi/&quot;)</div><div class="ttdef"><b>Definition:</b> <a href="wakachi__meishi_8py_source.html#l00009">wakachi_meishi.py:9</a></div></div>
-</div><!-- fragment -->
+<p> <a class="el" href="trainptb_8py_source.html">trainptb.py</a> の <a class="el" href="trainptb_8py_source.html#l00021">21</a> 行目に定義があります。</p>
+
 </div>
 </div>
 <h2 class="groupheader">メソッド詳解</h2>
-<a id="ab89aedaa468f7c3de4223e6b1426f44f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab89aedaa468f7c3de4223e6b1426f44f">&#9670;&nbsp;</a></span>__call__()</h2>
-
+<a class="anchor" id="ab89aedaa468f7c3de4223e6b1426f44f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -170,13 +190,11 @@ RNNForLM 連携図</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="trainptb_8py_source.html">trainptb.py</a> の <a class="el" href="trainptb_8py_source.html#l00036">36</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">def </span>__call__(self, x):</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        h0 = self.embed(x)</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        h1 = self.l1(F.dropout(h0))</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        h2 = self.l2(F.dropout(h1))</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        y = self.l3(F.dropout(h2))</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">return</span> y</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment"># Dataset iterator to create a batch of sequences at different positions.</span></div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment"># This iterator returns a pair of current words and the next words. Each</span></div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment"># example is a part of sequences starting from the different offsets</span></div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment"># equally spaced within the whole sequence.</span></div></div><!-- fragment -->
-</div>
-</div>
-<a id="ae371d01e5e1923dd770d9c3531935c01"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae371d01e5e1923dd770d9c3531935c01">&#9670;&nbsp;</a></span>reset_state()</h2>
+<p> <a class="el" href="trainptb_8py_source.html">trainptb.py</a> の <a class="el" href="trainptb_8py_source.html#l00036">36</a> 行目に定義があります。</p>
 
+</div>
+</div>
+<a class="anchor" id="ae371d01e5e1923dd770d9c3531935c01"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -190,14 +208,12 @@ RNNForLM 連携図</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="trainptb_8py_source.html">trainptb.py</a> の <a class="el" href="trainptb_8py_source.html#l00032">32</a> 行目に定義があります。</p>
-<div class="fragment"><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">def </span>reset_state(self):</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        self.l1.reset_state()</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        self.l2.reset_state()</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div></div><!-- fragment -->
+<p> <a class="el" href="trainptb_8py_source.html">trainptb.py</a> の <a class="el" href="trainptb_8py_source.html#l00032">32</a> 行目に定義があります。</p>
+
 </div>
 </div>
 <h2 class="groupheader">メンバ詳解</h2>
-<a id="af53df1efd55ec710fdb1c3898f3276fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af53df1efd55ec710fdb1c3898f3276fe">&#9670;&nbsp;</a></span>train</h2>
-
+<a class="anchor" id="af53df1efd55ec710fdb1c3898f3276fe"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -207,7 +223,7 @@ RNNForLM 連携図</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="trainptb_8py_source.html">trainptb.py</a> の <a class="el" href="trainptb_8py_source.html#l00030">30</a> 行目に定義があります。</p>
+<p> <a class="el" href="trainptb_8py_source.html">trainptb.py</a> の <a class="el" href="trainptb_8py_source.html#l00030">30</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -219,7 +235,7 @@ RNNForLM 連携図</div>
 <hr class="footer"/><address class="footer"><small>
 構築: &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.13
+</a> 1.8.11
 </small></address>
 </body>
 </html>

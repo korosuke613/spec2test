@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['main',['main',['../namespacespec2test_1_1imporwords.html#a2e68a9e5d96f6c74ba0e4ee7dc78159a',1,'spec2test.imporwords.main()'],['../namespacespec2test_1_1model.html#a19059b2987e37395ca4bcf6839fbf6a7',1,'spec2test.model.main()'],['../namespacespec2test_1_1tfidf.html#a47d00fef8d10944e18f29ad630187142',1,'spec2test.tfidf.main()'],['../namespacespec2test_1_1trainptb.html#ab0a102930b39ad37cb740d54890b208e',1,'spec2test.trainptb.main()'],['../namespacespec2test_1_1wakachi.html#a23afbff7ce19423dc88920ccb5eb2625',1,'spec2test.wakachi.main()']]]
+  ['load_5fimporwords',['load_imporwords',['../classspec2test_1_1testsuite_1_1_test_suite.html#ae592869f1c5cbf99478e9c2e7a7bdc2e',1,'spec2test::testsuite::TestSuite']]],
+  ['load_5fmodel',['load_model',['../classspec2test_1_1testsuite_1_1_test_suite.html#a4791793a73891073de7ce7918d046c25',1,'spec2test::testsuite::TestSuite']]],
+  ['load_5fvocabularies',['load_vocabularies',['../classspec2test_1_1testsuite_1_1_test_suite.html#a334b2cd6ec1bb8cf2c5064543527dd1c',1,'spec2test::testsuite::TestSuite']]],
+  ['load_5fvocabulary',['load_vocabulary',['../classspec2test_1_1testsuite_1_1_test_suite.html#ac4d62d26faa9e75950529d50216d2de7',1,'spec2test::testsuite::TestSuite']]]
 ];

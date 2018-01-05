@@ -1,0 +1,5 @@
+<map id="compare_testcase" name="compare_testcase">
+<area shape="rect" id="node2" href="$classspec2test_1_1testsuite_1_1_judge.html#a4ce77366254d0b06f517e9182db1a376" title="テストケースに重要単語があればポイントを増加 " alt="" coords="201,5,323,32"/>
+<area shape="rect" id="node3" href="$classspec2test_1_1testsuite_1_1_judge.html#a0524fc41fb1f8c0c6bb954a3b423124d" title="ポイントをテストケースの単語数で割った値を計算する " alt="" coords="195,56,329,83"/>
+<area shape="rect" id="node4" href="$classspec2test_1_1testsuite_1_1_judge.html#a44e3ac4ac24b9fe392d79a95573edc4a" title="最大評価のテストケースを保存する。 " alt="" coords="203,107,321,133"/>
+</map>

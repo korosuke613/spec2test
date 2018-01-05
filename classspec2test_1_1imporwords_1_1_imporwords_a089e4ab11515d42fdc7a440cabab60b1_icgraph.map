@@ -1,5 +1,5 @@
 <map id="__create_new_csv_imporword" name="__create_new_csv_imporword">
-<area shape="rect" id="node2" href="$classspec2test_1_1imporwords_1_1_imporwords.html#ac0a2ca811657d86b3f211374f9d5e926" title="calc_similarity" alt="" coords="248,5,353,32"/>
-<area shape="rect" id="node3" href="$classspec2test_1_1imporwords_1_1_imporwords.html#a1e1c4be7fe88d7828a5039a6bb3b7b49" title="generate" alt="" coords="401,5,473,32"/>
-<area shape="rect" id="node4" href="$classspec2test_1_1wakachi_1_1_wakachi.html#a882c7cd01f17732eccf3d5077c981cac" title="spec2test.wakachi.Wakachi.generate_all" alt="" coords="521,5,780,32"/>
+<area shape="rect" id="node2" href="$classspec2test_1_1imporwords_1_1_imporwords.html#ac0a2ca811657d86b3f211374f9d5e926" title="単語の類似度を計算 " alt="" coords="264,5,375,32"/>
+<area shape="rect" id="node3" href="$classspec2test_1_1imporwords_1_1_imporwords.html#a1e1c4be7fe88d7828a5039a6bb3b7b49" title="重要単語を生成 " alt="" coords="423,5,503,32"/>
+<area shape="rect" id="node4" href="$classspec2test_1_1wakachi_1_1_wakachi.html#a882c7cd01f17732eccf3d5077c981cac" title="ディレクトリ内のテキストを全て分かち書きする " alt="" coords="551,5,828,32"/>
 </map>

@@ -3,8 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.13"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
 <title>Spec2Test: wakachi_meishi.py ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -12,6 +11,9 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -22,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Spec2Test
-   &#160;<span id="projectnumber">0.0.2</span>
+   &#160;<span id="projectnumber">0547e51</span>
    </div>
   </td>
  </tr>
@@ -30,19 +32,39 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.8.13 -->
+<!-- 構築: Doxygen 1.8.11 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'検索');
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-$(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
-});
-</script>
-<div id="main-nav"></div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>総合概要</span></a></li>
+      <li><a href="namespaces.html"><span>パッケージ</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+    </ul>
+  </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -67,17 +89,15 @@ $(function() {
 <div class="title">wakachi_meishi.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="wakachi__meishi_8py.html">[詳解]</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="namespacespec2test_1_1wakachi__meishi.html">    1</a></span>&#160;<span class="keyword">from</span> .wakachi <span class="keyword">import</span> Wakachi</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="classspec2test_1_1wakachi__meishi_1_1_wakachi_meishi.html">    4</a></span>&#160;<span class="keyword">class </span><a class="code" href="classspec2test_1_1wakachi__meishi_1_1_wakachi_meishi.html">WakachiMeishi</a>(<a class="code" href="classspec2test_1_1wakachi_1_1_wakachi.html">Wakachi</a>):</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    <span class="stringliteral">&quot;&quot;&quot;名詞のみの分かち書きに関するクラス&quot;&quot;&quot;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <span class="keyword">def </span><a class="code" href="classspec2test_1_1wakachi__meishi_1_1_wakachi_meishi.html#a41ce57b935455a16b651941cb906604d">__init__</a>(self,</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;                 input_path=&quot;./resource/file/&quot;,</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;                 output_path=&quot;./resource/wakachi/&quot;</div><div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classspec2test_1_1wakachi__meishi_1_1_wakachi_meishi.html#a41ce57b935455a16b651941cb906604d">    9</a></span>&#160;                 ):</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        super().<a class="code" href="classspec2test_1_1wakachi__meishi_1_1_wakachi_meishi.html#a41ce57b935455a16b651941cb906604d">__init__</a>(input_path, output_path)</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        self.<a class="code" href="classspec2test_1_1iomanager_1_1_i_o_manager.html#ad288825273ed7192429ab0474fb2d4a0">output</a>.default_extension = <span class="stringliteral">&quot;.meishi.wakachi&quot;</span></div><div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classspec2test_1_1wakachi__meishi_1_1_wakachi_meishi.html#aff78bc70d81621b5cac3f14b65d96e79">   12</a></span>&#160;        self.<a class="code" href="classspec2test_1_1wakachi_1_1_wakachi.html#aff78bc70d81621b5cac3f14b65d96e79">hinshi_list</a> = [<span class="stringliteral">&#39;名詞&#39;</span>]</div><div class="ttc" id="classspec2test_1_1wakachi_1_1_wakachi_html_aff78bc70d81621b5cac3f14b65d96e79"><div class="ttname"><a href="classspec2test_1_1wakachi_1_1_wakachi.html#aff78bc70d81621b5cac3f14b65d96e79">spec2test.wakachi.Wakachi.hinshi_list</a></div><div class="ttdeci">hinshi_list</div><div class="ttdef"><b>Definition:</b> <a href="wakachi_8py_source.html#l00016">wakachi.py:16</a></div></div>
-<div class="ttc" id="classspec2test_1_1iomanager_1_1_i_o_manager_html_ad288825273ed7192429ab0474fb2d4a0"><div class="ttname"><a href="classspec2test_1_1iomanager_1_1_i_o_manager.html#ad288825273ed7192429ab0474fb2d4a0">spec2test.iomanager.IOManager.output</a></div><div class="ttdeci">output</div><div class="ttdef"><b>Definition:</b> <a href="iomanager_8py_source.html#l00013">iomanager.py:13</a></div></div>
-<div class="ttc" id="classspec2test_1_1wakachi__meishi_1_1_wakachi_meishi_html"><div class="ttname"><a href="classspec2test_1_1wakachi__meishi_1_1_wakachi_meishi.html">spec2test.wakachi_meishi.WakachiMeishi</a></div><div class="ttdef"><b>Definition:</b> <a href="wakachi__meishi_8py_source.html#l00004">wakachi_meishi.py:4</a></div></div>
-<div class="ttc" id="classspec2test_1_1wakachi_1_1_wakachi_html"><div class="ttname"><a href="classspec2test_1_1wakachi_1_1_wakachi.html">spec2test.wakachi.Wakachi</a></div><div class="ttdef"><b>Definition:</b> <a href="wakachi_8py_source.html#l00010">wakachi.py:10</a></div></div>
+<a href="wakachi__meishi_8py.html">[詳解]</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="namespacespec2test_1_1wakachi__meishi.html">    1</a></span>&#160;<span class="keyword">from</span> .wakachi <span class="keyword">import</span> Wakachi</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">class </span><a class="code" href="classspec2test_1_1wakachi__meishi_1_1_wakachi_meishi.html">WakachiMeishi</a>(Wakachi):</div><div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="classspec2test_1_1wakachi__meishi_1_1_wakachi_meishi.html">    5</a></span>&#160;    <span class="stringliteral">&quot;&quot;&quot;名詞のみの分かち書きに関するクラス&quot;&quot;&quot;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <span class="keyword">def </span><a class="code" href="classspec2test_1_1wakachi__meishi_1_1_wakachi_meishi.html#a41ce57b935455a16b651941cb906604d">__init__</a>(self,</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;                 input_path=<span class="stringliteral">&quot;./resource/file/&quot;</span>,</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;                 output_path=<span class="stringliteral">&quot;./resource/wakachi/&quot;</span></div><div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classspec2test_1_1wakachi__meishi_1_1_wakachi_meishi.html#a41ce57b935455a16b651941cb906604d">    9</a></span>&#160;                 ):</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        super().<a class="code" href="classspec2test_1_1wakachi__meishi_1_1_wakachi_meishi.html#a41ce57b935455a16b651941cb906604d">__init__</a>(input_path, output_path)</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        self.output.default_extension = <span class="stringliteral">&quot;.meishi.wakachi&quot;</span></div><div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classspec2test_1_1wakachi__meishi_1_1_wakachi_meishi.html#aff78bc70d81621b5cac3f14b65d96e79">   12</a></span>&#160;        self.<a class="code" href="classspec2test_1_1wakachi__meishi_1_1_wakachi_meishi.html#aff78bc70d81621b5cac3f14b65d96e79">hinshi_list</a> = [<span class="stringliteral">&#39;名詞&#39;</span>]</div><div class="ttc" id="classspec2test_1_1wakachi__meishi_1_1_wakachi_meishi_html_aff78bc70d81621b5cac3f14b65d96e79"><div class="ttname"><a href="classspec2test_1_1wakachi__meishi_1_1_wakachi_meishi.html#aff78bc70d81621b5cac3f14b65d96e79">spec2test.wakachi_meishi.WakachiMeishi.hinshi_list</a></div><div class="ttdeci">hinshi_list</div><div class="ttdef"><b>Definition:</b> <a href="wakachi__meishi_8py_source.html#l00012">wakachi_meishi.py:12</a></div></div>
+<div class="ttc" id="classspec2test_1_1wakachi__meishi_1_1_wakachi_meishi_html"><div class="ttname"><a href="classspec2test_1_1wakachi__meishi_1_1_wakachi_meishi.html">spec2test.wakachi_meishi.WakachiMeishi</a></div><div class="ttdoc">名詞のみの分かち書きに関するクラス </div><div class="ttdef"><b>Definition:</b> <a href="wakachi__meishi_8py_source.html#l00005">wakachi_meishi.py:5</a></div></div>
 <div class="ttc" id="classspec2test_1_1wakachi__meishi_1_1_wakachi_meishi_html_a41ce57b935455a16b651941cb906604d"><div class="ttname"><a href="classspec2test_1_1wakachi__meishi_1_1_wakachi_meishi.html#a41ce57b935455a16b651941cb906604d">spec2test.wakachi_meishi.WakachiMeishi.__init__</a></div><div class="ttdeci">def __init__(self, input_path=&quot;./resource/file/&quot;, output_path=&quot;./resource/wakachi/&quot;)</div><div class="ttdef"><b>Definition:</b> <a href="wakachi__meishi_8py_source.html#l00009">wakachi_meishi.py:9</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 構築: &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.13
+</a> 1.8.11
 </small></address>
 </body>
 </html>

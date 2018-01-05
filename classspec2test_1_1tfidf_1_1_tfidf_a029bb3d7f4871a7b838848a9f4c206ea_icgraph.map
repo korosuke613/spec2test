@@ -1,3 +1,4 @@
 <map id="__create_csv" name="__create_csv">
-<area shape="rect" id="node2" href="$classspec2test_1_1tfidf_1_1_tfidf.html#aa7592c3488b69c60e256378fc5226e12" title="generate" alt="" coords="152,5,224,32"/>
+<area shape="rect" id="node2" href="$classspec2test_1_1tfidf_1_1_tfidf.html#aa7592c3488b69c60e256378fc5226e12" title="TF&#45;IDFを計算する " alt="" coords="159,5,239,32"/>
+<area shape="rect" id="node3" href="$classspec2test_1_1wakachi_1_1_wakachi.html#a882c7cd01f17732eccf3d5077c981cac" title="ディレクトリ内のテキストを全て分かち書きする " alt="" coords="287,5,564,32"/>
 </map>

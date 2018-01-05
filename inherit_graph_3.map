@@ -1,9 +1,9 @@
 <map id="クラス階層図" name="クラス階層図">
-<area shape="rect" id="node2" href="$classspec2test_1_1iomanager_1_1_i_o_manager.html" title="IOManager" alt="" coords="103,107,188,133"/>
-<area shape="rect" id="node3" href="$classspec2test_1_1imporwords_1_1_imporwords.html" title="Imporwords" alt="" coords="236,5,324,32"/>
-<area shape="rect" id="node4" href="$classspec2test_1_1model_1_1_model.html" title="Model" alt="" coords="251,56,309,83"/>
-<area shape="rect" id="node5" href="$classspec2test_1_1testsuite_1_1_test_suite.html" title="TestSuite" alt="" coords="241,107,319,133"/>
-<area shape="rect" id="node6" href="$classspec2test_1_1tfidf_1_1_tfidf.html" title="Tfidf" alt="" coords="257,157,303,184"/>
-<area shape="rect" id="node7" href="$classspec2test_1_1wakachi_1_1_wakachi.html" title="Wakachi" alt="" coords="243,208,317,235"/>
-<area shape="rect" id="node8" href="$classspec2test_1_1wakachi__meishi_1_1_wakachi_meishi.html" title="WakachiMeishi" alt="" coords="372,208,483,235"/>
+<area shape="rect" id="node2" href="$classspec2test_1_1imporwords_1_1_imporwords.html" title="重要単語リストクラス " alt="" coords="144,5,240,32"/>
+<area shape="rect" id="node3" href="$classspec2test_1_1imporwords_1_1_uniq_word.html" title="UniqWord" alt="" coords="151,56,233,83"/>
+<area shape="rect" id="node4" href="$classspec2test_1_1model_1_1_model.html" title="モデルに関するクラス " alt="" coords="162,107,222,133"/>
+<area shape="rect" id="node5" href="$classspec2test_1_1testsuite_1_1_test_suite.html" title="TestSuite" alt="" coords="152,157,232,184"/>
+<area shape="rect" id="node6" href="$classspec2test_1_1tfidf_1_1_tfidf.html" title="TFIDFに関するクラス " alt="" coords="168,208,216,235"/>
+<area shape="rect" id="node7" href="$classspec2test_1_1wakachi_1_1_wakachi.html" title="分かち書きに関するクラス " alt="" coords="155,259,229,285"/>
+<area shape="rect" id="node8" href="$classspec2test_1_1wakachi_1_1_wakachi_meishi.html" title="名詞のみの分かち書きに関するクラス " alt="" coords="288,259,401,285"/>
 </map>

@@ -1,4 +1,5 @@
 <map id="load_vocabulary" name="load_vocabulary">
-<area shape="rect" id="node2" href="$classspec2test_1_1testsuite_1_1_test_suite.html#a334b2cd6ec1bb8cf2c5064543527dd1c" title="load_vocabularies" alt="" coords="168,5,292,32"/>
-<area shape="rect" id="node3" href="$classspec2test_1_1testsuite_1_1_test_suite.html#a6a3bb5417882ecf479fd7a1622cf54b4" title="generate" alt="" coords="340,5,412,32"/>
+<area shape="rect" id="node2" href="$classspec2test_1_1testsuite_1_1_test_suite.html#a334b2cd6ec1bb8cf2c5064543527dd1c" title="load_vocabularies" alt="" coords="179,5,315,32"/>
+<area shape="rect" id="node3" href="$classspec2test_1_1testsuite_1_1_test_suite.html#a6a3bb5417882ecf479fd7a1622cf54b4" title="generate" alt="" coords="363,5,443,32"/>
+<area shape="rect" id="node4" href="$classspec2test_1_1wakachi_1_1_wakachi.html#a882c7cd01f17732eccf3d5077c981cac" title="ディレクトリ内のテキストを全て分かち書きする " alt="" coords="491,5,768,32"/>
 </map>

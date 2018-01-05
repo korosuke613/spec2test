@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['learn_5fmodel',['learn_model',['../classspec2test_1_1testsuite_1_1_test_suite.html#ac1f01eec30f781a58865d859a44b5aae',1,'spec2test::testsuite::TestSuite']]],
-  ['learn_5fresult',['learn_result',['../classspec2test_1_1testsuite_1_1_test_suite.html#a9008dc11349740d3ca93ee5924cdbdf0',1,'spec2test::testsuite::TestSuite']]],
-  ['length',['length',['../classspec2test_1_1testsuite_1_1_test_suite.html#af9d495c1655d813d553030485d00fea7',1,'spec2test::testsuite::TestSuite']]]
+  ['n_5fvocab',['n_vocab',['../namespacespec2test_1_1trainptb.html#af64b361d2980d23dc1a3db8ec41ff29b',1,'spec2test::trainptb']]],
+  ['name',['name',['../classspec2test_1_1file_1_1_file.html#ab74e6bf80237ddc4109968cedc58c151',1,'spec2test::file::File']]]
 ];
