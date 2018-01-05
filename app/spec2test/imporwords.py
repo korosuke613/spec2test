@@ -21,8 +21,8 @@ class Imporwords(IOManager):
                                default_extension_=".tfidf",
                                is_import_=True)
         if model_ is None:
-            model_ = Directory(path_="./resource/model/",
-                               default_extension_=".model",
+            model_ = Directory(path_="./resource/word_vector/",
+                               default_extension_=".word_vector",
                                is_import_=True)
         super().__init__(None, output_path, None, ".imporword.csv")
         self.models = {"path": model_.path, "file_list": model_.get_file_list(is_add_test_=False)}

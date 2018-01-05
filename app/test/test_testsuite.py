@@ -1,7 +1,7 @@
 import os
 import shutil
 import pytest
-from spec2test import WakachiMeishi, Imporwords, Tfidf, Model, TestSuite
+from spec2test import WakachiMeishi, Imporwords, Tfidf, WordVector, TestSuite
 
 PATH_FILE = "test_file/"
 PATH_FILE_LEARN = PATH_FILE
