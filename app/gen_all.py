@@ -2,7 +2,6 @@ import gen_wakachi
 import gen_model
 import gen_tfidf
 import gen_imporwords
-import gen_testsuite
 
 
 def main():
