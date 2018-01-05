@@ -1,10 +1,10 @@
 import os
 import shutil
 import pytest
-from spec2test import Model
+from spec2test import Vector
 
 PATH_FILE = "test_file/wakachi/"
-PATH_RESOURSE = "test_resource/model/"
+PATH_RESOURSE = "test_resource/vector/"
 
 
 def true_file_list():
@@ -31,15 +31,15 @@ def setup_file():
 
 @pytest.fixture()
 def model(setup_file):
-    _ = Model(PATH_FILE, PATH_RESOURSE)
+    _ = Vector(PATH_FILE, PATH_RESOURSE)
     yield _
 
 
 def test_instance_able(model):
-    assert isinstance(model, Model)
+    assert isinstance(model, Vector)
 
 
 def test_create_models_word_vector(model):
     model.generate()
-    assert os.path.isfile("./" + PATH_RESOURSE + "あばばばば.model")
-    assert os.path.isfile("./" + PATH_RESOURSE + "トロッコ.model")
+    assert os.path.isfile("./" + PATH_RESOURSE + "あばばばば.vector")
+    assert os.path.isfile("./" + PATH_RESOURSE + "トロッコ.vector")

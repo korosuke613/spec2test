@@ -1,7 +1,7 @@
 import os
 import shutil
 import pytest
-from spec2test import WakachiMeishi, Imporwords, Tfidf, Model, TestSuite
+from spec2test import WakachiMeishi, Imporwords, Tfidf, Vector, TestSuite
 
 PATH_FILE = "test_file/"
 PATH_FILE_LEARN = PATH_FILE
@@ -43,7 +43,7 @@ def test_create_csv(testsuite):
 
 def test_load_imporwords(testsuite):
     testsuite.load_vocabularies()
-    testsuite.load_model()
+    testsuite.load_vector()
     generater = testsuite.load_imporwords()
     for filename, impolist in generater:
         impolist = [impo[0] for impo in impolist]

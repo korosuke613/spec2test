@@ -8,17 +8,20 @@ import six
 from chainer import serializers, cuda
 import numpy as np
 
+from file import File
 from iomanager import IOManager
 from directory import Directory
 from trainptb import RNNForLM
 
 
 class TestSuite(IOManager):
+    """テストスイートの生成に関するクラス"""
     def __init__(self,
                  input_path="./resource/",
                  output_path="./resource/testsuite/",
                  learn_result_=None,
                  units_=None):
+        """初期化"""
         super().__init__(input_path, output_path, ".txt", ".testsuite.csv")
         self.vocab = {}
         self.vocab_n = 0
@@ -32,7 +35,11 @@ class TestSuite(IOManager):
         np.random.seed(np.random.randint(1, 1000))
         chainer.config.train = False  # 学習中ではないことを明示
 
-    def load_vocabulary(self, file):
+    def load_vocabulary(self, file: File):
+        """ボキャブラリーを読み込む
+        @param file: 分かち書き済の文章
+        @return データセット
+        """
         file_path = self.input.path + file.full_name
         words = open(file_path, encoding="utf-8-sig").read().replace('\n', ' ').strip().split()
         dataset = np.ndarray((len(words),), dtype=np.int32)
@@ -43,6 +50,7 @@ class TestSuite(IOManager):
         return dataset
 
     def load_vocabularies(self):
+        """複数のボキャブラリーを読み込む"""
         vocabulary_files = [self.input.file_dict["train.txt"],
                             self.input.file_dict["valid.txt"],
                             self.input.file_dict["test.txt"]
@@ -53,6 +61,9 @@ class TestSuite(IOManager):
             self.vocab_i[i] = c
 
     def load_imporwords(self):
+        """重要単語を読み込む
+        @return 拡張子を除く重要単語ファイル名と重要単語リストを返すジェネレータ
+        """
         files = self.imporwords.get_file_list()
         for file in files:
             imporword = self.imporwords.path + file.full_name
@@ -61,7 +72,12 @@ class TestSuite(IOManager):
                 imporword_list = [row for row in csv_file]
             yield file.name, imporword_list
 
-    def create_csv(self, filename, testsuite, scores):
+    def create_csv(self, filename, testsuite: list, scores: float):
+        """テストスイートをCSV形式で保存する
+        @param filename: 保存ファイル名
+        @param testsuite: テストケースのリスト
+        @param scores: スコアのリスト
+        """
         filename += self.output.default_extension
         filepath = self.output.path + filename
         with open(filepath, "w", encoding="utf-8-sig") as file:
@@ -70,7 +86,13 @@ class TestSuite(IOManager):
                 row = [score, testcase]
                 writer.writerow(row)
 
-    def create_testsuite(self, imporword_list, threshold_=99, num_=10):
+    def create_testsuite(self, imporword_list: list, threshold_: float=99.0, num_: int=10):
+        """テストスイートを生成する
+        @param imporword_list: 重要単語のリスト
+        @param threshold_: スコアの閾値
+        @param num_: 一つのテストケースを生成する際に繰り返す回数
+        @return テストスイートとそのスコア
+        """
         def decide_testcase():
             testcase_ = None
             score_ = 0.0
@@ -98,12 +120,17 @@ class TestSuite(IOManager):
             scores.append(score)
         return testsuite, scores
 
-    def load_model(self):
+    def load_vector(self):
+        """単語ベクトルを読み込む"""
         self.learn_model = L.Classifier(RNNForLM(len(self.vocab), self.units))
         serializers.load_npz(self.input.path+self.learn_result, self.learn_model)
         self.learn_model.predictor.reset_state()
 
-    def gen_testcase(self, prime_text):
+    def gen_testcase(self, prime_text: str)-> str:
+        """テストケースを生成する
+        @param prime_text: 文頭の単語
+        @return テストケース
+        """
         def set_prime_text():
             nonlocal prime_text
             if isinstance(prime_text, six.binary_type):
@@ -135,7 +162,7 @@ class TestSuite(IOManager):
 
     def generate(self, prime_text=None):
         self.load_vocabularies()
-        self.load_model()
+        self.load_vector()
         try:
             testcase = self.gen_testcase(prime_text)
             print(testcase)
@@ -190,7 +217,7 @@ class Judge:
         return score
 
     @classmethod
-    def set_max_score(cls, score, testcase):
+    def set_max_score(cls, score: float, testcase: str):
         """最大評価のテストケースを保存する。
         @param score: テストケースの評価
         @param testcase: テストケース

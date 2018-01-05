@@ -9,4 +9,4 @@ PATH_RESOURSE = "./wakachi/"
 
 wakachi = Wakachi(input_path=PATH_FILE, output_path=PATH_RESOURSE)
 
-wakachi.generate_all(is_force=False)
+wakachi.generate(is_force=False)

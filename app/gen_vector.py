@@ -1,8 +1,8 @@
-from spec2test import Model
+from spec2test import Vector
 
 
 def main():
-    model = Model()
+    model = Vector()
     model.generate()
 
 

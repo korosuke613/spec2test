@@ -224,7 +224,7 @@ def main():
     val_iter = ParallelSequentialIterator(val, 1, repeat=False)
     test_iter = ParallelSequentialIterator(test, 1, repeat=False)
 
-    # Prepare an RNNLM model
+    # Prepare an RNNLM vector
     rnn = RNNForLM(n_vocab, args.unit)
     model = L.Classifier(rnn)
     model.compute_accuracy = False  # we only want the perplexity
@@ -265,14 +265,14 @@ def main():
 
     trainer.run()
 
-    # Evaluate the final model
+    # Evaluate the final vector
     print('test')
     eval_rnn.reset_state()
     evaluator = extensions.Evaluator(test_iter, eval_model, device=args.gpu)
     result = evaluator()
     print('test perplexity:', np.exp(float(result['main/loss'])))
 
-    # Serialize the final model
+    # Serialize the final vector
     chainer.serializers.save_npz(args.model, model)
 
 

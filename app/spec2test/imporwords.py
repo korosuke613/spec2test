@@ -21,8 +21,8 @@ class Imporwords(IOManager):
                                default_extension_=".tfidf",
                                is_import_=True)
         if model_ is None:
-            model_ = Directory(path_="./resource/model/",
-                               default_extension_=".model",
+            model_ = Directory(path_="./resource/vector/",
+                               default_extension_=".vector",
                                is_import_=True)
         super().__init__(None, output_path, None, ".imporword.csv")
         self.models = {"path": model_.path, "file_list": model_.get_file_list(is_add_test_=False)}
@@ -30,7 +30,11 @@ class Imporwords(IOManager):
         self.important_words = None
 
     @staticmethod
-    def add_subtype_to_array2d(array2d: dict):
+    def add_subtype_to_array2d(array2d: dict)-> dict:
+        """名詞のType2を辞書に追加する
+        @param array2d: 名詞の辞書
+        @return Type2追加後の辞書
+        """
         mecab = MeCab.Tagger()
         mecab.parse('')
         for array in array2d:
@@ -39,7 +43,7 @@ class Imporwords(IOManager):
             array2d[array] = [node, array2d[array]]
         return array2d
 
-    def create_new_csv(self, file_name, array2d):
+    def create_new_csv(self, file_name: str, array2d):
         """CSVに重要単語を記録する
         @param file_name: 拡張子を除いたファイル名
         @param array2d: 保存する2次元配列
@@ -69,7 +73,7 @@ class Imporwords(IOManager):
                 if find_name_ in csv_file_path_:
                     return csv_files_[i]
 
-        def record_score():
+        def record_score()-> dict:
             """重要単語のスコアを付ける"""
             for word, num in similar_words.items():
                 if word in important_words:
@@ -108,6 +112,7 @@ class Imporwords(IOManager):
 
 
 class UniqWord(IOManager):
+    """テストケースに出てくる単語に関するクラス"""
     def __init__(self,
                  input_=None,
                  output_=None):

@@ -2,7 +2,7 @@
 import csv
 from sklearn.feature_extraction.text import TfidfVectorizer
 from iomanager import IOManager
-
+from file import File
 
 class Tfidf(IOManager):
     """TFIDFに関するクラス"""
@@ -11,7 +11,7 @@ class Tfidf(IOManager):
                  output_path="./resource/tfidf/"):
         super().__init__(input_path, output_path, ".meishi.wakachi", ".tfidf")
 
-    def __create_csv(self, file, array2d):
+    def __create_csv(self, file: File, array2d):
         """CSVにTFIDF上位の単語を記録する"""
         file_path = self.output.path + file.name + self.output.default_extension
         with open(file_path, "w", encoding="utf_8_sig") as f:
