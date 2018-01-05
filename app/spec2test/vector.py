@@ -3,12 +3,12 @@ from gensim.models import word2vec
 from iomanager import IOManager
 
 
-class WordVector(IOManager):
+class Vector(IOManager):
     """モデルに関するクラス"""
     def __init__(self,
                  input_path="./resource/wakachi/",
-                 output_path="./resource/word_vector/"):
-        super().__init__(input_path, output_path, ".meishi.wakachi", ".word_vector")
+                 output_path="./resource/vector/"):
+        super().__init__(input_path, output_path, ".meishi.wakachi", ".vector")
 
     def generate(self):
         """単語ベクトルのモデルを生成する"""
@@ -20,7 +20,7 @@ class WordVector(IOManager):
 
 
 def main():
-    model = WordVector()
+    model = Vector()
     model.generate()
 
 

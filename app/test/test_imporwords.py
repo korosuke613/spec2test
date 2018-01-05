@@ -6,7 +6,7 @@ from spec2test import Directory, Imporwords
 PATH_FILE = "test_file/"
 PATH_TXT = PATH_FILE + "txt/"
 PATH_WAKACHI = PATH_FILE + "wakachi/"
-PATH_MODEL = PATH_FILE + "word_vector/"
+PATH_MODEL = PATH_FILE + "vector/"
 PATH_TFIDF = PATH_FILE + "tfidf/"
 PATH_RESOURCE = "test_resource/imporwords/"
 
@@ -36,7 +36,7 @@ def setup_file():
 @pytest.fixture()
 def imporwords(setup_file):
     tfidf = Directory(path_=PATH_TFIDF, default_extension_=".tfidf", is_import_=True)
-    model = Directory(path_=PATH_MODEL, default_extension_=".word_vector", is_import_=True)
+    model = Directory(path_=PATH_MODEL, default_extension_=".vector", is_import_=True)
     _ = Imporwords(PATH_RESOURCE,
                    tfidf_=tfidf,
                    model_=model)

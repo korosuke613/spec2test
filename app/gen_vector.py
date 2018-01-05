@@ -1,8 +1,8 @@
-from spec2test import WordVector
+from spec2test import Vector
 
 
 def main():
-    model = WordVector()
+    model = Vector()
     model.generate()
 
 
