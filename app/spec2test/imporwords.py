@@ -4,6 +4,7 @@ import os
 from gensim.models import word2vec
 from directory import Directory
 from iomanager import IOManager
+from file import File
 
 
 class Imporwords(IOManager):
@@ -11,14 +12,9 @@ class Imporwords(IOManager):
 
     def __init__(self,
                  output_path="./resource/imporwords/",
-                 wakachi_=None,
                  tfidf_=None,
                  model_=None):
         """初期化"""
-        if wakachi_ is None:
-            wakachi_ = Directory(path_="./resource/wakachi/",
-                                 default_extension_=".meishi.wakachi",
-                                 is_import_=True)
         if tfidf_ is None:
             tfidf_ = Directory(path_="./resource/tfidf/",
                                default_extension_=".tfidf",
@@ -28,9 +24,9 @@ class Imporwords(IOManager):
                                default_extension_=".model",
                                is_import_=True)
         super().__init__(None, output_path, None, ".imporword.csv")
-        self._wakachi = wakachi_
-        self._model = model_
-        self._tfidf = tfidf_
+        self.models = {"path": model_.path, "file_list": model_.get_file_list(is_add_test_=False)}
+        self.tfidfs = tfidf_.get_file_path_list(is_add_test_=False)
+        self.important_words = None
 
     def create_new_csv(self, file_name, array2d):
         """CSVに重要単語を記録する
@@ -45,8 +41,9 @@ class Imporwords(IOManager):
             for word in sorted_array2d:
                 writer.writerow(word)
 
-    def generate(self, threshold_tfidf=0.1, threshold_model=0.11):
-        """単語の類似度を計算
+    def generate_imporwords(self, model_file_: File, threshold_tfidf=0.1, threshold_model=0.11):
+        """重要単語リストを生成
+        @param model_file_: 生成対象のモデルファイル
         @param threshold_tfidf: tfidfの閾値
         @param threshold_model: modelの閾値
         """
@@ -60,38 +57,41 @@ class Imporwords(IOManager):
                 if find_name_ in csv_file_path_:
                     return csv_files_[i]
 
-        def record_score(similar_words_):
-            for word, num in similar_words_.items():
+        def record_score():
+            """重要単語のスコアを付ける"""
+            for word, num in similar_words.items():
                 if word in important_words:
                     important_words[word] = float(important_words[word]) + float(num)
                 else:
                     important_words[word] = float(num)
 
-        def record_imporwords():
-            for tfidf_word in tfidf_list:
-                try:
-                    similar_words_with_score = model.most_similar(positive=[tfidf_word[0]])
-                    similar_words = {word[0]: float(word[1])*float(tfidf_word[1])
-                                     for word in similar_words_with_score
-                                     if float(word[1]) > threshold_model}
-                except KeyError:
-                    continue
-                important_words[tfidf_word[0]] = tfidf_word[1]
-                record_score(similar_words)
+        model = word2vec.Word2Vec.load(self.models["path"] + model_file_.full_name)
+        tfidf_path = find_csv_name(self.tfidfs, model_file_.name)
+        with open(tfidf_path, "r", encoding="utf_8_sig") as file:
+            csv_file = csv.reader(file)
+            tfidf_list = [row for row in csv_file if float(row[1]) > threshold_tfidf]
+        important_words = {}
+        for tfidf_word in tfidf_list:
+            try:
+                similar_words_with_score = model.most_similar(positive=[tfidf_word[0]])
+                similar_words = {word[0]: float(word[1]) * float(tfidf_word[1])
+                                 for word in similar_words_with_score
+                                 if float(word[1]) > threshold_model}
+            except KeyError:
+                continue
+            important_words[tfidf_word[0]] = tfidf_word[1]
+            record_score()
+        self.important_words = important_words
 
-        models = self._model.get_file_path_list(is_add_test_=False)
-        tfidfs = self._tfidf.get_file_path_list(is_add_test_=False)
-        for model_path in models:
-            find_name = model_path[len(self._model.path):-len(".model")]
-            csv_file_path = find_csv_name(tfidfs, find_name)
-            with open(csv_file_path, "r", encoding="utf_8_sig") as file:
-                csv_file = csv.reader(file)
-                tfidf_list = [row for row in csv_file if float(row[1]) > threshold_tfidf]
-            model = word2vec.Word2Vec.load(model_path)
-            important_words = {}
-            record_imporwords()
-            self.create_new_csv(find_name,
-                                important_words.items())
+    def generate(self, threshold_tfidf=0.1, threshold_model=0.11):
+        """重要単語リストの集合を生成
+        @param threshold_tfidf: tfidfの閾値
+        @param threshold_model: modelの閾値
+        """
+        for model_file in self.models["file_list"]:
+            self.generate_imporwords(model_file, threshold_tfidf, threshold_model)
+            self.create_new_csv(model_file.name,
+                                self.important_words.items())
 
 
 class UniqWord(IOManager):
