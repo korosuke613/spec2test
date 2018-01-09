@@ -7,3 +7,4 @@ from .directory import Directory
 from .file import File
 from .trainptb import RNNForLM
 from .testsuite import TestSuite
+from .iomanager import IOManagerDirectory

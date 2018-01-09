@@ -22,3 +22,14 @@ class IOManager(ABC):
         """ディレクトリにファイルを登録する"""
         self.input.import_files()
         self.output.import_files()
+
+
+class IOManagerDirectory(IOManager):
+    def __init__(self,
+                 input_dir_: Directory,
+                 output_dir_: Directory):
+        super().__init__(input_dir_.path, output_dir_.path,
+                         input_dir_.default_extension, output_dir_.default_extension)
+
+    def generate(self):
+        raise NotImplementedError
