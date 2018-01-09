@@ -16,11 +16,14 @@ class Evaluation:
         raise NotImplementedError
 
 
-class EvaluationTestcase(Evaluation):
+class EvaluationTestsuite(Evaluation):
     def __init__(self,
                  eval_a_: Directory,
                  eval_b_: Directory,
-                 is_import=True):
+                 is_import=True,
+                 extension_=".testsuite"):
+        eval_a_.default_extension = extension_
+        eval_b_.default_extension = extension_
         super().__init__(eval_a_, eval_b_, is_import)
 
     def compare(self):
