@@ -1,4 +1,4 @@
-import typing
+from typing import Iterator, Tuple
 
 from directory import Directory
 
@@ -14,12 +14,12 @@ class Evaluation:
             self.eval_a.import_files()
             self.eval_b.import_files()
 
-    def same_file_generator(self)->typing.Iterator[typing.Tuple[str, str, str]]:
-        eval_a_files = self.eval_a.file_dict_generator()
-        for eval_a_file, eval_a_path in eval_a_files:
-            eval_b_file = self.eval_b.file_dict[eval_a_file.full_name]
-            eval_b_path = self.eval_b.get_file_path(eval_b_file.full_name)
-            yield eval_a_file.full_name, eval_a_path, eval_b_path
+    def same_file_generator(self)->Iterator[Tuple[str, str, str]]:
+        files_a = self.eval_a.file_dict_generator()
+        for file_a, path_a in files_a:
+            file_b = self.eval_b.file_dict[file_a.full_name]
+            path_b = self.eval_b.get_file_path(file_b.full_name)
+            yield file_a.full_name, path_a, path_b
 
     def compare(self):
         raise NotImplementedError
