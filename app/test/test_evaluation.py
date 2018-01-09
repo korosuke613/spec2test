@@ -14,5 +14,13 @@ def eval_testsuite():
 
 
 def test_default_extension(eval_testsuite: EvaluationTestsuite):
-    assert eval_testsuite.eval_a.default_extension == ".testsuite"
-    assert eval_testsuite.eval_b.default_extension == ".testsuite"
+    assert eval_testsuite.eval_a.default_extension == ".testsuite.csv"
+    assert eval_testsuite.eval_b.default_extension == ".testsuite.csv"
+
+
+def test_same_files_list(eval_testsuite: EvaluationTestsuite):
+    eval_dict = eval_testsuite.same_file_generator()
+    file_name, eval_a, eval_b = eval_dict.__next__()
+    assert file_name == "あばばばば.testsuite.csv"
+    assert eval_a == "test_file/testsuite/eval_a/あばばばば.testsuite.csv"
+    assert eval_b == "test_file/testsuite/eval_b/あばばばば.testsuite.csv"
