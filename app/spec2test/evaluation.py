@@ -1,3 +1,4 @@
+import pandas as pd
 from typing import Iterator, Tuple
 
 from directory import Directory
@@ -19,7 +20,7 @@ class Evaluation:
         for file_a, path_a in files_a:
             file_b = self.eval_b.file_dict[file_a.full_name]
             path_b = self.eval_b.get_file_path(file_b.full_name)
-            yield file_a.full_name, path_a, path_b
+            yield file_a.name, path_a, path_b
 
     def compare(self):
         raise NotImplementedError
@@ -29,14 +30,53 @@ class EvaluationTestsuite(Evaluation):
     def __init__(self,
                  eval_a_: Directory,
                  eval_b_: Directory,
+                 correct: Directory,
                  is_import=True,
-                 extension_=".testsuite.csv"):
-        eval_a_.default_extension = extension_
-        eval_b_.default_extension = extension_
+                 testsuite_extension_=".testsuite.csv",
+                 correct_extension_=".wakachi"):
+        eval_a_.default_extension = eval_b_.default_extension = testsuite_extension_
+        correct.default_extension = correct_extension_
         super().__init__(eval_a_, eval_b_, is_import)
+        self.correct = correct
+        if is_import:
+            self.correct.import_files()
+
+    def uniq_word_lists_generator(self)-> Iterator[Tuple[set, set, set]]:
+        def get_uniq_word_list(path_, column_num=1):
+            uniqword = UniqWord(path_)
+            uniqword.extract_word(column_num)
+            return uniqword.word_list
+
+        generator = self.same_file_generator()
+        for name, eval_a, eval_b in generator:
+            correct = self.get_collect_file_path(name)
+            correct = get_uniq_word_list(correct, column_num=0)
+            eval_a = get_uniq_word_list(eval_a)
+            eval_b = get_uniq_word_list(eval_b)
+            yield correct, eval_a, eval_b
+
+    def get_collect_file_path(self, name):
+        correct = self.correct.file_dict[name + self.correct.default_extension]
+        return self.correct.path + correct.full_name
 
     def compare(self):
-        raise NotImplementedError
+        pass
+
+
+class UniqWord:
+    def __init__(self,
+                 path):
+        self.word_list = self.file = None
+        self.open_file(path)
+
+    def open_file(self, path_):
+        self.file = pd.read_csv(path_, encoding="utf-8-sig")
+
+    def extract_word(self, column_num=0):
+        word_list = []
+        for row in self.file.iloc[:, column_num]:
+            word_list.extend(row.split())
+        self.word_list = set(word_list)
 
 
 def main():
