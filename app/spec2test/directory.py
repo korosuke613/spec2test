@@ -1,4 +1,6 @@
 import os
+from typing import Iterator, Tuple
+
 from file import File
 
 
@@ -49,6 +51,10 @@ class Directory:
 
     def get_file_list(self, is_add_test_=True):
         return [file for file in self.file_dict.values() if self.judge(file, is_add_test_)]
+
+    def file_dict_generator(self)->Iterator[Tuple[File, str]]:
+        for file in self.file_dict.values():
+            yield file, self.get_file_path(file.full_name)
 
 
 def main():
