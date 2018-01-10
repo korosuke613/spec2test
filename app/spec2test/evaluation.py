@@ -41,18 +41,18 @@ class EvaluationTestsuite(Evaluation):
         if is_import:
             self.correct.import_files()
 
-    def uniq_word_lists_generator(self)-> Iterator[Tuple[set, set, set]]:
-        def get_uniq_word_list(path_, column_num=1):
-            uniqword = UniqWord(path_)
-            uniqword.extract_word(column_num)
-            return uniqword.word_list
+    def unique_word_lists_generator(self)-> Iterator[Tuple[set, set, set]]:
+        def get_unique_word_list(path_, column_num=1):
+            unique_word = UniqueWord(path_)
+            unique_word.extract_word(column_num)
+            return unique_word.word_list
 
         generator = self.same_file_generator()
         for name, eval_a, eval_b in generator:
             correct = self.get_collect_file_path(name)
-            correct = get_uniq_word_list(correct, column_num=0)
-            eval_a = get_uniq_word_list(eval_a)
-            eval_b = get_uniq_word_list(eval_b)
+            correct = get_unique_word_list(correct, column_num=0)
+            eval_a = get_unique_word_list(eval_a)
+            eval_b = get_unique_word_list(eval_b)
             yield correct, eval_a, eval_b
 
     def get_collect_file_path(self, name):
@@ -63,7 +63,7 @@ class EvaluationTestsuite(Evaluation):
         pass
 
 
-class UniqWord:
+class UniqueWord:
     def __init__(self,
                  path):
         self.word_list = self.file = None

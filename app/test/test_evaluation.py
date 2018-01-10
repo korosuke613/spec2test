@@ -29,7 +29,7 @@ def test_same_files_list(eval_testsuite: EvaluationTestsuite):
 
 
 def test_uniq_word_lists(eval_testsuite: EvaluationTestsuite):
-    generator = eval_testsuite.uniq_word_lists_generator()
+    generator = eval_testsuite.unique_word_lists_generator()
     correct, eval_a, eval_b = generator.__next__()
     assert isinstance(correct, set)
     assert isinstance(eval_a, set)
