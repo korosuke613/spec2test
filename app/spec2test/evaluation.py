@@ -22,7 +22,7 @@ class Evaluation:
             path_b = self.eval_b.get_file_path(file_b.full_name)
             yield file_a.name, path_a, path_b
 
-    def compare(self):
+    def compare(self, correct, inspection):
         raise NotImplementedError
 
 
@@ -41,7 +41,7 @@ class EvaluationTestsuite(Evaluation):
         if is_import:
             self.correct.import_files()
 
-    def unique_word_lists_generator(self)-> Iterator[Tuple[set, set, set]]:
+    def unique_word_lists_generator(self)-> Iterator[Tuple[str, set, set, set]]:
         def get_unique_word_list(path_, column_num=1):
             unique_word = UniqueWord(path_)
             unique_word.extract_word(column_num)
@@ -53,14 +53,65 @@ class EvaluationTestsuite(Evaluation):
             correct = get_unique_word_list(correct, column_num=0)
             eval_a = get_unique_word_list(eval_a)
             eval_b = get_unique_word_list(eval_b)
-            yield correct, eval_a, eval_b
+            yield name, correct, eval_a, eval_b
 
     def get_collect_file_path(self, name):
         correct = self.correct.file_dict[name + self.correct.default_extension]
         return self.correct.path + correct.full_name
 
-    def compare(self):
-        pass
+    @staticmethod
+    def format_score(score):
+        return f'適合率 {round(score["precision"], 2)} ' \
+               f'再現率 {round(score["recall"], 2)}, ' \
+               f'F値 {round(score["f_mean"], 2)}'
+
+    def print_compares(self):
+        generator = self.unique_word_lists_generator()
+        for name, correct, eval_a, eval_b in generator:
+            result_a = self.compare(correct, eval_a)
+            result_b = self.compare(correct, eval_b)
+            print()
+            print(f"ファイル名: {name}")
+            print("eval_a: " + self.format_score(result_a))
+            print('eval_b: ' + self.format_score(result_b))
+
+    def compare(self, correct_words, inspection_words):
+        judge = Judge(correct_words)
+        for word in inspection_words:
+            judge.add_word(word)
+        return judge.get_score()
+
+
+class Judge:
+    def __init__(self,
+                 true_words_):
+        self.true_words = true_words_
+        self.fails_words = {}
+        self.match_words = {}
+
+    @staticmethod
+    def calc_words(words: dict, word):
+        try:
+            words[word] += 1
+        except KeyError:
+            words[word] = 0
+
+    def add_word(self, word):
+        if word in self.true_words:
+            self.calc_words(self.match_words, word)
+        else:
+            self.calc_words(self.fails_words, word)
+
+    def get_score(self):
+        match = len(self.match_words)
+        true = len(self.true_words)
+        fails = len(self.fails_words)
+        recall = match / true
+        precision = match / (match + fails)
+        result = {"recall": recall,
+                  "precision": precision,
+                  "f_mean": 2 * recall * precision / (recall + precision)}
+        return result
 
 
 class UniqueWord:

@@ -30,7 +30,22 @@ def test_same_files_list(eval_testsuite: EvaluationTestsuite):
 
 def test_uniq_word_lists(eval_testsuite: EvaluationTestsuite):
     generator = eval_testsuite.unique_word_lists_generator()
-    correct, eval_a, eval_b = generator.__next__()
+    name, correct, eval_a, eval_b = generator.__next__()
     assert isinstance(correct, set)
     assert isinstance(eval_a, set)
     assert isinstance(eval_b, set)
+
+
+def test_compare(eval_testsuite: EvaluationTestsuite):
+    generator = eval_testsuite.unique_word_lists_generator()
+    name, correct, eval_a, eval_b = generator.__next__()
+    result = eval_testsuite.compare(correct, eval_a)
+    assert isinstance(result, dict)
+    assert isinstance(result["recall"], float)
+    assert isinstance(result["precision"], float)
+    assert isinstance(result["f_mean"], float)
+    assert round(result["precision"], 2) == 0.37
+
+
+def test_print_compares(eval_testsuite: EvaluationTestsuite):
+    eval_testsuite.print_compares()
