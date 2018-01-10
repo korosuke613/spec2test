@@ -1,3 +1,4 @@
 <map id="クラス階層図" name="クラス階層図">
-<area shape="rect" id="node1" href="$classspec2test_1_1file_1_1_file.html" title="ファイルを表すクラス " alt="" coords="5,5,48,32"/>
+<area shape="rect" id="node1" href="$classspec2test_1_1evaluation_1_1_evaluation.html" title="Evaluation" alt="" coords="5,5,93,32"/>
+<area shape="rect" id="node2" href="$classspec2test_1_1evaluation_1_1_evaluation_testsuite.html" title="EvaluationTestsuite" alt="" coords="141,5,285,32"/>
 </map>

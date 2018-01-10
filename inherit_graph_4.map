@@ -1,3 +1,9 @@
 <map id="クラス階層図" name="クラス階層図">
-<area shape="rect" id="node2" href="$classspec2test_1_1iomanager_1_1_i_o_manager.html" title="ファイルを生成するクラスの抽象クラス " alt="" coords="103,5,193,32"/>
+<area shape="rect" id="node2" href="$classspec2test_1_1imporwords_1_1_imporwords.html" title="重要単語リストクラス " alt="" coords="144,5,240,32"/>
+<area shape="rect" id="node3" href="$classspec2test_1_1imporwords_1_1_uniq_word.html" title="テストケースに出てくる単語に関するクラス " alt="" coords="151,56,233,83"/>
+<area shape="rect" id="node4" href="$classspec2test_1_1testsuite_1_1_test_suite.html" title="テストスイートの生成に関するクラス " alt="" coords="152,107,232,133"/>
+<area shape="rect" id="node5" href="$classspec2test_1_1tfidf_1_1_tfidf.html" title="TFIDFに関するクラス " alt="" coords="168,157,216,184"/>
+<area shape="rect" id="node6" href="$classspec2test_1_1vector_1_1_vector.html" title="モデルに関するクラス " alt="" coords="161,208,223,235"/>
+<area shape="rect" id="node7" href="$classspec2test_1_1wakachi_1_1_wakachi.html" title="分かち書きに関するクラス " alt="" coords="155,259,229,285"/>
+<area shape="rect" id="node8" href="$classspec2test_1_1wakachi_1_1_wakachi_meishi.html" title="名詞のみの分かち書きに関するクラス " alt="" coords="288,259,401,285"/>
 </map>

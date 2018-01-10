@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['testcase',['testcase',['../classspec2test_1_1testsuite_1_1_judge.html#af91fe0ab81d0e5ae1abc17b6e314cff4',1,'spec2test::testsuite::Judge']]],
-  ['text',['text',['../classspec2test_1_1wakachi_1_1_wakachi.html#af575f17e6be3f269b86b041a60560dbf',1,'spec2test::wakachi::Wakachi']]],
-  ['tfidfs',['tfidfs',['../classspec2test_1_1imporwords_1_1_imporwords.html#a05bb3f97e1e00f766988dd2f69fd976e',1,'spec2test::imporwords::Imporwords']]],
-  ['train',['train',['../classspec2test_1_1trainptb_1_1_r_n_n_for_l_m.html#af53df1efd55ec710fdb1c3898f3276fe',1,'spec2test::trainptb::RNNForLM']]]
+  ['stop_5fsub_5fsubtype',['stop_sub_subtype',['../classspec2test_1_1wakachi_1_1_wakachi_meishi.html#a68355383a272e617537b9011da7aad95',1,'spec2test::wakachi::WakachiMeishi']]],
+  ['stop_5fsubtype',['stop_subtype',['../classspec2test_1_1wakachi_1_1_wakachi.html#a5c6e60dfcee293eb224bfff5ec7f5019',1,'spec2test.wakachi.Wakachi.stop_subtype()'],['../classspec2test_1_1wakachi_1_1_wakachi_meishi.html#a5c6e60dfcee293eb224bfff5ec7f5019',1,'spec2test.wakachi.WakachiMeishi.stop_subtype()']]],
+  ['stop_5fword',['stop_word',['../classspec2test_1_1wakachi_1_1_wakachi.html#a3937bf4e7ba1ba66d99f1deae0be0311',1,'spec2test::wakachi::Wakachi']]]
 ];

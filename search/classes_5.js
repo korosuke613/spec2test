@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['parallelsequentialiterator',['ParallelSequentialIterator',['../classspec2test_1_1trainptb_1_1_parallel_sequential_iterator.html',1,'spec2test::trainptb']]]
+  ['judge',['Judge',['../classspec2test_1_1evaluation_1_1_judge.html',1,'spec2test::evaluation']]],
+  ['judge',['Judge',['../classspec2test_1_1testsuite_1_1_judge.html',1,'spec2test::testsuite']]]
 ];

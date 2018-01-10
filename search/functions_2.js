@@ -1,6 +1,8 @@
 var searchData=
 [
+  ['calc_5fwords',['calc_words',['../classspec2test_1_1evaluation_1_1_judge.html#ad0a4eb92a7ab566e121dd97c580de11b',1,'spec2test::evaluation::Judge']]],
   ['check',['check',['../classspec2test_1_1file_1_1_file.html#a7d60a0d93b36e13e426f086e476a6373',1,'spec2test::file::File']]],
+  ['compare',['compare',['../classspec2test_1_1evaluation_1_1_evaluation.html#a749833f50092d0c017f365da0704077f',1,'spec2test.evaluation.Evaluation.compare()'],['../classspec2test_1_1evaluation_1_1_evaluation_testsuite.html#ac1a775a96dd1e3166564df372c1912b2',1,'spec2test.evaluation.EvaluationTestsuite.compare()']]],
   ['compare_5ftestcase',['compare_testcase',['../classspec2test_1_1testsuite_1_1_judge.html#a1dba609694ceb06753be7c9b0fd613bf',1,'spec2test::testsuite::Judge']]],
   ['compute_5fperplexity',['compute_perplexity',['../namespacespec2test_1_1trainptb.html#a98e0d0463431c84fa90307c8e250543d',1,'spec2test::trainptb']]],
   ['create_5fcsv',['create_csv',['../classspec2test_1_1testsuite_1_1_test_suite.html#aa2a9f353fbffa126faf70f4baa729a3e',1,'spec2test::testsuite::TestSuite']]],

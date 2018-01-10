@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['vector',['Vector',['../classspec2test_1_1vector_1_1_vector.html',1,'spec2test::vector']]]
+  ['uniqueword',['UniqueWord',['../classspec2test_1_1evaluation_1_1_unique_word.html',1,'spec2test::evaluation']]],
+  ['uniqword',['UniqWord',['../classspec2test_1_1imporwords_1_1_uniq_word.html',1,'spec2test::imporwords']]]
 ];

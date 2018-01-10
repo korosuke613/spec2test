@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['hinshi_5fkind',['hinshi_kind',['../classspec2test_1_1wakachi_1_1_wakachi.html#a318c2ee34b1a80df6dc3e92fb0221052',1,'spec2test::wakachi::Wakachi']]],
-  ['hinshi_5flist',['hinshi_list',['../classspec2test_1_1wakachi_1_1_wakachi.html#aff78bc70d81621b5cac3f14b65d96e79',1,'spec2test.wakachi.Wakachi.hinshi_list()'],['../classspec2test_1_1wakachi_1_1_wakachi_meishi.html#aff78bc70d81621b5cac3f14b65d96e79',1,'spec2test.wakachi.WakachiMeishi.hinshi_list()']]]
+  ['fails_5fwords',['fails_words',['../classspec2test_1_1evaluation_1_1_judge.html#a7222e6071c68ceecd19a9462aaf8f061',1,'spec2test::evaluation::Judge']]],
+  ['file',['file',['../classspec2test_1_1evaluation_1_1_unique_word.html#a40a5d58ffa6e88aa578d6683ac413105',1,'spec2test::evaluation::UniqueWord']]],
+  ['file_5fdict',['file_dict',['../classspec2test_1_1directory_1_1_directory.html#a94f33060fe148e1983a25ae604875188',1,'spec2test::directory::Directory']]],
+  ['full_5fname',['full_name',['../classspec2test_1_1file_1_1_file.html#afffd55ce9921bf51d70d4eb7861d5606',1,'spec2test::file::File']]]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['repeat',['repeat',['../classspec2test_1_1trainptb_1_1_parallel_sequential_iterator.html#ac00f64e7ae9c4cbe2575af8554c4401d',1,'spec2test::trainptb::ParallelSequentialIterator']]],
-  ['results',['results',['../classspec2test_1_1wakachi_1_1_wakachi.html#a339bb5524b06e496a6aaa0a97a4a8d21',1,'spec2test::wakachi::Wakachi']]]
+  ['path',['path',['../classspec2test_1_1directory_1_1_directory.html#aa28dc103258589d9cb421197fe2de90b',1,'spec2test::directory::Directory']]],
+  ['point',['point',['../classspec2test_1_1testsuite_1_1_judge.html#a643590f4015338d12714af03d61a0ac9',1,'spec2test::testsuite::Judge']]]
 ];

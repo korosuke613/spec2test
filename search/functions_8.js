@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['main',['main',['../namespacespec2test_1_1directory.html#a1fa6de754c202d8a11623fed32dcf3b6',1,'spec2test.directory.main()'],['../namespacespec2test_1_1imporwords.html#a2e68a9e5d96f6c74ba0e4ee7dc78159a',1,'spec2test.imporwords.main()'],['../namespacespec2test_1_1testsuite.html#a45cf8f921ffd6ea501239185716d6632',1,'spec2test.testsuite.main()'],['../namespacespec2test_1_1tfidf.html#a47d00fef8d10944e18f29ad630187142',1,'spec2test.tfidf.main()'],['../namespacespec2test_1_1trainptb.html#ab0a102930b39ad37cb740d54890b208e',1,'spec2test.trainptb.main()'],['../namespacespec2test_1_1vector.html#a593ae78b8fa1e03fd4dff69bd9e793f0',1,'spec2test.vector.main()'],['../namespacespec2test_1_1wakachi.html#a23afbff7ce19423dc88920ccb5eb2625',1,'spec2test.wakachi.main()']]]
+  ['load_5fimporwords',['load_imporwords',['../classspec2test_1_1testsuite_1_1_test_suite.html#ae592869f1c5cbf99478e9c2e7a7bdc2e',1,'spec2test::testsuite::TestSuite']]],
+  ['load_5fvector',['load_vector',['../classspec2test_1_1testsuite_1_1_test_suite.html#ad822f59355bbd1f713f497130033944a',1,'spec2test::testsuite::TestSuite']]],
+  ['load_5fvocabularies',['load_vocabularies',['../classspec2test_1_1testsuite_1_1_test_suite.html#a334b2cd6ec1bb8cf2c5064543527dd1c',1,'spec2test::testsuite::TestSuite']]],
+  ['load_5fvocabulary',['load_vocabulary',['../classspec2test_1_1testsuite_1_1_test_suite.html#a270a40d4cc5e561bddc6969a058d1d3b',1,'spec2test::testsuite::TestSuite']]]
 ];
