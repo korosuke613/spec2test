@@ -29,7 +29,7 @@ class TestSuite(IOManager):
         self.units = units_
         self.learn_model = None
         self.learn_result = learn_result_
-        self.length = 50
+        self.length = 30
         self.imporwords = Directory(self.input.path + "imporwords/", ".imporword.csv")
         self.imporwords.import_files()
         np.random.seed(np.random.randint(1, 1000))
@@ -86,7 +86,7 @@ class TestSuite(IOManager):
                 row = [score, testcase]
                 writer.writerow(row)
 
-    def create_testsuite(self, imporword_list: list, threshold_: float=99.0, num_: int=10):
+    def create_testsuite(self, imporword_list: list, threshold_: float=99.0, num_: int=10, is_prime=True):
         """テストスイートを生成する
         @param imporword_list: 重要単語のリスト
         @param threshold_: スコアの閾値
@@ -98,7 +98,10 @@ class TestSuite(IOManager):
             score_ = 0.0
             Judge.reset()
             for _ in range(num_):
-                testcase_ = self.gen_testcase(imporword)
+                if not is_prime:
+                    testcase_ = self.gen_testcase()
+                else:
+                    testcase_ = self.gen_testcase(imporword)
                 judge = Judge()
                 score_ = judge.compare_testcase(imporword_list, testcase_)
                 if score_ >= threshold_:
@@ -126,7 +129,7 @@ class TestSuite(IOManager):
         serializers.load_npz(self.input.path+self.learn_result, self.learn_model)
         self.learn_model.predictor.reset_state()
 
-    def gen_testcase(self, prime_text: str)-> str:
+    def gen_testcase(self, prime_text: str=None)-> str:
         """テストケースを生成する
         @param prime_text: 文頭の単語
         @return テストケース
@@ -141,7 +144,18 @@ class TestSuite(IOManager):
             else:
                 raise ValueError
 
-        prev_word = set_prime_text()
+        def set_randome_prime():
+            import random
+            key = random.randint(0, len(self.vocab)-1)
+            vocab_ = list(self.vocab.values())
+            prev_word_random = chainer.Variable(np.array([vocab_[key]], np.int32))
+            return prev_word_random
+
+        if prime_text is None:
+            prime_text = ""
+            prev_word = set_randome_prime()
+        else:
+            prev_word = set_prime_text()
         F.softmax(self.learn_model.predictor(prev_word))
         testcase = prime_text + " "
         for _ in six.moves.range(self.length):
