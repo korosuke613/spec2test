@@ -5,9 +5,16 @@ import pandas as pd
 from collections import OrderedDict
 
 
-def main(correct,
-         spec2test,
-         simple_ptb):
+def main(correct1,
+         spec2test1,
+         simple_ptb1,
+         correct2,
+         spec2test2,
+         simple_ptb2,
+         correct3,
+         spec2test3,
+         simple_ptb3
+         ):
 
     def csv2text(path_):
         file = pd.read_csv(path_, encoding="utf-8-sig")
@@ -29,9 +36,16 @@ def main(correct,
             node = node.next
         return out_words
 
-    documents = [open(correct, 'r').read(),
-                 open(spec2test, 'r').read(),
-                 open(simple_ptb, 'r').read()]
+    documents = [open(correct1, 'r').read(),
+                 open(spec2test1, 'r').read(),
+                 open(simple_ptb1, 'r').read(),
+                 open(correct2, 'r').read(),
+                 open(spec2test2, 'r').read(),
+                 open(simple_ptb2, 'r').read(),
+                 open(correct2, 'r').read(),
+                 open(spec2test2, 'r').read(),
+                 open(simple_ptb2, 'r').read(),
+                 ]
 
     train_corpus = []
     for i, document in enumerate(documents):
@@ -42,7 +56,9 @@ def main(correct,
     model = Doc2Vec(documents=train_corpus, min_count=1, dm=0)
 
     tags = OrderedDict()  # 辞書の繰り返し時による順番を保つ
-    tag_list = (('doc1', "真のテストケース"), ('doc2', "spec2test"), ('doc3', "simple   "))
+    tag_list = (('doc1', "真のテストケース1"), ('doc2', "spec2test1"), ('doc3', "simple1  "),
+                ('doc4', "真のテストケース2"), ('doc5', "spec2test2"), ('doc6', "simple2  "),
+                ('doc7', "真のテストケース3"), ('doc8', "spec2test3"), ('doc9', "simple3  "))
     dic = OrderedDict(tag_list)
     tags.update(dic)
 
@@ -50,7 +66,6 @@ def main(correct,
         print("[" + v + "]")
         for items in model.docvecs.most_similar(k):
             print("\t" + tags[items[0]] + " : " + str(items[1]))
-        break
 
 
 if __name__ == '__main__':
@@ -66,14 +81,11 @@ if __name__ == '__main__':
         print("spec_forcus")
         main("./resource/testsuite/correct_testsuite/spec_forcus.wakachi",
              "./resource/testsuite/" + url + "/spec_forcus.testsuite.csv",
-             "./resource/testsuite/" + url + "/simple_ptb/spec_forcus.testsuite.csv")
-
-        print("spec_kaiten")
-        main("./resource/testsuite/correct_testsuite/spec_kaiten.wakachi",
+             "./resource/testsuite/" + url + "/simple_ptb/spec_forcus.testsuite.csv",
+             "./resource/testsuite/correct_testsuite/spec_kaiten.wakachi",
              "./resource/testsuite/" + url + "/spec_kaiten.testsuite.csv",
-             "./resource/testsuite/" + url + "/simple_ptb/spec_kaiten.testsuite.csv")
-
-        print("spec_move")
-        main("./resource/testsuite/correct_testsuite/spec_kaiten.wakachi",
+             "./resource/testsuite/" + url + "/simple_ptb/spec_kaiten.testsuite.csv",
+             "./resource/testsuite/correct_testsuite/spec_kaiten.wakachi",
              "./resource/testsuite/" + url + "/spec_kaiten.testsuite.csv",
-             "./resource/testsuite/" + url + "/simple_ptb/spec_kaiten.testsuite.csv")
+             "./resource/testsuite/" + url + "/simple_ptb/spec_kaiten.testsuite.csv"
+             )
