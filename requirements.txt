@@ -7,4 +7,3 @@ sklearn==0.0
 google-compute-engine
 tqdm
 pandas==0.22.0
-unicodedata
