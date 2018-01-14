@@ -42,17 +42,17 @@ class EvaluationTestsuite(Evaluation):
             self.correct.import_files()
 
     def unique_word_lists_generator(self)-> Iterator[Tuple[str, set, set, set]]:
-        def get_unique_word_list(path_, column_num=1):
+        def get_unique_word_list(path_, column_num=1, is_set=False):
             unique_word = UniqueWord(path_)
-            unique_word.extract_word(column_num)
+            unique_word.extract_word(column_num, is_set)
             return unique_word.word_list
 
         generator = self.same_file_generator()
         for name, eval_a, eval_b in generator:
             correct = self.get_collect_file_path(name)
-            correct = get_unique_word_list(correct, column_num=0)
-            eval_a = get_unique_word_list(eval_a)
-            eval_b = get_unique_word_list(eval_b)
+            correct = get_unique_word_list(correct, column_num=0, is_set=True)
+            eval_a = get_unique_word_list(eval_a, is_set=True)
+            eval_b = get_unique_word_list(eval_b, is_set=True)
             yield name, correct, eval_a, eval_b
 
     def get_collect_file_path(self, name):
@@ -72,8 +72,8 @@ class EvaluationTestsuite(Evaluation):
             result_b = self.compare(correct, eval_b)
             print()
             print(f"ファイル名: {name}")
-            print("eval_a: " + self.format_score(result_a))
-            print('eval_b: ' + self.format_score(result_b))
+            print("simple_ptb: " + self.format_score(result_a))
+            print('spec2test: ' + self.format_score(result_b))
 
     def compare(self, correct_words, inspection_words):
         judge = Judge(correct_words)
@@ -102,10 +102,18 @@ class Judge:
         else:
             self.calc_words(self.fails_words, word)
 
+    @staticmethod
+    def sum_words_times(words: dict):
+        result = 0
+        for times in words.values():
+            result += int(times)
+        result += len(words)
+        return result
+
     def get_score(self):
-        match = len(self.match_words)
+        match = self.sum_words_times(self.match_words)
         true = len(self.true_words)
-        fails = len(self.fails_words)
+        fails = self.sum_words_times(self.fails_words)
         recall = match / true
         precision = match / (match + fails)
         result = {"recall": recall,
@@ -123,11 +131,14 @@ class UniqueWord:
     def open_file(self, path_):
         self.file = pd.read_csv(path_, encoding="utf-8-sig")
 
-    def extract_word(self, column_num=0):
+    def extract_word(self, column_num=0, is_set=False):
         word_list = []
         for row in self.file.iloc[:, column_num]:
             word_list.extend(row.split())
-        self.word_list = set(word_list)
+        if is_set:
+            self.word_list = set(word_list)
+        else:
+            self.word_list = word_list
 
 
 def main():

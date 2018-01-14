@@ -1,5 +1,6 @@
 import pytest
 from spec2test import Directory, EvaluationTestsuite
+import unicodedata
 
 PATH_CORRECT = "test_file/testsuite/correct/"
 PATH_RESOURCE_A = "test_file/testsuite/eval_a/"
@@ -23,6 +24,9 @@ def test_default_extension(eval_testsuite: EvaluationTestsuite):
 def test_same_files_list(eval_testsuite: EvaluationTestsuite):
     eval_dict = eval_testsuite.same_file_generator()
     file_name, eval_a, eval_b = eval_dict.__next__()
+    file_name = unicodedata.normalize('NFC', file_name)
+    eval_a = unicodedata.normalize('NFC', eval_a)
+    eval_b = unicodedata.normalize('NFC', eval_b)
     assert file_name == "あばばばば"
     assert eval_a == "test_file/testsuite/eval_a/あばばばば.testsuite.csv"
     assert eval_b == "test_file/testsuite/eval_b/あばばばば.testsuite.csv"
