@@ -56,36 +56,39 @@ def main(correct1,
     model = Doc2Vec(documents=train_corpus, min_count=1, dm=0)
 
     tags = OrderedDict()  # 辞書の繰り返し時による順番を保つ
-    tag_list = (('doc1', "真のテストケース1"), ('doc2', "spec2test1"), ('doc3', "simple1  "),
-                ('doc4', "真のテストケース2"), ('doc5', "spec2test2"), ('doc6', "simple2  "),
-                ('doc7', "真のテストケース3"), ('doc8', "spec2test3"), ('doc9', "simple3  "))
+    tag_list = (('doc1', "spec_forcus"), ('doc2', "spec2test_forcus"), ('doc3', "simple_forcus  "),
+                ('doc4', "spec_kaiten"), ('doc5', "spec2test_kaiten"), ('doc6', "simple_kaiten  "),
+                ('doc7', "spec_move"), ('doc8', "spec2test_move"), ('doc9', "simple_move  "))
     dic = OrderedDict(tag_list)
     tags.update(dic)
 
     for k, v in tags.items():
+        if v != "spec_forcus" and v != "spec_kaiten" and v != "spec_move":
+            continue
         print("[" + v + "]")
         for items in model.docvecs.most_similar(k):
-            print("\t" + tags[items[0]] + " : " + str(items[1]))
+            print("\t" + tags[items[0]] + " : " + str(round(items[1], 2)))
 
 
 if __name__ == '__main__':
-    url_list = ["リファレンス有り[重み少]/u100e100p495_184",
-                "リファレンス無しテストケース無し/u100e100p1083_184",
-                "リファレンス無し/u100e100p1_487_2739",
-                "リファレンス無し/u100e100p3_622_521"]
+    url_list = ["ref_F_test_F/",
+                "ref_F_test_T/",
+                "ref_S_test_F/",
+                "ref_S_test_T/",
+                "ref_T_test_F/",
+                "ref_T_test_T/"]
 
     for url in url_list:
         print()
         print(url)
 
-        print("spec_forcus")
         main("./resource/testsuite/correct_testsuite/spec_forcus.wakachi",
              "./resource/testsuite/" + url + "/spec_forcus.testsuite.csv",
              "./resource/testsuite/" + url + "/simple_ptb/spec_forcus.testsuite.csv",
              "./resource/testsuite/correct_testsuite/spec_kaiten.wakachi",
              "./resource/testsuite/" + url + "/spec_kaiten.testsuite.csv",
              "./resource/testsuite/" + url + "/simple_ptb/spec_kaiten.testsuite.csv",
-             "./resource/testsuite/correct_testsuite/spec_kaiten.wakachi",
-             "./resource/testsuite/" + url + "/spec_kaiten.testsuite.csv",
-             "./resource/testsuite/" + url + "/simple_ptb/spec_kaiten.testsuite.csv"
+             "./resource/testsuite/correct_testsuite/spec_move.wakachi",
+             "./resource/testsuite/" + url + "/spec_move.testsuite.csv",
+             "./resource/testsuite/" + url + "/simple_ptb/spec_move.testsuite.csv"
              )

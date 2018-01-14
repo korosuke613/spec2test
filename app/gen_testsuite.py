@@ -3,8 +3,7 @@ from spec2test import TestSuite
 
 def main():
     testsuite = TestSuite(units_=100,
-                          learn_result_="model_iter_u100_e100_p104_11583")
-    testsuite.length = 30
+                          learn_result_="ref_S_test_T_u100_e100_2539")
     testsuite.load_vocabularies()
     testsuite.load_vector()
     generater = testsuite.load_imporwords()
