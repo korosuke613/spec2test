@@ -1,3 +1,4 @@
+
 # spec2test
 
 [![Docker Automated build](https://img.shields.io/docker/automated/korosuke613/spec2test.svg?style=flat-square)](https://hub.docker.com/r/korosuke613/spec2test/) [![Travis](https://img.shields.io/travis/korosuke613/spec2test/master.svg?style=flat-square)](https://travis-ci.org/korosuke613/spec2test) [![Coveralls github](https://img.shields.io/coveralls/korosuke613/spec2test/master.svg?style=flat-square)](https://coveralls.io/github/korosuke613/spec2test)
@@ -5,14 +6,68 @@
 
 仕様書からテストケースを生成する研究
 
-[Doxygenドキュメント(未完成)](https://korosuke613.github.io/spec2test/annotated.html)
+[Doxygenドキュメント(未完成)](./docs/annotated.html)
 
 ## 概要
-* 複数の仕様書の入力から、重要単語・テストケースを生成する。
-* Python3系で動作するCLIツール。
-* ニューラルネットワーク(RNN/LSTM)を利用する。
-* Specification To Test caseの意味
 
+* Spec2Testは日本語で記述された仕様書から、機械学習を用いて、日本語のテストケースを自動的に生成する、
+* ただし、まだまともな文章は生成できません（**ここ重要**）。
+* システムテストにおける、機能テストが対象です。
+* **Spec**ification **To** **Test** の略
+* Python3.6系で動作します。
+* Spec2TestはOpenSourceSoftwareです。最新のソースコードは[GitHub](https://github.com/korosuke613/spec2test)にあります。
+
+
+## 使用方法
+Spec2TestはPython3.6系で動作します。また、いくつかのライブラリに依存しています。
+必要なライブラリは`requirements.txt`に書いています。
+
+また、Spec2TestではMeCabを使用しているため、MeCabをインストールしている必要があります。
+
+
+### 簡単な環境構築方法
+
+Dockerを用いることで簡単に開発環境の構築をすることができます。
+`build/`ディレクトリ内で`docker build .`をすることで、Spec2Testが動作するDockerイメージを用意できます。
+
+もしくは、`docker pull korosuke613/spec2test`をすることで、[Docker Hub](https://hub.docker.com/r/korosuke613/spec2test/)にある、最新のDockerイメージを入手する方法もあります。
+
+
+## ディレクトリ構成
+
+```
+spec2test
+├── app  # Spec2Test本体
+│   ├── gen_all.py  # 一通りの処理をするスクリプト
+│   ├── gen_imporwords.py  # 重要単語リストを生成するスクリプト
+│   ├── gen_testsuite_evaluation.py  # テストスイートの評価用スクリプト
+│   ├── gen_testsuite.py  # テストスイートを生成するスクリプト
+│   ├── gen_tfidf.py  # TF-IDF付き単語リストを生成するスクリプト
+│   ├── gen_vector.py  # 単語ベクトルを生成するスクリプト
+│   ├── gen_wakachi.py  # 分かち書きを行うスクリプト
+│   ├── spec2test  # Spec2Testライブラリ
+│   │   ├── directory.py  # ディレクトリに関するクラス
+│   │   ├── evaluation.py  # 評価に関するクラス
+│   │   ├── file.py  # ファイルに関するクラス
+│   │   ├── imporwords.py  # 重要単語リストに関するクラス
+│   │   ├── iomanager.py  # ファイル生成関係の抽象クラス
+│   │   ├── testsuite.py  # テストスイートに関するクラス
+│   │   ├── tfidf.py  # TF-IDF付き単語リストに関するクラス
+│   │   ├── trainptb.py  # LSTMに関するスクリプト
+│   │   ├── vector.py  # 単語ベクトルに関するクラス
+│   │   └── wakachi.py  # 分かち書きに関するクラス
+│   └── test/  # Spec2Testライブラリのテストコード
+├── build/  # Docker build用のディレクトリ
+│   └── Dockerfile  # Dockerfile
+├── docs/ # Doxygenによって生成したドキュメント
+├── Doxyfile  # Doxygenの設定
+├── images/  # Spec2Testに関する画像
+├── LICENSE  # ライセンス
+├── py_filter  # DoxygenのPython向け設定
+├── pytest.ini  # pytestの設定
+├── README.md  # このファイル
+└── requirements.txt  # 必要なPythonライブラリ
+```
 
 ## 構造
 
@@ -20,30 +75,4 @@
 
 ![全体図](https://github.com/korosuke613/spec2test/blob/master/images/%E5%85%A8%E4%BD%93%E5%9B%B3.png?raw=true)
 
-### 文章学習部
-1. 仕様書とテストケースを単語ごとに区切る
-2. LSTMを用いて文章の学習をする
 
-
-### 重要単語抽出部
-1. 仕様書を単語ごとに区切る
-2. 単語ベクトルを計算する
-3. 単語の希少性を計算する
-4. 重要単語を生成し、リストにまとめる
-
-
-### テストケース生成部
-1. 文章学習部・重要単語抽出部の結果を入力として、テストケースの生成を行う
-
-
-## 定義
-![クラス図](https://github.com/korosuke613/spec2test/blob/master/images/%E5%AE%9A%E7%BE%A9%E3%82%AF%E3%83%A9%E3%82%B9%E5%9B%B3.PNG?raw=true)
-
-* *仕様書* - あるソフトウェアのある機能の仕様の集まり
-* *テストスイート* - あるソフトウェアのある機能の複数のテストケース
-* *学習用データ* - 機械に学習させるためのサンプルとなるデータ
-* *生成対象仕様書群* - テストケースを出力したい仕様書の集まり
-* *生成テストスイート群* - 生成したテストスイートの集まり
-
-## 内部設計
-![クラス図](https://github.com/korosuke613/spec2test/blob/master/images/Spec2test%E3%82%AF%E3%83%A9%E3%82%B9%E5%9B%B3.png?raw=true)

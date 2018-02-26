@@ -86,8 +86,11 @@ class Judge:
     def __init__(self,
                  true_words_):
         self.true_words = true_words_
+        self.true_words_dict = {}
         self.fails_words = {}
         self.match_words = {}
+        for word in true_words_:
+            self.calc_words(self.true_words_dict, word)
 
     @staticmethod
     def calc_words(words: dict, word):
@@ -112,7 +115,7 @@ class Judge:
 
     def get_score(self):
         match = self.sum_words_times(self.match_words)
-        true = len(self.true_words)
+        true = self.sum_words_times(self.true_words_dict)
         fails = self.sum_words_times(self.fails_words)
         recall = match / true
         precision = match / (match + fails)

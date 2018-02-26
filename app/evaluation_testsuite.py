@@ -1,12 +1,12 @@
 from spec2test import Directory, EvaluationTestsuite
 
 PATH_CORRECT = "./resource/testsuite/correct_testsuite/"
-PATH_MODELS = ["ref_F_test_F/",
-               "ref_F_test_T/",
-               "ref_S_test_F/",
-               "ref_S_test_T/",
-               "ref_T_test_F/",
-               "ref_T_test_T/"]
+PATH_MODELS = ["ref_F_test_F/ref_F_test_F_u100_e100_196/",
+               "ref_F_test_T/ref_F_test_T_u100_e100_196/",
+               "ref_S_test_F/ref_S_test_F_u100_e100_196/",
+               "ref_S_test_T/ref_S_test_T_u100_e100_2539/",
+               "ref_T_test_F/ref_T_test_F_u100_e100_12420/",
+               "ref_T_test_T/ref_T_test_T_u100_e100_14763/"]
 
 
 def main():
